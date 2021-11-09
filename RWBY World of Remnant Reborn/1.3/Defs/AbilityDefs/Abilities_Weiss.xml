@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="AbilityItemBase">
+		<defName>Weiss_Glyph_TimeDilation</defName>
+		<label>Weiss' Glyph</label>
+		<description>Weiss' time dilation glyph.</description>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Item/Special/Weiss_Glyph_Black</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<soundInteract>Wood_Drop</soundInteract>
+		<soundDrop>Wood_Drop</soundDrop>
+		<statBases>
+			<MarketValue>0.0</MarketValue>
+			<Mass>0.0</Mass>
+		</statBases>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_TimeDilationGlyph"/>
+		</comps>
+	</ThingDef>
+
+</Defs>

@@ -65,7 +65,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CompProperties_TimeDilationGlyph.cs" />
+    <Compile Include="CompTimeDilationGlyph.cs" />
+    <Compile Include="DefOfs.cs" />
+    <Compile Include="GrimmUtility.cs" />
+    <Compile Include="Grimm_DeathWorker.cs" />
+    <Compile Include="HediffCompProperties_ApathyTiredness.cs" />
+    <Compile Include="HediffCompProperties_FrozenWorker.cs" />
+    <Compile Include="HediffCompProperties_TimeDilationGlyph.cs" />
+    <Compile Include="HediffComp_ApathyTiredness.cs" />
+    <Compile Include="HediffComp_FrozenWorker.cs" />
+    <Compile Include="HediffComp_TimeDilationGlyph.cs" />
+    <Compile Include="Pawn_Grimm.cs" />
+    <Compile Include="Pawn_SummonedGrimm.cs" />
+    <Compile Include="Projectile_CrystalBullet.cs" />
+    <Compile Include="ThingDef_CrystalBullet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
