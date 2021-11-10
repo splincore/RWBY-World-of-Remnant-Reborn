@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-	<FactionDef ParentName="HumanFactionBase" Name="RemnantFactionBase" Abstract="True">
+	<FactionDef ParentName="FactionBase" Name="RemnantFactionBase" Abstract="True">
 		<pawnSingular>outlander</pawnSingular>
 		<pawnsPlural>outlanders</pawnsPlural>
 		<categoryTag>Outlander</categoryTag>
@@ -12,7 +11,6 @@
 		<canSiege>true</canSiege>
 		<canStageAttacks>true</canStageAttacks>
 		<leaderTitle>headmaster</leaderTitle>
-		<!--factionNameMaker>NamerFactionOutlander</factionNameMaker-->
 		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
 		<techLevel>Spacer</techLevel>
 		<backstoryFilters>
@@ -20,13 +18,13 @@
 				<categories>
 					<li>Outlander</li>
 				</categories>
-				<commonality>0.80</commonality>
+				<commonality>0.60</commonality>
 			</li>
 			<li>
 				<categories>
 					<li>Offworld</li>
 				</categories>
-				<commonality>0.10</commonality>
+				<commonality>0.20</commonality>
 			</li>
 			<li>
 				<categories>
@@ -34,19 +32,19 @@
 				</categories>
 				<commonality>0.10</commonality>
 			</li>
+			<li>
+				<categories>
+					<li>Tribal</li>
+				</categories>
+				<commonality>0.10</commonality>
+			</li>
 		</backstoryFilters>
 		<geneticVariance>0.8</geneticVariance>
-		<hairTags>
-			<li>Urban</li>
-			<li>Punk</li>
-			<li>Rural</li>
-			<li>Tribal</li>
-		</hairTags>
 		<caravanTraderKinds>
-			<li>Caravan_Outlander_BulkGoods</li>
+			<li>Caravan_Outlander_Dust_BulkGoods</li>
 			<li>Caravan_Outlander_Dust_CombatSupplier</li>
-			<li>Caravan_Outlander_PirateMerchant</li>
-			<li>Caravan_Outlander_Dust</li>
+			<li>Caravan_Outlander_Dust_Exotic</li>
+			<li>Caravan_Outlander_Dust_PirateMerchant</li>
 		</caravanTraderKinds>
 		<visitorTraderKinds>
 			<li>Visitor_Outlander_Dust</li>
@@ -54,10 +52,7 @@
 		<baseTraderKinds>
 			<li>Base_Outlander_Dust</li>
 		</baseTraderKinds>
-		<allowedArrivalTemperatureRange>
-			<min>-40</min>
-			<max>45</max>
-		</allowedArrivalTemperatureRange>
+		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
 		<maxPawnCostPerTotalPointsCurve>
 			<points>
 				<li>(0,35)</li>
@@ -121,10 +116,37 @@
 					<Town_Councilman>10</Town_Councilman>
 				</options>
 			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Miners</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Miner>1</Miner>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Hunters</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Hunter>1</Hunter>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Loggers</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Logger>1</Logger>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Farmers</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Farmer>1</Farmer>
+				</options>
+			</li>
 		</pawnGroupMakers>
 		<factionIconPath>World/WorldObjects/DefaultSettlement</factionIconPath>
 	</FactionDef>
-
 	<FactionDef ParentName="RemnantFactionBase">
 		<defName>ValePeople</defName>
 		<label>People of Remnant</label>
@@ -133,18 +155,9 @@
 		<colorSpectrum>
 			<li>(0.2, 0.8, 0.0)</li>
 		</colorSpectrum>
-		<startingGoodwill>
-			<min>-20</min>
-			<max>20</max>
-		</startingGoodwill>
-		<naturalColonyGoodwill>
-			<min>-50</min>
-			<max>50</max>
-		</naturalColonyGoodwill>
 		<factionIconPath>World/ValeBase</factionIconPath>
 		<settlementTexturePath>World/ValeBase</settlementTexturePath>
 	</FactionDef>
-
 	<FactionDef ParentName="RemnantFactionBase">
 		<defName>VacuoPeople</defName>
 		<label>People of Remnant</label>
@@ -153,18 +166,9 @@
 		<colorSpectrum>
 			<li>(1.0, 0.6, 0.0)</li>
 		</colorSpectrum>
-		<startingGoodwill>
-			<min>-20</min>
-			<max>20</max>
-		</startingGoodwill>
-		<naturalColonyGoodwill>
-			<min>-50</min>
-			<max>50</max>
-		</naturalColonyGoodwill>
 		<factionIconPath>World/VacuoBase</factionIconPath>
 		<settlementTexturePath>World/VacuoBase</settlementTexturePath>
 	</FactionDef>
-
 	<FactionDef ParentName="RemnantFactionBase">
 		<defName>AtlasPeople</defName>
 		<label>People of Remnant</label>
@@ -173,18 +177,9 @@
 		<colorSpectrum>
 			<li>(1.0, 1.0, 1.0)</li>
 		</colorSpectrum>
-		<startingGoodwill>
-			<min>-20</min>
-			<max>20</max>
-		</startingGoodwill>
-		<naturalColonyGoodwill>
-			<min>-50</min>
-			<max>50</max>
-		</naturalColonyGoodwill>
 		<factionIconPath>World/AtlasBase</factionIconPath>
 		<settlementTexturePath>World/AtlasBase</settlementTexturePath>
 	</FactionDef>
-
 	<FactionDef ParentName="RemnantFactionBase">
 		<defName>MistralPeople</defName>
 		<label>People of Remnant</label>
@@ -193,16 +188,7 @@
 		<colorSpectrum>
 			<li>(0.2, 0.8, 1.0)</li>
 		</colorSpectrum>
-		<startingGoodwill>
-			<min>-20</min>
-			<max>20</max>
-		</startingGoodwill>
-		<naturalColonyGoodwill>
-			<min>-50</min>
-			<max>50</max>
-		</naturalColonyGoodwill>
 		<factionIconPath>World/MistralBase</factionIconPath>
 		<settlementTexturePath>World/MistralBase</settlementTexturePath>
 	</FactionDef>
-
 </Defs>

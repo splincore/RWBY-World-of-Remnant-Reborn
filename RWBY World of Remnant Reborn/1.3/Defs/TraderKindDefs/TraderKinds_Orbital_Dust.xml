@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
 	<TraderKindDef>
 		<defName>Orbital_Dust</defName>
 		<label>Dust trader</label>
@@ -68,15 +67,11 @@
 			</li>
 			<li Class="StockGenerator_Category">
 				<categoryDef>DustWeapons</categoryDef>
-				<thingDefCountRange>2~3</thingDefCountRange>
-				<countRange>1~1</countRange>
-				<excludedThingDefs>
-					<li>RWBY_Ember_Celica_Melee</li>
-				</excludedThingDefs>
+				<thingDefCountRange>5~7</thingDefCountRange>
+				<countRange>2~3</countRange>
 			</li>
-
 			<!-- Buying -->
-			<li Class="StockGenerator_BuyExpensiveSimple" />
+			<li Class="StockGenerator_BuyExpensiveSimple"/>
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>Art</tag>
 			</li>
@@ -87,12 +82,14 @@
 				<tag>ImplantEmpireRoyal</tag>
 			</li>
 			<li Class="StockGenerator_BuyTradeTag">
+				<tag>PsylinkNeuroformer</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
 				<tag>ExoticBuilding</tag>
 			</li>
 			<li Class="StockGenerator_BuyTradeTag">
-				<tag>HiTechArmor</tag>
+				<tag>MusicalInstrument</tag>
 			</li>
 		</stockGenerators>
 	</TraderKindDef>
-
 </Defs>

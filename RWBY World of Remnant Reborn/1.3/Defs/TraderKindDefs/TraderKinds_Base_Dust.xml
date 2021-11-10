@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
 	<TraderKindDef>
 		<defName>Base_Outlander_Dust</defName>
 		<stockGenerators>
-
 			<!-- Dust -->
 			<li Class="StockGenerator_SingleDef">
 				<thingDef>RWBY_PumpkinPetes</thingDef>
@@ -12,25 +10,44 @@
 			</li>
 			<li Class="StockGenerator_SingleDef">
 				<thingDef>FireDustCrystal</thingDef>
-				<countRange>200~300</countRange>
+				<countRange>100~200</countRange>
 			</li>
 			<li Class="StockGenerator_SingleDef">
 				<thingDef>IceDustCrystal</thingDef>
-				<countRange>200~300</countRange>
+				<countRange>100~200</countRange>
 			</li>
 			<li Class="StockGenerator_SingleDef">
 				<thingDef>LightningDustCrystal</thingDef>
-				<countRange>200~300</countRange>
+				<countRange>100~200</countRange>
 			</li>
 			<li Class="StockGenerator_SingleDef">
 				<thingDef>GravityDustCrystal</thingDef>
-				<countRange>200~300</countRange>
+				<countRange>100~200</countRange>
 			</li>
 			<li Class="StockGenerator_SingleDef">
 				<thingDef>HardLightDustCrystal</thingDef>
-				<countRange>200~300</countRange>
+				<countRange>100~200</countRange>
 			</li>
-
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>FireDustPowder</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>IceDustPowder</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>LightningDustPowder</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>GravityDustPowder</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>HardLightDustPowder</thingDef>
+				<countRange>100~200</countRange>
+			</li>
 			<!-- Resources -->
 			<li Class="StockGenerator_SingleDef">
 				<thingDef>Silver</thingDef>
@@ -88,6 +105,9 @@
 				<thingDef>MedicineIndustrial</thingDef>
 				<countRange>25~50</countRange>
 			</li>
+			<li Class="StockGenerator_ReinforcedBarrels">
+				<countRange>1~4</countRange>
+			</li>
 			<li Class="StockGenerator_Tag">
 				<tradeTag>MortarShell</tradeTag>
 				<thingDefCountRange>1~2</thingDefCountRange>
@@ -122,14 +142,12 @@
 					<li>Pemmican</li>
 				</thingDefs>
 			</li>
-
 			<!-- Drugs -->
 			<li Class="StockGenerator_Category">
 				<categoryDef>Drugs</categoryDef>
 				<thingDefCountRange>3~4</thingDefCountRange>
 				<totalPriceRange>700~1500</totalPriceRange>
 			</li>
-
 			<!-- Techprints -->
 			<li Class="StockGenerator_Techprints">
 				<countChances>
@@ -143,17 +161,12 @@
 					</li>
 				</countChances>
 			</li>
-
 			<!-- Weapons -->
-			<li Class="StockGenerator_WeaponsRanged">
-				<countRange>3~6</countRange>
-			</li>
 			<li Class="StockGenerator_Category">
-				<categoryDef>WeaponsMelee</categoryDef>
-				<thingDefCountRange>3~4</thingDefCountRange>
-				<countRange>1~2</countRange>
+				<categoryDef>DustWeapons</categoryDef>
+				<thingDefCountRange>6~10</thingDefCountRange>
+				<countRange>1~3</countRange>
 			</li>
-
 			<!-- Apparel -->
 			<li Class="StockGenerator_Clothes">
 				<countRange>10~16</countRange>
@@ -161,14 +174,12 @@
 			<li Class="StockGenerator_Armor">
 				<countRange>2~4</countRange>
 			</li>
-
 			<!-- Implants -->
 			<li Class="StockGenerator_Tag">
 				<tradeTag>TechHediff</tradeTag>
 				<thingDefCountRange>2~4</thingDefCountRange>
 				<countRange>1~1</countRange>
 			</li>
-
 			<!-- Buildings -->
 			<li Class="StockGenerator_Category">
 				<categoryDef>BuildingsFurniture</categoryDef>
@@ -187,7 +198,6 @@
 				<thingDef>Telescope</thingDef>
 				<countRange>0~1</countRange>
 			</li>
-
 			<!-- Exotic -->
 			<li Class="StockGenerator_Tag">
 				<tradeTag>Artifact</tradeTag>
@@ -209,13 +219,11 @@
 					<Hyperweave>50~200</Hyperweave>
 				</customCountRanges>
 			</li>
-
 			<!-- Slaves -->
 			<li Class="StockGenerator_Slaves">
 				<respectPopulationIntent>true</respectPopulationIntent>
 				<countRange>-1~2</countRange>
 			</li>
-
 			<!-- Animals -->
 			<li Class="StockGenerator_Animals">
 				<tradeTagsSell>
@@ -228,10 +236,12 @@
 				</tradeTagsBuy>
 				<kindCountRange>2~4</kindCountRange>
 				<countRange>3~8</countRange>
+				<createMatingPair>
+					<li>AnimalFarm</li>
+				</createMatingPair>
 			</li>
-
 			<!-- Buying -->
-			<li Class="StockGenerator_BuyExpensiveSimple" />
+			<li Class="StockGenerator_BuyExpensiveSimple"/>
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>Art</tag>
 			</li>
@@ -241,7 +251,9 @@
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>ImplantEmpireRoyal</tag>
 			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>MusicalInstrument</tag>
+			</li>
 		</stockGenerators>
 	</TraderKindDef>
-
 </Defs>
