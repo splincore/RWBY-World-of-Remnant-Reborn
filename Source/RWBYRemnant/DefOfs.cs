@@ -8,6 +8,12 @@ namespace RWBYRemnant
     {
         #region "general Defs"
 
+        // Hediffs
+        public static HediffDef RWBY_ApathyTiredness;
+
+        // Jobs
+        public static JobDef RWBY_StealAura;
+
         // Grimm
         public static FactionDef Creatures_of_Grimm;
         public static PawnKindDef Grimm_Boarbatusk;

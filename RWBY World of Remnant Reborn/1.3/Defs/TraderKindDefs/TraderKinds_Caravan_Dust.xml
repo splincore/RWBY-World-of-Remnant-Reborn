@@ -134,6 +134,9 @@
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>MusicalInstrument</tag>
 			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>DustPowder</tag>
+			</li>
 		</stockGenerators>
 	</TraderKindDef>
 	<!--======================================================================================-->
@@ -224,6 +227,9 @@
 			</li>
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>Drugs</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>DustCrystals</tag>
 			</li>
 		</stockGenerators>
 	</TraderKindDef>
@@ -325,6 +331,9 @@
 			</li>
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>MusicalInstrument</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>DustCrystals</tag>
 			</li>
 		</stockGenerators>
 	</TraderKindDef>
@@ -473,6 +482,9 @@
 			</li>
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>MusicalInstrument</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>DustPowder</tag>
 			</li>
 		</stockGenerators>
 	</TraderKindDef>

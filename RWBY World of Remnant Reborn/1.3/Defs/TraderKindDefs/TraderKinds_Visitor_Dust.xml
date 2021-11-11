@@ -101,6 +101,9 @@
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>MusicalInstrument</tag>
 			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>DustCrystals</tag>
+			</li>
 		</stockGenerators>
 	</TraderKindDef>
 </Defs>

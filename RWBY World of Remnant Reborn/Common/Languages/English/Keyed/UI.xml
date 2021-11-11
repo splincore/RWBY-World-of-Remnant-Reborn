@@ -28,16 +28,12 @@
 	<AuraTooltip>Pawns can unlock their Aura under certain circumstances (default: enabled)</AuraTooltip>
 	<SemblanceLabel>Pawns can discover their Semblance</SemblanceLabel>
 	<SemblanceTooltip>Pawns can discover their semblance through certain events or actions (default: enabled)</SemblanceTooltip>
-	<AmmunitionLabel>Pawns auto collect ammunition</AmmunitionLabel>
-	<AmmunitionTooltip>Pawns will try to collect ammunition like Dust crystals or powder if their weapons or abilities use them. May has a slight impact on performance (default: enabled)</AmmunitionTooltip>
 	<EveryoneMakesPhotosForJoyLabel>Every pawn can make photos for joy</EveryoneMakesPhotosForJoyLabel>
 	<EveryoneMakesPhotosForJoyTooltip>Every pawn with a camera can make photos for joy, even the ones without Semblance Velvet (default: disabled)</EveryoneMakesPhotosForJoyTooltip>
 	<HideAuraWhenMultiselectLabel>Hide Aura when multiple Pawns are selected</HideAuraWhenMultiselectLabel>
 	<HideAuraWhenMultiselectTooltip>Hide the Aura status and abilities if multiple pawns are selected (default: disabled)</HideAuraWhenMultiselectTooltip>
 	<FixTraitDisabledWorkTagsLabel>Show disabled work tags in trait description</FixTraitDisabledWorkTagsLabel>
 	<FixTraitDisabledWorkTagsTooltip>Show disabled work tags in trait descriptions, will also affect traits from other mods. (Vanilla Rimworld doesn't show them)</FixTraitDisabledWorkTagsTooltip>
-	<QrowFriendlyFireLabel>Qrow Semblance friendly fire</QrowFriendlyFireLabel>
-	<QrowFriendlyFireTooltip>Decide if minor accidents like "harvest botched" etc. affect your colonists aswell.</QrowFriendlyFireTooltip>
 	<EarliestNuckelaveeLabel>Earliest Nuckelavee appearance possible after days: (default 30)</EarliestNuckelaveeLabel>
 
 	<!-- Aura Gizmo -->

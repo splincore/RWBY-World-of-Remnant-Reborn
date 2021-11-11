@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using RimWorld;
+using System.Linq;
 using Verse;
 
 namespace RWBYRemnant
@@ -10,6 +11,7 @@ namespace RWBYRemnant
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
+            if (!this.Pawn.IsHashIntervalTick(GenDate.TicksPerDay / 2)) return;
             bool apathyOnMap = false;
             if (this.Pawn.Map != null && this.Pawn.Map.mapPawns.AllPawnsSpawned.Any(p => p.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Apathy))
             {
@@ -18,7 +20,7 @@ namespace RWBYRemnant
 
             if (apathyOnMap)
             {
-                if (this.Pawn.IsHashIntervalTick(30000)) severityAdjustment += (0.1f * (1f - this.Pawn.needs.mood.CurInstantLevelPercentage));
+                severityAdjustment += (0.1f * (1f - this.Pawn.needs.mood.CurInstantLevelPercentage));
             }
             else
             {
