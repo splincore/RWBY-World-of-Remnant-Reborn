@@ -7,7 +7,7 @@
 		<reportString>going through TargetA.</reportString>
 		<casualInterruptible>false</casualInterruptible>
 		<suspendable>false</suspendable>
-	</JobDef>
+	</JobDef-->
 
 	<JobDef>
 		<defName>RWBY_TakePhotos</defName>
@@ -15,7 +15,7 @@
 		<reportString>taking photos.</reportString>
 		<joyDuration>4000</joyDuration>
 		<joyKind>Social</joyKind>
-	</JobDef-->
+	</JobDef>
 
 	<JobDef>
 		<defName>RWBY_StealAura</defName>

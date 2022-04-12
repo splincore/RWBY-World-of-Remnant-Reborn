@@ -41,6 +41,13 @@ namespace RWBYRemnant
         public static TraitDef Semblance_Ren;
         public static HediffDef RWBY_MaskedEmotions;
 
+        // Velvet
+        public static TraitDef Semblance_Velvet;
+        public static ThingDef RWBY_Anesidora_Camera;
+        public static ThingDef RWBY_Anesidora_Box;
+        public static ThoughtDef RWBY_PictureTaken;
+        public static JobDef RWBY_TakePhotos;
+
         #endregion
     }
 }

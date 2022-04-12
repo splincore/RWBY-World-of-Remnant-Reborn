@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Anesidora custom bullet -->
+	<ThingDef Class="RWBYRemnant.ThingDef_CameraBullet" ParentName="BaseBullet">
+		<defName>Bullet_Velvet_Camera</defName>
+		<label>Velvet_Camera bullet</label>
+		<thingClass>RWBYRemnant.Projectile_CameraBullet</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Empty_Projectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+	<!-- Anesidora, it's for shooting... photos -->
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Anesidora_Camera</defName>
+		<label>Anesidora</label>
+		<description>Anesidora is a camera belonging to Velvet Scarlatina which acts as her primary weapon. It is capable of creating solid "light copies" of any weapon Velvet has photographed using Hard-Light Dust, which she can then use in battle.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Velvet_Camera</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+		<equippedAngleOffset>-90</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<HardLightDustCrystal>50</HardLightDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Store camera</abilityLabel>
+				<abilityDesc>Put away your camera</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Velvet_Camera_Box_north</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>
+				<abilityIconOffset>(0, 0)</abilityIconOffset>
+				<abilityColor>(0, 0, 0)</abilityColor>
+				<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>
+				<ammoCountToRefill>0</ammoCountToRefill>
+				<ammoCountPerCharge>0</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>null</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>
+				<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Anesidora_Box</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>0</transformTime>
+				<transformSound>Open_Camera_Box</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>true</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>10</shouldAiUseWhenTargetCloserThanCells>
+				<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>
+				<commonalityOfAiUsage>1</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>0</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<postTransformClass>RWBYRemnant.PostTransformCamera</postTransformClass>
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Take Photo</abilityLabel>
+				<abilityDesc>Take a photo of a weapon. \n\nCan take photos of weapons from drafed pawns, weapons on the ground or stored in shelves.</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Velvet_Camera</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>
+				<abilityIconOffset>(0, 0)</abilityIconOffset>
+				<abilityColor>(0, 0, 0)</abilityColor>
+				<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>HardLightDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>2</reloadTime>
+				<soundReload>Open_Camera_Box</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>1</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>shoot photo</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>15</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>2</warmupTime>
+					<noiseRadius>4</noiseRadius>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Velvet_Camera</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>true</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>Bullet_Velvet_Camera</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="RWBYRemnant.CompProperties_CameraPhotos">
+				<LightCopyColor>(92, 165, 255)</LightCopyColor>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>side</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>front</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<!-- Anesidora Box, craftable -->
+	<ThingDef ParentName="BaseCraftableMeleeWeapon_RWBY">
+		<defName>RWBY_Anesidora_Box</defName>
+		<label>Anesidora</label>
+		<description>Anesidora is a camera belonging to Velvet Scarlatina which acts as her primary weapon. It is capable of creating solid "light copies" of any weapon Velvet has photographed using Hard-Light Dust, which she can then use in battle.</description>
+		<equipmentType>None</equipmentType>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Velvet_Camera_Box_north</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>800</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<HardLightDustCrystal>50</HardLightDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Get camera</abilityLabel>
+				<abilityDesc>Take out your camera</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Velvet_Camera</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>
+				<abilityIconOffset>(0, 0)</abilityIconOffset>
+				<abilityColor>(0, 0, 0)</abilityColor>
+				<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>
+				<ammoCountToRefill>0</ammoCountToRefill>
+				<ammoCountPerCharge>0</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>null</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>
+				<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Anesidora_Camera</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>0</transformTime>
+				<transformSound>Open_Camera_Box</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>0</shouldAiUseWhenTargetCloserThanCells>
+				<shouldAiUseWhenTargetFartherThanCells>10</shouldAiUseWhenTargetFartherThanCells>
+				<commonalityOfAiUsage>1</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<postTransformClass>RWBYRemnant.PostTransformCamera</postTransformClass>
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Take Photo</abilityLabel>
+				<abilityDesc>Take a photo of a weapon. \n\nCan take photos of weapons from drafed pawns, weapons on the ground or stored in shelves.</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Velvet_Camera</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>
+				<abilityIconOffset>(0, 0)</abilityIconOffset>
+				<abilityColor>(0, 0, 0)</abilityColor>
+				<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>HardLightDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>2</reloadTime>
+				<soundReload>Open_Camera_Box</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>false</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>1</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>shoot photo</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<range>15</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>2</warmupTime>
+					<noiseRadius>4</noiseRadius>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Velvet_Camera</soundCast>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>true</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>Bullet_Velvet_Camera</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Shield">
+				<!-- commented stuff shows possibilities -->
+				<!-- GRAPHICS -->
+				<graphicData>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<texPath>Things/Item/Equipment/Weapons/Velvet_Camera_Box</texPath>
+					<drawSize>(0.7, 0.7)</drawSize>
+					<drawOffsetNorth>(0.3, 0.033, -0.25)</drawOffsetNorth>
+					<drawOffsetEast>(-0.3, 0.033, -0.3)</drawOffsetEast>
+					<drawOffsetSouth>(-0.3, -0.033, -0.25)</drawOffsetSouth>
+					<drawOffsetWest>(0.3, 0.033, -0.3)</drawOffsetWest>
+				</graphicData>
+				<drawWhenDrafted>true</drawWhenDrafted>
+				<drawWhenUndrafted>true</drawWhenUndrafted>
+				<!--<graphicDataUndrafted>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<texPath>Things/Item/Equipment/Weapons/Velvet_Camera_Box</texPath>
+					<drawSize>(0.7, 0.7)</drawSize>
+					<drawOffsetNorth>(0.3, 0.033, -0.25)</drawOffsetNorth>
+					<drawOffsetEast>(-0.3, 0.033, -0.3)</drawOffsetEast>
+					<drawOffsetSouth>(-0.3, -0.033, -0.25)</drawOffsetSouth>
+					<drawOffsetWest>(0.3, 0.033, -0.3)</drawOffsetWest>
+				</graphicDataUndrafted>-->
+				<!-- BLOCK SOUNDS -->
+				<!--<meleeBlockSounds>null</meleeBlockSounds>
+				<rangedBlockSounds>null</rangedBlockSounds>-->
+				<!-- BLOCKING GENERAL -->
+				<canBlockMelee>false</canBlockMelee>
+				<canBlockRanged>false</canBlockRanged>
+				<canBlockDrafted>false</canBlockDrafted>
+				<canBlockUndrafted>false</canBlockUndrafted>
+				<!--<blockAngleRange>90</blockAngleRange>
+				<blockAngleOffsetDrafted>0</blockAngleOffsetDrafted>
+				<blockAngleOffsetUndrafted>0</blockAngleOffsetUndrafted>
+				<explosionsAreConsideredAsRanged>false</explosionsAreConsideredAsRanged>-->
+				<!-- BLOCK CHANCES -->
+				<!--<curveSkillBasedMeleeBlockChance>null</curveSkillBasedMeleeBlockChance>
+				<curveSkillBasedRangedBlockChance>null</curveSkillBasedRangedBlockChance>
+				<meleeBlockSkillToUse>null</meleeBlockSkillToUse>
+				<rangedBlockSkillToUse>null</rangedBlockSkillToUse>
+				<curveQualityBasedMeleeBlockChance>null</curveQualityBasedMeleeBlockChance>
+				<curveQualityBasedRangedBlockChance>null</curveQualityBasedRangedBlockChance>
+				<flatMeleeBlockChance>0.5</flatMeleeBlockChance>
+				<flatRangedBlockChance>0.5</flatRangedBlockChance>-->
+				<!-- FATIGUE -->
+				<!--<useFatigueSystem>false</useFatigueSystem>
+				<maxFatigue>100</maxFatigue>
+				<ifBlockedDamageToFatigueFactor>1</ifBlockedDamageToFatigueFactor>
+				<fatigueResetAfterTicks>2500</fatigueResetAfterTicks>-->
+				<!-- DAMAGE ABSORB -->
+				<!--<ifBlockedDamageToPawnFactor>0</ifBlockedDamageToPawnFactor>
+				<ifBlockedDamageToShielFactor>0</ifBlockedDamageToShielFactor>-->
+				<!-- SPECIAL -->
+				<ignoresOtherShields>true</ignoresOtherShields>
+				<!--<postBlockClass>null</postBlockClass>-->
+			</li>
+			<li Class="RWBYRemnant.CompProperties_CameraPhotos">
+				<LightCopyColor>(92, 165, 255)</LightCopyColor>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>side</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>front</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+</Defs>

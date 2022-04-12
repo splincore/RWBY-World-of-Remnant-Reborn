@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!--JoyGiverDef>
+	<JoyGiverDef>
 		<defName>RWBY_TakePhotos</defName>
 		<giverClass>RWBYRemnant.JoyGiver_TakePhotos</giverClass>
 		<baseChance>4</baseChance>
@@ -11,6 +11,6 @@
 			<li>Sight</li>
 			<li>Manipulation</li>
 		</requiredCapacities>
-	</JoyGiverDef-->
+	</JoyGiverDef>
 
 </Defs>
