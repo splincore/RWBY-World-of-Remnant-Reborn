@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Melodic Cudgel custom bullet -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_Melodic_Cudgel</defName>
+		<label>Melodic Cudgel bullet</label>
+		<graphicData>
+			<texPath>Things/Projectile/Melodic_Cudgel_Gun_Projectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>Bomb_Ember_Celica</damageDef>
+			<explosionRadius>0.5</explosionRadius>
+			<speed>80</speed>
+		</projectile>
+	</ThingDef>
+
+	<!-- Melodic Cudgel base weapon, craftable-->
+
+	<ThingDef ParentName="BaseMakeableGun_RWBY">
+		<defName>RWBY_Melodic_Cudgel_Gun</defName>
+		<label>Melodic Cudgel</label>
+		<description>Melodic Cudgel is Roman Torchwick's signature weapon. Melodic Cudgel initially appears to be a normal cane; however, when used for combat, it has some tricks up its sleeve.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Melodic_Cudgel_Gun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>800</MarketValue>
+			<Mass>2.5</Mass>
+			<AccuracyTouch>0.58</AccuracyTouch>
+			<AccuracyShort>0.68</AccuracyShort>
+			<AccuracyMedium>0.74</AccuracyMedium>
+			<AccuracyLong>0.82</AccuracyLong>
+			<RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<FireDustCrystal>20</FireDustCrystal>
+			<GravityDustCrystal>30</GravityDustCrystal>
+		</costList>		
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_Melodic_Cudgel</defaultProjectile>
+				<forcedMissRadius>0.5</forcedMissRadius>
+				<warmupTime>1.5</warmupTime>
+				<range>30</range>				
+				<soundCast>Shot_Melodic_Cudgel_Gun</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into hook form</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Melodic_Cudgel_Hook</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Melodic_Cudgel_Hook</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>0.3</transformTime>
+				<transformSound>Interact_BeatFire</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.6</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Shoot hook</abilityLabel>
+				<abilityDesc>Shoot a hook and pull the enemy towards you</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Melodic_Cudgel_Hook</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>false</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>30</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.5</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Melodic_Cudgel_Hook</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>Bullet_Melodic_Cudgel_Hook</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>0.7</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>0.7</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>	
+
+	<!-- Melodic Cudgel hook custom bullet -->
+
+	<ThingDef Class="EquipmentToolbox.ThingDef_HookBullet" ParentName="BaseBullet">
+		<defName>Bullet_Melodic_Cudgel_Hook</defName>
+		<label>Melodic Cudgel hook</label>
+		<thingClass>EquipmentToolbox.Projectile_HookBullet</thingClass>
+		<hookSound>Hook_Reel_In</hookSound>
+		<hookOnlyHostile>false</hookOnlyHostile>
+		<returnBullet>Bullet_Melodic_Cudgel_Hook_Return</returnBullet>
+		<graphicData>
+			<texPath>Things/Projectile/Melodic_Cudgel_Hook_Projectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.7</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>40</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Class="EquipmentToolbox.ThingDef_RideBullet" ParentName="BaseBullet">
+		<defName>Bullet_Melodic_Cudgel_Hook_Return</defName>
+		<label>Melodic Cudgel hook</label>
+		<thingClass>EquipmentToolbox.Projectile_RideBullet</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Melodic_Cudgel_Hook_Projectile_Return</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.7</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<speed>20</speed>
+		</projectile>
+	</ThingDef>
+
+	<!-- Melodic Cudgel hook, not craftable-->
+
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Melodic_Cudgel_Hook</defName>
+		<label>Melodic Cudgel</label>
+		<description>Melodic Cudgel is Roman Torchwick's signature weapon. Melodic Cudgel initially appears to be a normal cane; however, when used for combat, it has some tricks up its sleeve.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Melodic_Cudgel_Hook</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<Mass>2.5</Mass>
+		</statBases>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<FireDustCrystal>20</FireDustCrystal>
+			<GravityDustCrystal>30</GravityDustCrystal>
+		</costList>		
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into gun form</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Melodic_Cudgel_Gun</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Melodic_Cudgel_Gun</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>0.3</transformTime>
+				<transformSound>Interact_BeatFire</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<!--<shouldAiUseWhenTargetCloserThanCells>0</shouldAiUseWhenTargetCloserThanCells>-->
+				<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>
+				<commonalityOfAiUsage>0.7</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Shoot hook</abilityLabel>
+				<abilityDesc>Shoot a hook and pull the enemy towards you</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Melodic_Cudgel_Hook</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>30</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.5</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Melodic_Cudgel_Hook</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>Bullet_Melodic_Cudgel_Hook</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>handle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>0.7</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>	
+
+</Defs>

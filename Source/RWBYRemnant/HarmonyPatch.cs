@@ -11,12 +11,13 @@ namespace RWBYRemnant
         static HarmonyPatch()
         {
             var harmony = new Harmony("rimworld.carnysenpai.rwbyremnant");
-            harmony.Patch(AccessTools.Method(typeof(Pawn_EquipmentTracker), "GetGizmos"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GetGizmos_PostFix")), null); // adds abilities to pawns
+            harmony.Patch(AccessTools.Method(typeof(Pawn_EquipmentTracker), "GetGizmos"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GetGizmos_PostFix")), null); // adds thing abilities to pawns
+            harmony.Patch(AccessTools.Method(typeof(GenDrop), "TryDropSpawn"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("TryDropSpawn_PostFix")), null); // lets light copies disappear on drop
             // TODO add patches
         }
 
         [HarmonyPostfix]
-        public static void GetGizmos_PostFix(Pawn_EquipmentTracker __instance, ref IEnumerable<Gizmo> __result) // adds abilities to pawns
+        public static void GetGizmos_PostFix(Pawn_EquipmentTracker __instance, ref IEnumerable<Gizmo> __result) // adds thing abilities to pawns
         {
             Pawn pawn = __instance.pawn;
             if (!pawn.IsColonist) return;
@@ -40,6 +41,15 @@ namespace RWBYRemnant
                     }
                 }
                 __result = newOutput;
+            }
+        }
+
+        [HarmonyPostfix]
+        public static void TryDropSpawn_PostFix(Thing thing) // lets light copies disappear on drop
+        {
+            if (thing != null && thing.GetType().Equals(typeof(ThingWithComps)) && ((ThingWithComps)thing).TryGetComp<CompLightCopy>() != null)
+            {
+                thing.Destroy(DestroyMode.Vanish);
             }
         }
     }
