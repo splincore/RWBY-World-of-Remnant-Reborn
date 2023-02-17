@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Omen base form is craftable, needs Scabbard to transform -->
+	<ThingDef ParentName="BaseCraftableMeleeWeapon_RWBY">
+		<defName>RWBY_Omen</defName>
+		<label>Omen</label>
+		<description>Omen is a long, single-edged, one-handed sword of Japanese design, with a trigger built into the hilt and cross-guard rather than the traditional tsuba.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Raven_Sword</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+			<drawOffsetEast>(0.25, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.25, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Draw_Gambol_Shroud_Katana</soundInteract>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>500</MarketValue>
+			<Mass>3</Mass>
+		</statBases>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the blade without Dust</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Fire blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Fire</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>FireDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Fire</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Ice blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Ice</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>IceDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Ice</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>3</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Lightning blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Lightning</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>LightningDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Lightning</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>4</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>26</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>24</power>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Omen_Fire</defName>
+		<label>Omen</label>
+		<description>Omen is a long, single-edged, one-handed sword of Japanese design, with a trigger built into the hilt and cross-guard rather than the traditional tsuba.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Raven_Sword_Fire</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+			<drawOffsetEast>(0.25, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.25, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Draw_Gambol_Shroud_Katana</soundInteract>
+		<statBases>
+			<MarketValue>500</MarketValue>
+			<Mass>3</Mass>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the blade without Dust</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Fire blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Fire</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>FireDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Fire</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Ice blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Ice</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>IceDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Ice</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>3</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Lightning blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Lightning</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>LightningDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Lightning</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>4</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>26</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>RWBY_Inflame_Slash</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Omen_Ice</defName>
+		<label>Omen</label>
+		<description>Omen is a long, single-edged, one-handed sword of Japanese design, with a trigger built into the hilt and cross-guard rather than the traditional tsuba.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Raven_Sword_Ice</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+			<drawOffsetEast>(0.25, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.25, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Draw_Gambol_Shroud_Katana</soundInteract>
+		<statBases>
+			<MarketValue>500</MarketValue>
+			<Mass>3</Mass>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the blade without Dust</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Fire blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Fire</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>FireDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Fire</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Ice blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Ice</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>IceDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Ice</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>3</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Lightning blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Lightning</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>LightningDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Lightning</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>4</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>26</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>RWBY_Ice_Slash</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Omen_Lightning</defName>
+		<label>Omen</label>
+		<description>Omen is a long, single-edged, one-handed sword of Japanese design, with a trigger built into the hilt and cross-guard rather than the traditional tsuba.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Raven_Sword_Lightning</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+			<drawOffsetEast>(0.25, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.25, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Draw_Gambol_Shroud_Katana</soundInteract>
+		<statBases>
+			<MarketValue>500</MarketValue>
+			<Mass>3</Mass>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the blade without Dust</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Fire blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Fire</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>FireDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Fire</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Ice blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Ice</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>IceDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Ice</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>3</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Use the Lightning blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Raven_Sword_Lightning</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>LightningDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>charge</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Autopistol</soundReload>
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Omen_Lightning</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>2.3</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<needsItemEquipped>RWBY_Omen_Scabbard</needsItemEquipped>
+				<comsumesItemEquipped>false</comsumesItemEquipped>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>4</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>26</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>RWBY_Lightning_Slash</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<!-- Omen Scabbard, craftable -->
+	<ThingDef ParentName="BaseCraftableMeleeWeapon_RWBY">
+		<defName>RWBY_Omen_Scabbard</defName>
+		<label>Omen's Scabbard</label>
+		<description>Omen's scabbard contains a rotary chamber filled with various types of Dust blades.</description>
+		<equipmentType>None</equipmentType>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Raven_Scabbard_east</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>300</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+		<costList>
+			<Steel>100</Steel>
+			<FireDustCrystal>10</FireDustCrystal>
+			<IceDustCrystal>20</IceDustCrystal>
+			<LightningDustCrystal>20</LightningDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Shield">
+				<!-- GRAPHICS -->
+				<graphicData>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<texPath>Things/Item/Equipment/Weapons/Raven_Scabbard</texPath>
+					<drawSize>(1.0, 1.0)</drawSize>
+					<drawOffsetNorth>(-0.3, 0.033, -0.45)</drawOffsetNorth>
+					<drawOffsetEast>(-0.3, -0.033, -0.3)</drawOffsetEast>
+					<drawOffsetSouth>(0.3, -0.033, 0.15)</drawOffsetSouth>
+					<drawOffsetWest>(0.3, 0.033, -0.3)</drawOffsetWest>
+				</graphicData>
+				<drawWhenDrafted>true</drawWhenDrafted>
+				<drawWhenUndrafted>true</drawWhenUndrafted>
+				<!--<graphicDataUndrafted>null</graphicDataUndrafted>-->
+				<!-- BLOCK SOUNDS -->
+				<meleeBlockSounds>
+					<li>MetalHitImportant</li>
+				</meleeBlockSounds>
+				<rangedBlockSounds>
+					<li>MetalHitImportant</li>
+				</rangedBlockSounds>
+				<!-- BLOCKING GENERAL -->
+				<canBlockMelee>false</canBlockMelee>
+				<canBlockRanged>false</canBlockRanged>
+				<canBlockDrafted>false</canBlockDrafted>
+				<canBlockUndrafted>false</canBlockUndrafted>
+				<blockAngleRange>180</blockAngleRange>
+				<blockAngleOffsetDrafted>0</blockAngleOffsetDrafted>
+				<blockAngleOffsetUndrafted>0</blockAngleOffsetUndrafted>
+				<explosionsAreConsideredAsRanged>true</explosionsAreConsideredAsRanged>
+				<!-- BLOCK CHANCES -->
+				<curveSkillBasedMeleeBlockChance>
+					<points>
+						<li>(0, 0.00)</li>
+						<li>(20, 0.99)</li>
+					</points>
+				</curveSkillBasedMeleeBlockChance>
+				<curveSkillBasedRangedBlockChance>
+					<points>
+						<li>(0, 0.00)</li>
+						<li>(20, 0.50)</li>
+					</points>
+				</curveSkillBasedRangedBlockChance>
+				<meleeBlockSkillToUse>Melee</meleeBlockSkillToUse>
+				<rangedBlockSkillToUse>Melee</rangedBlockSkillToUse>
+				<curveQualityBasedMeleeBlockChance>
+					<points>
+						<li>(1, 0.10)</li>
+						<li>(7, 0.80)</li>
+					</points>
+				</curveQualityBasedMeleeBlockChance>
+				<curveQualityBasedRangedBlockChance>
+					<points>
+						<li>(1, 0.05)</li>
+						<li>(7, 0.40)</li>
+					</points>
+				</curveQualityBasedRangedBlockChance>
+				<!--<flatMeleeBlockChance>0.5</flatMeleeBlockChance>-->
+				<!--<flatRangedBlockChance>0.5</flatRangedBlockChance>-->
+				<!-- FATIGUE -->
+				<!--<useFatigueSystem>false</useFatigueSystem>-->
+				<!--<maxFatigue>100</maxFatigue>-->
+				<!--<ifBlockedDamageToFatigueFactor>1</ifBlockedDamageToFatigueFactor>-->
+				<!--<fatigueResetAfterTicks>2500</fatigueResetAfterTicks>-->
+				<!-- DAMAGE ABSORB -->
+				<!--<ifBlockedDamageToPawnFactor>0</ifBlockedDamageToPawnFactor>-->
+				<!--<ifBlockedDamageToShielFactor>0</ifBlockedDamageToShielFactor>-->
+				<!-- SPECIAL -->
+				<!--<ignoresOtherShields>false</ignoresOtherShields>-->
+				<!--<postBlockClass>null</postBlockClass>--></li>
+		</comps>
+		<tools>
+			<li>
+				<label>side</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+</Defs>

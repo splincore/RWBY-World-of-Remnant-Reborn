@@ -28,7 +28,7 @@ namespace RWBYRemnant
 
                 foreach (ThingWithComps thingWithComps in __instance.AllEquipmentListForReading)
                 {
-                    foreach (ThingComp thingComp in thingWithComps.AllComps.FindAll(c => c is CompCameraPhotos || (c is CompStealAura && pawn.Drafted))) // TODO add c is CompWeaponDrinkCoffee
+                    foreach (ThingComp thingComp in thingWithComps.AllComps.FindAll(c => c is CompCameraPhotos || c is CompWeaponDrinkCoffee || (c is CompStealAura && pawn.Drafted))) // TODO add c is CompWeaponDrinkCoffee
                     {
                         newOutput.AddRange(thingComp.CompGetGizmosExtra());
                     }

@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Cinder's Bow projectile -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>RWBY_Cinder_Bow_Projectile</defName>
+		<label>Cinder Bow Arrow</label>
+		<graphicData>
+			<texPath>Things/Projectile/Arrow_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Arrow</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<stoppingPower>2</stoppingPower>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>RWBY_Cinder_Bow_Glass_Projectile</defName>
+		<label>Cinder Bow Glass Arrow</label>
+		<graphicData>
+			<texPath>Things/Projectile/Glass_Arrow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Arrow</damageDef>
+			<damageAmountBase>35</damageAmountBase>
+			<stoppingPower>2</stoppingPower>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+
+	<!-- Cinder's spear thrown projectile, basically a Pila, but much faster, higher range and way more damage -->
+
+	<ThingDef ParentName="BaseProjectileNeolithic">
+		<defName>Cinder_Spear_Thrown</defName>
+		<label>Cinder's Spear</label>
+		<graphicData>
+			<texPath>Things/Projectile/Cinder_Spear_Thrown</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.9</drawSize>
+		</graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>RangedStab</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<stoppingPower>3</stoppingPower>
+			<armorPenetrationBase>0.15</armorPenetrationBase>
+			<speed>40</speed>
+		</projectile>
+	</ThingDef>
+
+	<!-- Midnight base weapon, melee, dual blades, craftable -->
+
+	<ThingDef ParentName="BaseCraftableMeleeWeapon_RWBY">
+		<defName>RWBY_Midnight_Blades</defName>
+		<label>Midnight</label>
+		<description>Midnight is Cinder's old weapon and a metal-based weapon with multiple forms created by Cinder Fall.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Cinder_Metal_Blades</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>800</MarketValue>
+			<Mass>3</Mass>
+		</statBases>
+		<equippedAngleOffset>-55</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<FireDustCrystal>30</FireDustCrystal>
+			<IceDustCrystal>20</IceDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into a bow</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Cinder_Metal_Bow</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Midnight_Bow</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.5</transformTime>
+				<transformSound>Transform_Glass</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<!--<shouldAiUseWhenTargetCloserThanCells>0</shouldAiUseWhenTargetCloserThanCells>-->
+				<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+					<li>Scratch</li>
+				</capacities>
+				<power>14</power>
+				<cooldownTime>0.9</cooldownTime>
+			</li>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>17</power>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- Midnight weapon, ranged, bow -->
+
+	<ThingDef ParentName="BaseGun_RWBY">
+		<defName>RWBY_Midnight_Bow</defName>
+		<label>Midnight</label>
+		<description>Midnight is Cinder's old weapon and a metal-based weapon with multiple forms created by Cinder Fall.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Cinder_Metal_Bow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.65</AccuracyTouch>
+			<AccuracyShort>0.75</AccuracyShort>
+			<AccuracyMedium>0.85</AccuracyMedium>
+			<AccuracyLong>0.87</AccuracyLong>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<FireDustCrystal>30</FireDustCrystal>
+			<IceDustCrystal>20</IceDustCrystal>
+		</costList>	
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>RWBY_Cinder_Bow_Projectile</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>40</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Bow_Recurve</soundCast>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into blades</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Cinder_Metal_Blades</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Midnight_Blades</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.5</transformTime>
+				<transformSound>Transform_Glass</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>0</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>arrow</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>1.9</cooldownTime>
+			</li>
+			<li>
+				<label>bow</label>
+				<capacities>
+					<li>Poke</li>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2.2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<!-- Cinder ability weapons -->
+
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Cinder_Scimitar</defName>
+		<label>Cinder's Scimitar</label>
+		<description>Cinder's Weapon is a Dust-created and glass-based weapon with multiple forms created by Cinder Fall.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Cinder_Scimitar</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.4</drawSize>
+		</graphicData>
+		<tradeability>None</tradeability>
+		<generateCommonality>0</generateCommonality>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<MarketValue>0</MarketValue>
+			<Mass>0</Mass>
+		</statBases>
+		<equippedAngleOffset>-55</equippedAngleOffset>	
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_LightCopy"/>
+		</comps>
+		<tools>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>RWBY_Inflame_Slash</li>
+				</capacities>
+				<power>19</power>
+				<cooldownTime>1.3</cooldownTime>
+			</li>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>22</power>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+		<smeltProducts>
+			<Steel>10</Steel>
+		</smeltProducts>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Cinder_Spear</defName>
+		<label>Cinder's Spear</label>
+		<description>Cinder's Weapon is a Dust-created and glass-based weapon with multiple forms created by Cinder Fall.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Cinder_Spear</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.4</drawSize>
+		</graphicData>
+		<tradeability>None</tradeability>
+		<generateCommonality>0</generateCommonality>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<MarketValue>0</MarketValue>
+			<Mass>0</Mass>
+		</statBases>
+		<equippedAngleOffset>-55</equippedAngleOffset>	
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Dust Spear</abilityLabel>
+				<abilityDesc>Throw the spear with a guaranteed hit, but it will be destroyed in the process</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Cinder_Spear</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>1</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>true</destroyOnEmpty>
+				<ammoDef>Steel</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>false</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Dust Spear</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>35</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.3</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Throw_Cinder_Spear</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>1</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>Cinder_Spear_Thrown</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="RWBYRemnant.CompProperties_LightCopy"/>
+		</comps>
+		<tools>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>RWBY_Inflame_Slash</li>
+				</capacities>
+				<power>17</power>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>26</power>
+				<cooldownTime>1.8</cooldownTime>
+			</li>
+		</tools>
+		<smeltProducts>
+			<Steel>10</Steel>
+		</smeltProducts>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Cinder_Blades</defName>
+		<label>Cinder's Blades</label>
+		<description>Cinder's Weapon is a Dust-created and glass-based weapon with multiple forms created by Cinder Fall.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Cinder_Blades</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<tradeability>None</tradeability>
+		<generateCommonality>0</generateCommonality>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<MarketValue>0</MarketValue>
+			<Mass>0</Mass>
+		</statBases>
+		<equippedAngleOffset>-55</equippedAngleOffset>	
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_LightCopy"/>
+		</comps>
+		<tools>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+					<li>Scratch</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>0.9</cooldownTime>
+			</li>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>19</power>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+		</tools>
+		<smeltProducts>
+			<Steel>10</Steel>
+		</smeltProducts>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseGun_RWBY">
+		<defName>RWBY_Cinder_Bow</defName>
+		<label>Cinder's Bow</label>
+		<description>Cinder's Weapon is a Dust-created and glass-based weapon with multiple forms created by Cinder Fall.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Cinder_Bow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.8</drawSize>
+		</graphicData>
+		<tradeability>None</tradeability>
+		<generateCommonality>0</generateCommonality>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<MarketValue>0</MarketValue>
+			<Mass>0</Mass>
+			<AccuracyTouch>0.68</AccuracyTouch>
+			<AccuracyShort>0.79</AccuracyShort>
+			<AccuracyMedium>0.87</AccuracyMedium>
+			<AccuracyLong>0.90</AccuracyLong>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>RWBY_Cinder_Bow_Glass_Projectile</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>40</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Shoot_Fireball</soundCast>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Shoot glass arrow</abilityLabel>
+				<abilityDesc>Shoot an arrow that can desintegrade if needed to never miss its mark</abilityDesc>
+				<abilityIcon>Things/UI/Glass_Arrow</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>1</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<!--<ammoDef>Steel</ammoDef>-->
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>shoot glass arrow</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>40</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.8</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shoot_Fireball</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>RWBY_Cinder_Bow_Glass_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="RWBYRemnant.CompProperties_LightCopy"/>
+		</comps>
+		<tools>
+			<li>
+				<label>arrow</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>1.9</cooldownTime>
+			</li>
+			<li>
+				<label>bow</label>
+				<capacities>
+					<li>Poke</li>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2.2</cooldownTime>
+			</li>
+		</tools>
+		<smeltProducts>
+			<Steel>10</Steel>
+		</smeltProducts>
+	</ThingDef>
+
+</Defs>

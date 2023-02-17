@@ -17,7 +17,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Steam\steamapps\common\RimWorld\Mods\RWBY World of Remnant Reborn\1.3\Assemblies\</OutputPath>
+    <OutputPath>D:\Steam\steamapps\common\RimWorld\Mods\RWBY World of Remnant Reborn\1.4\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,7 +40,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="EquipmentToolbox">
-      <HintPath>D:\Steam\steamapps\common\RimWorld\Mods\Equipment Toolbox\1.3\Assemblies\EquipmentToolbox.dll</HintPath>
+      <HintPath>D:\Steam\steamapps\common\RimWorld\Mods\Equipment Toolbox\1.4\Assemblies\EquipmentToolbox.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -75,8 +75,10 @@
     <Compile Include="CompProperties_LightCopy.cs" />
     <Compile Include="CompProperties_StealAura.cs" />
     <Compile Include="CompProperties_TimeDilationGlyph.cs" />
+    <Compile Include="CompProperties_WeaponDrinkCoffee.cs" />
     <Compile Include="CompStealAura.cs" />
     <Compile Include="CompTimeDilationGlyph.cs" />
+    <Compile Include="CompWeaponDrinkCoffee.cs" />
     <Compile Include="DefOfs.cs" />
     <Compile Include="GrimmUtility.cs" />
     <Compile Include="Grimm_DeathWorker.cs" />
@@ -99,12 +101,18 @@
     <Compile Include="PostTransformCamera.cs" />
     <Compile Include="Projectile_CameraBullet.cs" />
     <Compile Include="Projectile_CrystalBullet.cs" />
+    <Compile Include="Projectile_ExplosiveWithFleck.cs" />
+    <Compile Include="Projectile_Explosive_FireBolt.cs" />
+    <Compile Include="Projectile_WiltBullet.cs" />
     <Compile Include="Projectile_WithFleck.cs" />
     <Compile Include="RemnantMod.cs" />
     <Compile Include="RemnantModSettings.cs" />
     <Compile Include="ThingDef_CrystalBullet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThingDef_ExplosiveFleckProjectile.cs" />
     <Compile Include="ThingDef_FleckProjectile.cs" />
+    <Compile Include="ThingDef_Myrtenaster_FireBolt.cs" />
+    <Compile Include="ThingDef_WiltBullet.cs" />
     <Compile Include="WorkGiver_StealAura.cs" />
   </ItemGroup>
   <ItemGroup>

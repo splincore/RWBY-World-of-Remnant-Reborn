@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Myrtenaster ability bullets -->
+	<ThingDef Class="RWBYRemnant.ThingDef_Myrtenaster_FireBolt" ParentName="BaseBullet">
+		<defName>RWBY_Myrtenaster_Fire_Bolt</defName>
+		<label>Myrtenaster Fire Bolt</label>
+		<thingClass>RWBYRemnant.Projectile_Explosive_FireBolt</thingClass>
+		<spawnWhileFlying>Filth_Fuel</spawnWhileFlying>
+		<fireDistanceInTicks>2</fireDistanceInTicks>
+		<graphicData>
+			<texPath>Things/Projectile/Empty_Projectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<explosionRadius>2.5</explosionRadius>
+			<damageDef>Flame</damageDef>
+			<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+			<speed>50</speed>
+		</projectile>
+	</ThingDef>
+	<ThingDef Class="RWBYRemnant.ThingDef_FleckProjectile" ParentName="BaseBullet">
+		<defName>RWBY_Myrtenaster_Ice_Bolt</defName>
+		<label>Myrtenaster Ice Bolt</label>
+		<thingClass>RWBYRemnant.Projectile_WithFleck</thingClass>
+		<color>(102, 153, 255)</color>
+		<graphicData>
+			<texPath>Things/Projectile/Ice_Bolt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>RWBY_Ice_Bullet</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<stoppingPower>2</stoppingPower>
+			<speed>50</speed>
+		</projectile>
+	</ThingDef>
+	<!-- Myrtenaster base weapon, melee can do stab/cut damage -->
+	<ThingDef ParentName="BaseCraftableMeleeWeapon_RWBY">
+		<defName>RWBY_Myrtenaster_Melee</defName>
+		<label>Myrtenaster</label>
+		<description>Myrtenaster is Weiss Schnee's signature weapon. It is a Multi Action Dust Rapier (MADR) that seems to act as a focus or source for Weiss' power.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Myrtenaster</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+			<drawOffsetEast>(0.33, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.33, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>800</MarketValue>
+			<Mass>3</Mass>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<FireDustCrystal>10</FireDustCrystal>
+			<IceDustCrystal>10</IceDustCrystal>
+			<HardLightDustCrystal>30</HardLightDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Use Fire Dust</abilityLabel>
+				<abilityDesc>Shoot a fire bolt, that burns it´s path</abilityDesc>
+				<abilityIcon>Things/UI/Fire_Dust</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>FireDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.3</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>35</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shoot_Fireball</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>true</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>RWBY_Myrtenaster_Fire_Bolt</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Use Ice Dust</abilityLabel>
+				<abilityDesc>Fires an ice projectile, that can freeze its target</abilityDesc>
+				<abilityIcon>Things/UI/Ice_Dust</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>IceDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.4</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>2</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Ice Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>35</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shoot_Ice_Bolt</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>RWBY_Myrtenaster_Ice_Bolt</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>25</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>25</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+</Defs>

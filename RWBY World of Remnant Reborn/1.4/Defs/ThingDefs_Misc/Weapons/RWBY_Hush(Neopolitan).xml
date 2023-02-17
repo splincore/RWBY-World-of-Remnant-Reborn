@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Hush, open, can act as shield -->
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Hush_Umbrella_Open</defName>
+		<label>Hush</label>
+		<description>Hush is Neopolitan's weapon of choice and can act as a shield or weapon. The umbrella itself is either very strong or very well-protected with Aura, as it has repeatedly been able to block explosive shells.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Neo_Umbrella_open</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+			<drawOffsetEast>(0.15,0,0.1)</drawOffsetEast>
+			<drawOffsetWest>(-0.15,0,0.1)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<Mass>2.0</Mass>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<IceDustCrystal>10</IceDustCrystal>
+			<HardLightDustCrystal>40</HardLightDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Shield">
+				<!-- GRAPHICS -->
+				<!--<graphicData>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<texPath>Things/Item/Equipment/Weapons/Crocea_Mors_Shield</texPath>
+					<drawSize>(1.1, 1.1)</drawSize>
+					<drawOffsetNorth>(-0.3, -0.017, -0.3)</drawOffsetNorth>
+					<drawOffsetEast>(0.3, -0.017, -0.3)</drawOffsetEast>
+					<drawOffsetSouth>(0.3, 0.033, -0.3)</drawOffsetSouth>
+					<drawOffsetWest>(-0.3, 0.053, -0.3)</drawOffsetWest>
+				</graphicData>-->
+				<drawWhenDrafted>false</drawWhenDrafted>
+				<drawWhenUndrafted>false</drawWhenUndrafted>
+				<!--<graphicDataUndrafted>null</graphicDataUndrafted>-->
+				<!-- BLOCK SOUNDS -->
+				<meleeBlockSounds>
+					<li>MetalHitImportant</li>
+				</meleeBlockSounds>
+				<rangedBlockSounds>
+					<li>MetalHitImportant</li>
+				</rangedBlockSounds>
+				<!-- BLOCKING GENERAL -->
+				<canBlockMelee>true</canBlockMelee>
+				<canBlockRanged>true</canBlockRanged>
+				<canBlockDrafted>true</canBlockDrafted>
+				<canBlockUndrafted>false</canBlockUndrafted>
+				<blockAngleRange>180</blockAngleRange>
+				<blockAngleOffsetDrafted>0</blockAngleOffsetDrafted>
+				<blockAngleOffsetUndrafted>0</blockAngleOffsetUndrafted>
+				<explosionsAreConsideredAsRanged>true</explosionsAreConsideredAsRanged>
+				<!-- BLOCK CHANCES -->
+				<curveSkillBasedMeleeBlockChance>
+					<points>
+						<li>(0, 0.08)</li>
+						<li>(20, 0.99)</li>
+					</points>
+				</curveSkillBasedMeleeBlockChance>
+				<curveSkillBasedRangedBlockChance>
+					<points>
+						<li>(0, 0.05)</li>
+						<li>(20, 0.70)</li>
+					</points>
+				</curveSkillBasedRangedBlockChance>
+				<meleeBlockSkillToUse>Melee</meleeBlockSkillToUse>
+				<rangedBlockSkillToUse>Melee</rangedBlockSkillToUse>
+				<curveQualityBasedMeleeBlockChance>
+					<points>
+						<li>(1, 0.10)</li>
+						<li>(7, 0.80)</li>
+					</points>
+				</curveQualityBasedMeleeBlockChance>
+				<curveQualityBasedRangedBlockChance>
+					<points>
+						<li>(1, 0.07)</li>
+						<li>(7, 0.60)</li>
+					</points>
+				</curveQualityBasedRangedBlockChance>
+				<!--<flatMeleeBlockChance>0.5</flatMeleeBlockChance>-->
+				<!--<flatRangedBlockChance>0.5</flatRangedBlockChance>-->
+				<!-- FATIGUE -->
+				<!--<useFatigueSystem>false</useFatigueSystem>-->
+				<!--<maxFatigue>100</maxFatigue>-->
+				<!--<ifBlockedDamageToFatigueFactor>1</ifBlockedDamageToFatigueFactor>-->
+				<!--<fatigueResetAfterTicks>2500</fatigueResetAfterTicks>-->
+				<!-- DAMAGE ABSORB -->
+				<!--<ifBlockedDamageToPawnFactor>0</ifBlockedDamageToPawnFactor>-->
+				<!--<ifBlockedDamageToShielFactor>0</ifBlockedDamageToShielFactor>-->
+				<!-- SPECIAL -->
+				<!--<ignoresOtherShields>false</ignoresOtherShields>-->
+				<!--<postBlockClass>null</postBlockClass>--></li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into a closed umbrella</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Neo_Umbrella_closed</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Hush_Umbrella_Closed</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.0</transformTime>
+				<transformSound>Interact_BeatFire</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into a blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Neo_Umbrella_blade</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Hush_Umbrella_Blade</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.5</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>2.0</cooldownTime>
+			</li>
+			<li>
+				<label>side</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>1.8</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<!-- Hush closed, melee can do poke/blunt damage -->
+	<ThingDef ParentName="BaseCraftableMeleeWeapon_RWBY">
+		<defName>RWBY_Hush_Umbrella_Closed</defName>
+		<label>Hush</label>
+		<description>Hush is Neopolitan's weapon of choice and can act as a shield or weapon. The umbrella itself is either very strong or very well-protected with Aura, as it has repeatedly been able to block explosive shells.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Neo_Umbrella_closed</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+			<drawOffsetEast>(0.15,0,0.1)</drawOffsetEast>
+			<drawOffsetWest>(-0.15,0,0.1)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>800</MarketValue>
+			<Mass>2.0</Mass>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<IceDustCrystal>10</IceDustCrystal>
+			<HardLightDustCrystal>40</HardLightDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into an open umbrella</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Neo_Umbrella_open</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Hush_Umbrella_Open</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.0</transformTime>
+				<transformSound>Interact_BeatFire</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into a blade</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Neo_Umbrella_blade</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Hush_Umbrella_Blade</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.5</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>25</power>
+				<cooldownTime>1.8</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>1.8</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<!-- Hush blade version, melee can do stab/cut damage -->
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Hush_Umbrella_Blade</defName>
+		<label>Hush</label>
+		<description>Hush is Neopolitan's weapon of choice and can act as a shield or weapon. The umbrella itself is either very strong or very well-protected with Aura, as it has repeatedly been able to block explosive shells.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Neo_Umbrella_blade</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+			<drawOffsetEast>(0.25, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.25, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Draw_Gambol_Shroud_Katana</soundInteract>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<Mass>2.0</Mass>
+		</statBases>
+		<equippedAngleOffset>0</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<IceDustCrystal>10</IceDustCrystal>
+			<HardLightDustCrystal>40</HardLightDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into a closed umbrella</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Neo_Umbrella_closed</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Hush_Umbrella_Closed</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.5</transformTime>
+				<transformSound>Interact_BeatFire</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into an open umbrella</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Neo_Umbrella_open</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Hush_Umbrella_Open</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.5</transformTime>
+				<transformSound>Interact_BeatFire</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>28</power>
+				<cooldownTime>2.5</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+</Defs>

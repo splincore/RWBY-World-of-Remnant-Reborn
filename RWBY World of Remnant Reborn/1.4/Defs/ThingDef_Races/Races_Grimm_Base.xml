@@ -43,7 +43,7 @@
 			<packAnimal>false</packAnimal>
 			<herdAnimal>false</herdAnimal>
 			<baseBodySize>2</baseBodySize>
-			<useMeatFrom>Mech_Centipede</useMeatFrom>
+			<useMeatFrom>Mech_CentipedeBlaster</useMeatFrom>
 		</race>
 		<comps>
 			<li>

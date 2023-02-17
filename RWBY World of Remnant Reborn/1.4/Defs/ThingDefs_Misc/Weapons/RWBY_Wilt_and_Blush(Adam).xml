@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Wilt and Blush bullets -->
+	<ThingDef Class="RWBYRemnant.ThingDef_WiltBullet" ParentName="BaseBullet">
+		<defName>RWBY_Wilt_Projectile</defName>
+		<label>Wilt Projectile</label>
+		<thingClass>RWBYRemnant.Projectile_WiltBullet</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Wilt_Projectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>10</damageAmountBase>
+			<stoppingPower>3</stoppingPower>
+			<speed>50</speed>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>RWBY_Blush_Projectile</defName>
+		<label>Blush Projectile</label>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>24</damageAmountBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+	<!-- Wilt and Blush base weapon, melee, not drawn -->
+	<ThingDef ParentName="BaseCraftableMeleeWeapon_RWBY">
+		<defName>RWBY_Wilt_and_Blush</defName>
+		<label>Wilt and Blush</label>
+		<description>Wilt and Blush are Adam Taurus' weapons of choice. They are a fusion between Wilt, a red-colored version of a traditional Japanese chokuto, and Blush, a rifle that also functions as a scabbard.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Wilt_and_Blush</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>800</MarketValue>
+			<Mass>3</Mass>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<GravityDustCrystal>50</GravityDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Draw Wilt</abilityLabel>
+				<abilityDesc>Draw Wilt from Blush</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Wilt</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Wilt</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.0</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Use Blush</abilityLabel>
+				<abilityDesc>Use Blush out of scabbard form</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Blush</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Blush</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.0</transformTime>
+				<transformSound>Interact_Rifle</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<!--<shouldAiUseWhenTargetCloserThanCells>0</shouldAiUseWhenTargetCloserThanCells>-->
+				<shouldAiUseWhenTargetFartherThanCells>15</shouldAiUseWhenTargetFartherThanCells>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Shoot Wilt</abilityLabel>
+				<abilityDesc>Shoot Wilt and rush after it</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Wilt</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>1.0</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>0.5</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Shotgun</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>RWBY_Wilt_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>scabbard</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>1</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<!-- Wilt base weapon, melee, drawn -->
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_Wilt</defName>
+		<label>Wilt</label>
+		<description>Wilt and Blush are Adam Taurus' weapons of choice. They are a fusion between Wilt, a red-colored version of a traditional Japanese chokuto, and Blush, a rifle that also functions as a scabbard.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Wilt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+			<drawOffsetEast>(0.33, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.33, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Draw_Gambol_Shroud_Katana</soundInteract>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<Mass>3</Mass>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<GravityDustCrystal>50</GravityDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Put Wilt away</abilityLabel>
+				<abilityDesc>Put Wilt back into Blush</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Wilt_and_Blush</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Wilt_and_Blush</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.0</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>true</shouldAiAlwaysUseWhenUnDrafted>
+				<!--<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>-->
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Use Blush</abilityLabel>
+				<abilityDesc>Use Blush out of scabbard form</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Blush</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Blush</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.0</transformTime>
+				<transformSound>Interact_Rifle</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<!--<shouldAiUseWhenTargetCloserThanCells>0</shouldAiUseWhenTargetCloserThanCells>-->
+				<shouldAiUseWhenTargetFartherThanCells>15</shouldAiUseWhenTargetFartherThanCells>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Shoot Wilt</abilityLabel>
+				<abilityDesc>Shoot Wilt and rush after it</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Wilt</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>1.0</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>0.5</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Shotgun</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>RWBY_Wilt_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>35</power>
+				<cooldownTime>3</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>35</power>
+				<cooldownTime>2.5</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<!-- Blush pistol form -->
+	<ThingDef ParentName="BaseGun_RWBY">
+		<defName>RWBY_Blush</defName>
+		<label>Blush</label>
+		<description>Wilt and Blush are Adam Taurus' weapons of choice. They are a fusion between Wilt, a red-colored version of a traditional Japanese chokuto, and Blush, a rifle that also functions as a scabbard.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Blush</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>
+		</graphicData>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.85</AccuracyTouch>
+			<AccuracyShort>0.70</AccuracyShort>
+			<AccuracyMedium>0.44</AccuracyMedium>
+			<AccuracyLong>0.30</AccuracyLong>
+			<RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<GravityDustCrystal>50</GravityDustCrystal>
+		</costList>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>RWBY_Blush_Projectile</defaultProjectile>
+				<warmupTime>0.8</warmupTime>
+				<range>25</range>
+				<burstShotCount>1</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<soundCast>Shot_Shotgun</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Put Blush away</abilityLabel>
+				<abilityDesc>Put Blush back into scabbard form</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Wilt_and_Blush</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Wilt_and_Blush</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.0</transformTime>
+				<transformSound>Interact_Rifle</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>true</shouldAiAlwaysUseWhenUnDrafted>
+				<!--<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>-->
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.2</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Draw Wilt</abilityLabel>
+				<abilityDesc>Draw Wilt from Blush</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Wilt</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_Wilt</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>1.0</transformTime>
+				<transformSound>Draw_Gambol_Shroud_Katana</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>15</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>2</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Shoot Wilt</abilityLabel>
+				<abilityDesc>Shoot Wilt and rush after it</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Wilt</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>1.0</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>0.5</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Shotgun</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>RWBY_Wilt_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+</Defs>

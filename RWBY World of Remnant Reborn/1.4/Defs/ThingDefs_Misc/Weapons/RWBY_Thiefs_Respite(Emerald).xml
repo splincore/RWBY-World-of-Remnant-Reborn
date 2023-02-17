@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Thief's Respite custom bullet -->
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_Emerald_Gun</defName>
+		<label>Thief's Respite bullet</label>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>18</damageAmountBase>
+			<stoppingPower>2</stoppingPower>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+	<!-- Thief's Respite base weapon, craftable-->
+	<ThingDef ParentName="BaseMakeableGun_RWBY">
+		<defName>RWBY_ThiefsRespite_Gun</defName>
+		<label>Thief's Respite</label>
+		<description>Thief's Respite are a pair of convertible revolver-sickles wielded by Emerald Sustrai.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Emerald_Gun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+			<drawOffsetEast>(0.25, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.25, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>800</MarketValue>
+			<Mass>2.5</Mass>
+			<AccuracyTouch>0.80</AccuracyTouch>
+			<AccuracyShort>0.70</AccuracyShort>
+			<AccuracyMedium>0.58</AccuracyMedium>
+			<AccuracyLong>0.45</AccuracyLong>
+			<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<IceDustCrystal>25</IceDustCrystal>
+			<GravityDustCrystal>25</GravityDustCrystal>
+		</costList>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_Emerald_Gun</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>30</range>
+				<soundCast>Shot_Revolver</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into sickle form</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Emerald_Sickle</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_ThiefsRespite_Sickle</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>0.3</transformTime>
+				<transformSound>Interact_Revolver</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>
+				<!--<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>-->
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Shoot blade</abilityLabel>
+				<abilityDesc>Shoot blades attached to a chain to pull the enemy towards you</abilityDesc>
+				<abilityIcon>Things/UI/Emerald_Sickle_Hook</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>false</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>30</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.5</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Melodic_Cudgel_Hook</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>Bullet_Emerald_Sickle_Hook</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.0</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.0</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<!-- Thief's Respite hook custom bullet -->
+	<ThingDef Class="EquipmentToolbox.ThingDef_HookBullet" ParentName="BaseBullet">
+		<defName>Bullet_Emerald_Sickle_Hook</defName>
+		<label>Thief's Respite hook</label>
+		<thingClass>EquipmentToolbox.Projectile_HookBullet</thingClass>
+		<hookSound>Emerald_Weapon_Chain</hookSound>
+		<hookOnlyHostile>false</hookOnlyHostile>
+		<returnBullet>Bullet_Emerald_Sickle_Hook_Return</returnBullet>
+		<graphicData>
+			<texPath>Things/Projectile/Emerald_Sickle_Projectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.4</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<stoppingPower>2.0</stoppingPower>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+	<ThingDef Class="EquipmentToolbox.ThingDef_RideBullet" ParentName="BaseBullet">
+		<defName>Bullet_Emerald_Sickle_Hook_Return</defName>
+		<label>Thief's Respite hook</label>
+		<thingClass>EquipmentToolbox.Projectile_RideBullet</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Emerald_Sickle_Projectile_Return</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.4</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+	<!-- Thief's Respite melee with hook, not craftable-->
+	<ThingDef ParentName="BaseMeleeWeapon_RWBY">
+		<defName>RWBY_ThiefsRespite_Sickle</defName>
+		<label>Thief's Respite</label>
+		<description>Thief's Respite are a pair of convertible revolver-sickles wielded by Emerald Sustrai.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Emerald_Sickle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+			<drawOffsetEast>(0.25, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.25, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<Mass>2.5</Mass>
+		</statBases>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<IceDustCrystal>25</IceDustCrystal>
+			<GravityDustCrystal>25</GravityDustCrystal>
+		</costList>
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Transformable">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Transform</abilityLabel>
+				<abilityDesc>Transforms into gun form</abilityDesc>
+				<abilityIcon>Things/Item/Equipment/Weapons/Emerald_Gun</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<!--<maxCharges>1</maxCharges>-->
+				<!--<ammoCountToRefill>0</ammoCountToRefill>-->
+				<!--<ammoCountPerCharge>0</ammoCountPerCharge>-->
+				<!--<destroyOnEmpty>false</destroyOnEmpty>-->
+				<!--<ammoDef>null</ammoDef>-->
+				<!--<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>-->
+				<!--<canBeReloaded>true</canBeReloaded>-->
+				<!--<spawnWithFullAmmo>true</spawnWithFullAmmo>-->
+				<chargeNoun>charge</chargeNoun>
+				<!--<reloadTime>1</reloadTime>-->
+				<!--<soundReload>null</soundReload>-->
+				<!-- TRANSFORM -->
+				<transformInto>RWBY_ThiefsRespite_Gun</transformInto>
+				<!--<transformSecondaryProduct>null</transformSecondaryProduct>-->
+				<transformTime>0.3</transformTime>
+				<transformSound>Interact_Revolver</transformSound>
+				<!--<needsItemEquipped>null</needsItemEquipped>-->
+				<!--<comsumesItemEquipped>false</comsumesItemEquipped>-->
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<shouldAiAlwaysUseWhenDrafted>false</shouldAiAlwaysUseWhenDrafted>
+				<shouldAiAlwaysUseWhenUnDrafted>false</shouldAiAlwaysUseWhenUnDrafted>
+				<!--<shouldAiUseWhenTargetCloserThanCells>20</shouldAiUseWhenTargetCloserThanCells>-->
+				<shouldAiUseWhenTargetFartherThanCells>20</shouldAiUseWhenTargetFartherThanCells>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<aiTransformCooldownTicks>2500</aiTransformCooldownTicks>
+				<!-- SPECIAL -->
+				<uniqueCompID>1</uniqueCompID>
+				<!--<postTransformClass>null</postTransformClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Shoot blade</abilityLabel>
+				<abilityDesc>Shoot blades attached to a chain to pull the enemy towards you</abilityDesc>
+				<abilityIcon>Things/UI/Emerald_Sickle_Hook</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>true</spawnWithFullAmmo>
+				<chargeNoun>bullet</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_Rifle</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.5</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>true</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>use Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>30</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.5</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Shot_Melodic_Cudgel_Hook</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>10</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>false</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>false</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>Bullet_Emerald_Sickle_Hook</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>0.7</cooldownTime>
+			</li>
+			<li>
+				<label>blade</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>0.7</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+</Defs>

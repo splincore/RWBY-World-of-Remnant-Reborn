@@ -18,7 +18,7 @@ namespace RWBYRemnant
             }
         }
 
-        protected override void Impact(Thing hitThing)
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             Destroy(DestroyMode.Vanish);
             if (intendedTarget.Thing == null) return;

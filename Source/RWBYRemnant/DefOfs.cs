@@ -10,6 +10,7 @@ namespace RWBYRemnant
 
         // Hediffs
         public static HediffDef RWBY_ApathyTiredness;
+        public static HediffDef RWBY_Thermos_Caffeine;
 
         // Jobs
         public static JobDef RWBY_StealAura;

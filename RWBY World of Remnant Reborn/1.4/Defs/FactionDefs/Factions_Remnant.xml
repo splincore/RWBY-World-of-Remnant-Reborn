@@ -39,7 +39,6 @@
 				<commonality>0.10</commonality>
 			</li>
 		</backstoryFilters>
-		<geneticVariance>0.8</geneticVariance>
 		<caravanTraderKinds>
 			<li>Caravan_Outlander_Dust_BulkGoods</li>
 			<li>Caravan_Outlander_Dust_CombatSupplier</li>

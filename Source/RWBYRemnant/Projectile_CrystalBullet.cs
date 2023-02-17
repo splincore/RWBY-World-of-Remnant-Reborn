@@ -13,7 +13,7 @@ namespace RWBYRemnant
             }
         }
 
-        protected override void Impact(Thing hitThing)
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             GenSpawn.Spawn(Def.spawnOnImpact, Position, Map);
             Destroy(DestroyMode.Vanish);

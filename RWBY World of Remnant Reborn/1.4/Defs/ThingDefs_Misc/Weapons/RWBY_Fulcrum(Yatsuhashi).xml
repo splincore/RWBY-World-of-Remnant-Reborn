@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Fulcrum twohander, melee can do stab/cut damage, can act as a shield -->
+
+	<ThingDef ParentName="BaseCraftableMeleeWeapon_RWBY">
+		<defName>RWBY_Fulcrum</defName>
+		<label>Fulcrum</label>
+		<description>Fulcrum is a greatsword and Yatsuhashi Daichi's weapon of choice. Fulcrum is nearly as tall as normal humans. Because of it's size Falcrum also acts as a shield.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Weapons/Fulcrum</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.9</drawSize>
+			<drawOffsetEast>(0.25, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.25, 0, 0)</drawOffsetWest>
+		</graphicData>
+		<soundInteract>Draw_Gambol_Shroud_Katana</soundInteract>
+		<statBases>
+			<WorkToMake>30000</WorkToMake>
+			<MarketValue>800</MarketValue>
+			<Mass>8.0</Mass>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<IceDustCrystal>20</IceDustCrystal>
+			<HardLightDustCrystal>30</HardLightDustCrystal>
+		</costList>	
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_Shield">
+				<!-- GRAPHICS -->
+				<!--<graphicData>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<texPath>Things/Item/Equipment/Weapons/Crocea_Mors_Shield</texPath>
+					<drawSize>(1.1, 1.1)</drawSize>
+					<drawOffsetNorth>(-0.3, -0.017, -0.3)</drawOffsetNorth>
+					<drawOffsetEast>(0.3, -0.017, -0.3)</drawOffsetEast>
+					<drawOffsetSouth>(0.3, 0.033, -0.3)</drawOffsetSouth>
+					<drawOffsetWest>(-0.3, 0.053, -0.3)</drawOffsetWest>
+				</graphicData>-->
+				<drawWhenDrafted>false</drawWhenDrafted>
+				<drawWhenUndrafted>false</drawWhenUndrafted>
+				<!--<graphicDataUndrafted>null</graphicDataUndrafted>-->
+				<!-- BLOCK SOUNDS -->
+				<meleeBlockSounds>
+					<li>MetalHitImportant</li>
+				</meleeBlockSounds>
+				<rangedBlockSounds>
+					<li>MetalHitImportant</li>
+				</rangedBlockSounds>
+				<!-- BLOCKING GENERAL -->
+				<canBlockMelee>true</canBlockMelee>
+				<canBlockRanged>true</canBlockRanged>
+				<canBlockDrafted>true</canBlockDrafted>
+				<canBlockUndrafted>false</canBlockUndrafted>
+				<blockAngleRange>90</blockAngleRange>
+				<blockAngleOffsetDrafted>0</blockAngleOffsetDrafted>
+				<blockAngleOffsetUndrafted>0</blockAngleOffsetUndrafted>
+				<explosionsAreConsideredAsRanged>true</explosionsAreConsideredAsRanged>
+				<!-- BLOCK CHANCES -->
+				<curveSkillBasedMeleeBlockChance>
+					<points>
+						<li>(0, 0.00)</li>
+						<li>(20, 0.50)</li>
+					</points>
+				</curveSkillBasedMeleeBlockChance>
+				<curveSkillBasedRangedBlockChance>
+					<points>
+						<li>(0, 0.00)</li>
+						<li>(20, 0.25)</li>
+					</points>
+				</curveSkillBasedRangedBlockChance>
+				<meleeBlockSkillToUse>Melee</meleeBlockSkillToUse>
+				<rangedBlockSkillToUse>Melee</rangedBlockSkillToUse>
+				<curveQualityBasedMeleeBlockChance>
+					<points>
+						<li>(1, 0.10)</li>
+						<li>(7, 0.50)</li>
+					</points>
+				</curveQualityBasedMeleeBlockChance>
+				<curveQualityBasedRangedBlockChance>
+					<points>
+						<li>(1, 0.05)</li>
+						<li>(7, 0.25)</li>
+					</points>
+				</curveQualityBasedRangedBlockChance>
+				
+				<!--<flatMeleeBlockChance>0.5</flatMeleeBlockChance>-->
+				<!--<flatRangedBlockChance>0.5</flatRangedBlockChance>-->
+				<!-- FATIGUE -->
+				<!--<useFatigueSystem>false</useFatigueSystem>-->
+				<!--<maxFatigue>100</maxFatigue>-->
+				<!--<ifBlockedDamageToFatigueFactor>1</ifBlockedDamageToFatigueFactor>-->
+				<!--<fatigueResetAfterTicks>2500</fatigueResetAfterTicks>-->
+				<!-- DAMAGE ABSORB -->
+				<!--<ifBlockedDamageToPawnFactor>0</ifBlockedDamageToPawnFactor>-->
+				<!--<ifBlockedDamageToShielFactor>0</ifBlockedDamageToShielFactor>-->
+				<!-- SPECIAL -->
+				<!--<ignoresOtherShields>false</ignoresOtherShields>-->
+				<!--<postBlockClass>null</postBlockClass>-->
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>40</power>
+				<cooldownTime>2.3</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+</Defs>

@@ -39,6 +39,9 @@
 				<cooldownTime>2</cooldownTime>
 			</li>
 		</tools>
+		<smeltProducts>
+			<Cloth>10</Cloth>
+		</smeltProducts>
 	</ThingDef>
 
 </Defs>
