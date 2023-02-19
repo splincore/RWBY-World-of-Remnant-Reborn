@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
 	<IncidentDef>
 		<defName>Sneeze</defName>
 		<label>sneeze</label>
@@ -11,8 +10,7 @@
 		<workerClass>RWBYRemnant.IncidentWorker_Sneeze</workerClass>
 		<baseChance>1.5</baseChance>
 	</IncidentDef>
-
-	<!--IncidentDef>
+	<IncidentDef>
 		<defName>UnlockAura</defName>
 		<label>unlock Aura</label>
 		<category>Misc</category>
@@ -22,7 +20,6 @@
 		<workerClass>RWBYRemnant.IncidentWorker_UnlockAura</workerClass>
 		<baseChance>3</baseChance>
 	</IncidentDef>
-
 	<IncidentDef>
 		<defName>UnlockSemblance</defName>
 		<label>unlock Semblance</label>
@@ -33,8 +30,7 @@
 		<workerClass>RWBYRemnant.IncidentWorker_UnlockSemblance</workerClass>
 		<baseChance>1</baseChance>
 		<minRefireDays>30</minRefireDays>
-	</IncidentDef-->
-
+	</IncidentDef>
 	<IncidentDef>
 		<defName>GrimmWandersIn</defName>
 		<label>Grimm wanders in</label>
@@ -45,7 +41,6 @@
 		<workerClass>RWBYRemnant.IncidentWorker_GrimmWandersIn</workerClass>
 		<baseChance>3</baseChance>
 	</IncidentDef>
-
 	<IncidentDef>
 		<defName>Nuckelavee</defName>
 		<label>nuckelavee</label>
@@ -57,7 +52,6 @@
 		<baseChance>5.0</baseChance>
 		<minRefireDays>20</minRefireDays>
 	</IncidentDef>
-
 	<IncidentDef>
 		<defName>Apathy</defName>
 		<label>apathy</label>
@@ -70,5 +64,4 @@
 		<minRefireDays>20</minRefireDays>
 		<earliestDay>30</earliestDay>
 	</IncidentDef>
-
 </Defs>

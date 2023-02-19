@@ -69,17 +69,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aura.cs" />
+    <Compile Include="Aura_Yang.cs" />
     <Compile Include="CompCameraPhotos.cs" />
     <Compile Include="CompLightCopy.cs" />
+    <Compile Include="CompProperties_Aura.cs" />
     <Compile Include="CompProperties_CameraPhotos.cs" />
     <Compile Include="CompProperties_LightCopy.cs" />
     <Compile Include="CompProperties_StealAura.cs" />
     <Compile Include="CompProperties_TimeDilationGlyph.cs" />
     <Compile Include="CompProperties_WeaponDrinkCoffee.cs" />
+    <Compile Include="CompAura.cs" />
     <Compile Include="CompStealAura.cs" />
     <Compile Include="CompTimeDilationGlyph.cs" />
     <Compile Include="CompWeaponDrinkCoffee.cs" />
     <Compile Include="DefOfs.cs" />
+    <Compile Include="GizmoAuraStatus.cs" />
+    <Compile Include="GizmoYangAngerLevel.cs" />
     <Compile Include="GrimmUtility.cs" />
     <Compile Include="Grimm_DeathWorker.cs" />
     <Compile Include="HarmonyPatch.cs" />
@@ -93,6 +99,8 @@
     <Compile Include="IncidentWorker_GrimmWandersIn.cs" />
     <Compile Include="IncidentWorker_Nuckelavee.cs" />
     <Compile Include="IncidentWorker_Sneeze.cs" />
+    <Compile Include="IncidentWorker_UnlockAura.cs" />
+    <Compile Include="IncidentWorker_UnlockSemblance.cs" />
     <Compile Include="JobDriverStealAura.cs" />
     <Compile Include="JobDriverTakePhotos.cs" />
     <Compile Include="JoyGiver_TakePhotos.cs" />
@@ -107,6 +115,7 @@
     <Compile Include="Projectile_WithFleck.cs" />
     <Compile Include="RemnantMod.cs" />
     <Compile Include="RemnantModSettings.cs" />
+    <Compile Include="SemblanceUtility.cs" />
     <Compile Include="ThingDef_CrystalBullet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThingDef_ExplosiveFleckProjectile.cs" />
