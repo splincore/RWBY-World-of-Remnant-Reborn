@@ -26,7 +26,7 @@ namespace RWBYRemnant
             List<Pawn> pawnsWithoutAura = injuredPawns.FindAll(p => !p.story.traits.HasTrait(RWBYDefOf.RWBY_Aura) && !SemblanceUtility.semblanceList.Any(s => p.story.traits.HasTrait(s)));
             if (pawnsWithoutAura.Count == 0) return false;
             Pawn pawnWithoutAura = pawnsWithoutAura.RandomElement();
-            return SemblanceUtility.UnlockAura(pawnWithoutAura, "LetterTextUnlockAuraHurt");
+            return SemblanceUtility.TryUnlockAura(pawnWithoutAura, "LetterTextUnlockAuraHurt");
         }
     }
 }

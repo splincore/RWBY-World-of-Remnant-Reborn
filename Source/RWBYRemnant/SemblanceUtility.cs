@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace RWBYRemnant
@@ -15,7 +13,7 @@ namespace RWBYRemnant
             "BondedAnimalDied",
             "WitnessedDeathFamily",
             "GotMarried",
-            "Catharsis"
+            "Catharsis",
         };
 
         public static readonly List<TraitDef> semblanceList = new List<TraitDef>
@@ -33,18 +31,29 @@ namespace RWBYRemnant
             RWBYDefOf.Semblance_Cinder,
             RWBYDefOf.Semblance_Hazel,
             RWBYDefOf.Semblance_Velvet,
-            RWBYDefOf.Semblance_Adam
+            RWBYDefOf.Semblance_Adam,
         };
 
-        //public static readonly List<string> noraDmgAbsorbDefs = new List<string>
-        //{
-        //    "TM_Lightning",
-        //    "TM_LightningCloud",
-        //    "SW_ShockBullet_Damage",
-        //    "SW_ShockBullet_Damage_Penetrating",
-        //    "Rimlaser_TeslaGun",
-        //    "PJ_FLightning"
-        //};
+        public static readonly List<(HediffDef StatusType, DamageDef DamageType)> damageBoostingHediffs = new List<(HediffDef, DamageDef)>
+        {
+            (RWBYDefOf.RWBY_YangReturnDamage, DamageDefOf.Blunt),
+            (RWBYDefOf.RWBY_LightningBuff, RWBYDefOf.RWBY_Lightning_Blunt),
+            (RWBYDefOf.RWBY_InjectedFireCrystal, RWBYDefOf.RWBY_Inflame_Blunt),
+            (RWBYDefOf.RWBY_InjectedIceCrystal, RWBYDefOf.RWBY_Ice_Blunt),
+            (RWBYDefOf.RWBY_InjectedLightningCrystal, RWBYDefOf.RWBY_Lightning_Blunt),
+            (RWBYDefOf.RWBY_InjectedGravityCrystal, DamageDefOf.Blunt),
+            (RWBYDefOf.RWBY_InjectedHardLightCrystal, RWBYDefOf.RWBY_Burn_Blunt),
+        };
+
+        public static readonly List<string> noraDmgAbsorbDefs = new List<string>
+        {
+            "TM_Lightning",
+            "TM_LightningCloud",
+            "SW_ShockBullet_Damage",
+            "SW_ShockBullet_Damage_Penetrating",
+            "Rimlaser_TeslaGun",
+            "PJ_FLightning",
+        };
 
         public static readonly List<HediffDef> injectedDustCrystalHediffs = new List<HediffDef>
         {
@@ -52,7 +61,7 @@ namespace RWBYRemnant
             RWBYDefOf.RWBY_InjectedIceCrystal,
             RWBYDefOf.RWBY_InjectedLightningCrystal,
             RWBYDefOf.RWBY_InjectedGravityCrystal,
-            RWBYDefOf.RWBY_InjectedHardLightCrystal
+            RWBYDefOf.RWBY_InjectedHardLightCrystal,
         };
 
         public static IEnumerable<TraitDef> GetSemblancesForPassion(SkillDef skill)
@@ -138,23 +147,71 @@ namespace RWBYRemnant
             yield break;
         }
 
-        public static bool UnlockSemblance(Pawn pawn, TraitDef semblance, string textKey, string labelKey = "LetterLabelUnlockSemblanceGeneral")
+        public static bool TryUnlockSemblance(Pawn pawn, TraitDef semblance, string textKey, bool isInitialization = false, string labelKey = "LetterLabelUnlockSemblanceGeneral")
         {
             if (pawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen)) return false;
-            if (!pawn.story.traits.HasTrait(RWBYDefOf.RWBY_Aura)) return false;
-            if (pawn.WorkTagIsDisabled(semblance.requiredWorkTags)) return false;
+            if (!isInitialization && !pawn.story.traits.HasTrait(RWBYDefOf.RWBY_Aura)) return false;
+            if (!isInitialization && pawn.WorkTagIsDisabled(semblance.requiredWorkTags)) return false;
             pawn.story.traits.allTraits.RemoveAll(t => t.def.Equals(RWBYDefOf.RWBY_Aura));
             pawn.story.traits.GainTrait(new Trait(semblance));
 
-            // TODO change Aura
-            //if (semblance == RWBYDefOf.Semblance_Ruby)
-            //{
-
-            //}
-            //else if (semblance == RWBYDefOf.Semblance_Yang)
-            //{
-
-            //}
+            if (semblance == RWBYDefOf.Semblance_Ruby)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Ruby { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                // TODO add abilities
+            }
+            else if (semblance == RWBYDefOf.Semblance_Yang)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Yang { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Weiss)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Weiss { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Blake)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Weiss { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Nora)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Nora { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Jaune)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Jaune { maxEnergy = 150, CurrentEnergy = 150, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Pyrrha)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Pyrrha { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Ren)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Ren { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Qrow)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Qrow { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Raven)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Raven { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Cinder)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Cinder { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Hazel)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Hazel { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Velvet)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Velvet { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
+            else if (semblance == RWBYDefOf.Semblance_Adam)
+            {
+                pawn.TryGetComp<CompAura>().aura = new Aura_Adam { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+            }
 
             string label = labelKey.Translate().Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN").CapitalizeFirst();
             string text = textKey.Translate().Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN").CapitalizeFirst();
@@ -162,13 +219,16 @@ namespace RWBYRemnant
             return true;
         }
 
-        public static bool UnlockAura(Pawn pawn, string textKey, string labelKey = "LetterLabelUnlockAura", float auraSize = 70f)
+        public static bool TryUnlockAura(Pawn pawn, string textKey, bool isInitialization = false, string labelKey = "LetterLabelUnlockAura", float auraSize = 70f)
         {
             if (pawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen)) return false;
             if (!LoadedModManager.GetMod<RemnantMod>().GetSettings<RemnantModSettings>().auraUnlockable) return false;
-            if (pawn.story.traits.HasTrait(RWBYDefOf.RWBY_Aura)) return false;
+            if (!isInitialization && pawn.story.traits.HasTrait(RWBYDefOf.RWBY_Aura)) return false;
             if (semblanceList.Any(s => pawn.story.traits.HasTrait(s))) return false;
-            pawn.story.traits.GainTrait(new Trait(RWBYDefOf.RWBY_Aura));
+            if (!isInitialization)
+            {
+                pawn.story.traits.GainTrait(new Trait(RWBYDefOf.RWBY_Aura));
+            }
             pawn.TryGetComp<CompAura>().aura = new Aura { maxEnergy = auraSize, CurrentEnergy = auraSize, pawn = pawn };
 
             string label = labelKey.Translate().Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN").CapitalizeFirst();
@@ -184,13 +244,22 @@ namespace RWBYRemnant
         //    RWBYDefOf.Grimm_ArmaGigasSword_Summoned
         //};
 
-        //public static bool PyrrhaMagnetismCanAffect(Thing thing)
-        //{
-        //    if (thing == null) return false;
-        //    if (thing is ThingWithComps thingWithComps && (thingWithComps.Smeltable || thingWithComps.def.IsMetal)) return true;
-        //    if (thing is Pawn pawn && (pawn.RaceProps.IsMechanoid || pawn.RaceProps.FleshType.defName == "ChJDroid" || pawn.RaceProps.FleshType.defName == "Android" || pawn.RaceProps.FleshType.defName == "MechanisedInfantry")) return true;
+        public static bool PyrrhaMagnetismCanAffect(Thing thing)
+        {
+            if (thing == null) return false;
+            if (thing is ThingWithComps thingWithComps && (thingWithComps.Smeltable || thingWithComps.def.IsMetal)) return true;
+            if (thing is Pawn pawn && (pawn.RaceProps.IsMechanoid || pawn.RaceProps.FleshType.defName == "ChJDroid" || pawn.RaceProps.FleshType.defName == "Android" || pawn.RaceProps.FleshType.defName == "MechanisedInfantry")) return true;
 
-        //    return false;
-        //}
+            return false;
+        }
+
+        public static bool PyrrhaMagnetismCanAffect(ThingDef thingDef)
+        {
+            if (thingDef == null) return false;
+            if (thingDef.smeltable || thingDef.IsMetal) return true;
+            if (thingDef.race is RaceProperties raceProperties && (raceProperties.IsMechanoid || raceProperties.FleshType.defName == "ChJDroid" || raceProperties.FleshType.defName == "Android" || raceProperties.FleshType.defName == "MechanisedInfantry")) return true;
+
+            return false;
+        }
     }
 }

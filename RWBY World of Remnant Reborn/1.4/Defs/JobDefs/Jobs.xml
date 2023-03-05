@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!--JobDef>
+	<JobDef>
 		<defName>GoThroughPortal</defName>
 		<driverClass>RWBYRemnant.JobDriverGoThroughPortal</driverClass>
 		<reportString>going through TargetA.</reportString>
 		<casualInterruptible>false</casualInterruptible>
 		<suspendable>false</suspendable>
-	</JobDef-->
+	</JobDef>
 
 	<JobDef>
 		<defName>RWBY_TakePhotos</defName>

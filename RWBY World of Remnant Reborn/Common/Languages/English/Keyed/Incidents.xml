@@ -50,11 +50,8 @@
 	<LetterTextApathyKnowing>An unknown presence has entered your home. Your colonists suddenly feel sleepy and unmotivated.\n\n{PAWN_nameDef} has experienced this before and thinks that maybe an Apathy Grimm is causing this.</LetterTextApathyKnowing>
 
 	<!-- Qrow semblance effects -->
-	<TextMote_Crow_WeaponSlipped>Weapon slipped</TextMote_Crow_WeaponSlipped>
 	<TextMote_Crow_MissedRanged>Huh?</TextMote_Crow_MissedRanged>
 	<TextMote_Crow_MissedMelee>Slipped</TextMote_Crow_MissedMelee>
-	<TextMote_Crow_BitLip>Bit lip</TextMote_Crow_BitLip>
-	<TextMote_Crow_StubbedToe>Stubbed toe</TextMote_Crow_StubbedToe>
 	<MessageTextQrowRaid>This raid is stronger than usual, how come?</MessageTextQrowRaid>
 	
 	<!-- Aura Steal -->

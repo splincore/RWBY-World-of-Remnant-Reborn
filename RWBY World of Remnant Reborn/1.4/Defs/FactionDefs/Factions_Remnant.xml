@@ -11,8 +11,36 @@
 		<canSiege>true</canSiege>
 		<canStageAttacks>true</canStageAttacks>
 		<leaderTitle>headmaster</leaderTitle>
-		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+		<factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
 		<techLevel>Spacer</techLevel>
+		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
+		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+		<allowedCultures>
+			<li>Rustican</li>
+		</allowedCultures>
+		<disallowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Structure_Animist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
+		</disallowedMemes>
+		<structureMemeWeights>
+			<Structure_TheistEmbodied MayRequire="Ludeon.RimWorld.Ideology">1</Structure_TheistEmbodied>
+			<Structure_TheistAbstract MayRequire="Ludeon.RimWorld.Ideology">2</Structure_TheistAbstract>
+			<Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
+			<Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Archist>
+			<Structure_OriginChristian MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginChristian>
+			<Structure_OriginIslamic MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginIslamic>
+			<Structure_OriginHindu MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginHindu>
+			<Structure_OriginBuddhist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginBuddhist>
+		</structureMemeWeights>
+		<xenotypeSet>
+			<xenotypeChances>
+				<Hussar MayRequire="Ludeon.RimWorld.Biotech">0.05</Hussar>
+				<Dirtmole MayRequire="Ludeon.RimWorld.Biotech">0.05</Dirtmole>
+				<Genie MayRequire="Ludeon.RimWorld.Biotech">0.025</Genie>
+				<Neanderthal MayRequire="Ludeon.RimWorld.Biotech">0.025</Neanderthal>
+			</xenotypeChances>
+		</xenotypeSet>
 		<backstoryFilters>
 			<li>
 				<categories>
@@ -52,6 +80,7 @@
 			<li>Base_Outlander_Dust</li>
 		</baseTraderKinds>
 		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+		<raidLootMaker>DustRaidLootMaker</raidLootMaker>
 		<maxPawnCostPerTotalPointsCurve>
 			<points>
 				<li>(0,35)</li>
@@ -79,6 +108,7 @@
 				<kindDef>Peaceful</kindDef>
 				<options>
 					<Villager>20</Villager>
+					<Villager_Child MayRequire="Ludeon.RimWorld.Biotech">10</Villager_Child>
 					<Town_Guard>10</Town_Guard>
 					<Town_Councilman>10</Town_Councilman>
 				</options>
@@ -144,8 +174,34 @@
 				</options>
 			</li>
 		</pawnGroupMakers>
-		<factionIconPath>World/WorldObjects/DefaultSettlement</factionIconPath>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
 	</FactionDef>
+	<ThingSetMakerDef>
+		<defName>DustRaidLootMaker</defName>
+		<root Class="ThingSetMaker_MarketValue">
+			<fixedParams>
+				<filter>
+					<thingDefs>
+						<li>Silver</li>
+						<li>MedicineIndustrial</li>
+						<li>ComponentIndustrial</li>
+						<li>RWBY_PumpkinPetes</li>
+						<li>Neutroamine</li>
+						<li>FireDustCrystal</li>
+						<li>IceDustCrystal</li>
+						<li>LightningDustCrystal</li>
+						<li>GravityDustCrystal</li>
+						<li>HardLightDustCrystal</li>
+						<li>FireDustPowder</li>
+						<li>IceDustPowder</li>
+						<li>LightningDustPowder</li>
+						<li>GravityDustPowder</li>
+						<li>HardLightDustPowder</li>
+					</thingDefs>
+				</filter>
+			</fixedParams>
+		</root>
+	</ThingSetMakerDef>
 	<FactionDef ParentName="RemnantFactionBase">
 		<defName>ValePeople</defName>
 		<label>People of Remnant</label>
@@ -154,6 +210,9 @@
 		<colorSpectrum>
 			<li>(0.2, 0.8, 0.0)</li>
 		</colorSpectrum>
+		<classicIdeo>true</classicIdeo>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>10</configurationListOrderPriority>
 		<factionIconPath>World/ValeBase</factionIconPath>
 		<settlementTexturePath>World/ValeBase</settlementTexturePath>
 	</FactionDef>
@@ -165,6 +224,9 @@
 		<colorSpectrum>
 			<li>(1.0, 0.6, 0.0)</li>
 		</colorSpectrum>
+		<classicIdeo>true</classicIdeo>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>10</configurationListOrderPriority>
 		<factionIconPath>World/VacuoBase</factionIconPath>
 		<settlementTexturePath>World/VacuoBase</settlementTexturePath>
 	</FactionDef>
@@ -176,6 +238,9 @@
 		<colorSpectrum>
 			<li>(1.0, 1.0, 1.0)</li>
 		</colorSpectrum>
+		<classicIdeo>true</classicIdeo>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>10</configurationListOrderPriority>
 		<factionIconPath>World/AtlasBase</factionIconPath>
 		<settlementTexturePath>World/AtlasBase</settlementTexturePath>
 	</FactionDef>
@@ -187,6 +252,9 @@
 		<colorSpectrum>
 			<li>(0.2, 0.8, 1.0)</li>
 		</colorSpectrum>
+		<classicIdeo>true</classicIdeo>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>10</configurationListOrderPriority>
 		<factionIconPath>World/MistralBase</factionIconPath>
 		<settlementTexturePath>World/MistralBase</settlementTexturePath>
 	</FactionDef>

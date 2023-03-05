@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="AbilityBuildingBase">
+		<defName>Blake_ShadowClone</defName>
+		<label>shadow clone</label>
+		<description>A shadow clone of a certain semblance.</description>
+		<thingClass>Building</thingClass>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>40</pathCost>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.65</fillPercent>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Projectile/Empty_Projectile</texPath>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<drawDamagedOverlay>false</drawDamagedOverlay>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Beauty>0</Beauty>
+			<WorkToBuild>1</WorkToBuild>
+			<MarketValue>0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_ShadowClone"/>
+		</comps>
+		<forceDebugSpawnable>false</forceDebugSpawnable>
+		<building>
+			<expandHomeArea>false</expandHomeArea>
+			<repairable>false</repairable>
+			<isInert>true</isInert>
+		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="AbilityBuildingBase">
+		<defName>Blake_ShadowClone_Stone</defName>
+		<label>stone clone</label>
+		<description>A stone clone of a certain semblance.</description>
+		<thingClass>Building</thingClass>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>50</pathCost>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>1</fillPercent>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Projectile/Empty_Projectile</texPath>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<drawDamagedOverlay>false</drawDamagedOverlay>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Beauty>0</Beauty>
+			<WorkToBuild>1</WorkToBuild>
+			<MarketValue>0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_ShadowClone"/>
+		</comps>
+		<forceDebugSpawnable>false</forceDebugSpawnable>
+		<building>
+			<expandHomeArea>false</expandHomeArea>
+			<repairable>false</repairable>
+			<isInert>true</isInert>
+		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="AbilityBuildingBase">
+		<defName>Blake_ShadowClone_Ice</defName>
+		<label>ice clone</label>
+		<description>A ice clone of a certain semblance.</description>
+		<thingClass>Building</thingClass>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>40</pathCost>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.65</fillPercent>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Projectile/Empty_Projectile</texPath>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<drawDamagedOverlay>false</drawDamagedOverlay>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Beauty>0</Beauty>
+			<WorkToBuild>1</WorkToBuild>
+			<MarketValue>0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_ShadowClone"/>
+		</comps>
+		<forceDebugSpawnable>false</forceDebugSpawnable>
+		<building>
+			<expandHomeArea>false</expandHomeArea>
+			<repairable>false</repairable>
+			<isInert>true</isInert>
+		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="AbilityBuildingBase">
+		<defName>Blake_ShadowClone_Fire</defName>
+		<label>fire clone</label>
+		<description>A fire clone of a certain semblance.</description>
+		<thingClass>Building</thingClass>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>40</pathCost>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.65</fillPercent>
+		<useHitPoints>false</useHitPoints>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Projectile/Empty_Projectile</texPath>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<drawDamagedOverlay>false</drawDamagedOverlay>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Beauty>0</Beauty>
+			<WorkToBuild>1</WorkToBuild>
+			<MarketValue>0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_ShadowClone"/>
+			<li Class="RWBYRemnant.CompProperties_ExplosiveSilent">
+				<explosiveRadius>1.6</explosiveRadius>
+				<explosiveDamageType>Bomb_Fire</explosiveDamageType>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+				</startWickOnDamageTaken>
+				<wickTicks>
+					<min>60</min>
+					<max>120</max>
+				</wickTicks>
+			</li>
+		</comps>
+		<forceDebugSpawnable>false</forceDebugSpawnable>
+		<building>
+			<expandHomeArea>false</expandHomeArea>
+			<repairable>false</repairable>
+			<isInert>true</isInert>
+		</building>
+	</ThingDef>
+
+</Defs>

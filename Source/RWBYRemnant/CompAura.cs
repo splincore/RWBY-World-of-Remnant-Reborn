@@ -16,22 +16,22 @@ namespace RWBYRemnant
             if (hiddenSemblance == null) GenerateHiddenSemblance();
             initialized = true;
             if (AuraOwner.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen)) return;
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.RWBY_Aura)) SemblanceUtility.UnlockAura(AuraOwner, "LetterTextUnlockAuraAuto");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Ruby)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Ruby, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Yang)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Yang, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Weiss)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Weiss, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Blake)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Blake, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Nora)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Nora, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Jaune)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Jaune, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Pyrrha)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Pyrrha, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Ren)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Ren, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Qrow)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Qrow, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Raven)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Raven, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Cinder)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Cinder, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Hazel)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Hazel, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Velvet)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Velvet, "LetterTextUnlockSemblanceGeneral");
-            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Adam)) SemblanceUtility.UnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Adam, "LetterTextUnlockSemblanceGeneral");
-            if (LoadedModManager.GetMod<RemnantMod>().GetSettings<RemnantModSettings>().everyoneHasAura) SemblanceUtility.UnlockAura(AuraOwner, "LetterTextUnlockAuraAuto", auraSize: 30f);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.RWBY_Aura)) SemblanceUtility.TryUnlockAura(AuraOwner, "LetterTextUnlockAuraAuto", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Ruby)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Ruby, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Yang)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Yang, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Weiss)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Weiss, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Blake)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Blake, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Nora)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Nora, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Jaune)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Jaune, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Pyrrha)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Pyrrha, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Ren)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Ren, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Qrow)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Qrow, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Raven)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Raven, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Cinder)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Cinder, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Hazel)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Hazel, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Velvet)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Velvet, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (AuraOwner.story.traits.HasTrait(RWBYDefOf.Semblance_Adam)) SemblanceUtility.TryUnlockSemblance(AuraOwner, RWBYDefOf.Semblance_Adam, "LetterTextUnlockSemblanceGeneral", isInitialization: true);
+            if (LoadedModManager.GetMod<RemnantMod>().GetSettings<RemnantModSettings>().everyoneHasAura) SemblanceUtility.TryUnlockAura(AuraOwner, "LetterTextUnlockAuraAuto", isInitialization: true, auraSize: 30f);
         }
 
         public override void CompTick()
@@ -44,17 +44,14 @@ namespace RWBYRemnant
             if (aura != null)
             {
                 aura.Tick();
+                if (aura.maxEnergy < 50f)
+                {
+                    ProgressAutoUnlock();
+                }
             }
             else if(!AuraOwner.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen))
             {
-                if (auraAutoUnlock > 0)
-                {
-                    auraAutoUnlock--;
-                }
-                else
-                {
-                    SemblanceUtility.UnlockAura(AuraOwner, "LetterTextUnlockAuraAuto"); // TODO unlock Aura
-                }
+                ProgressAutoUnlock();
             }
         }
 
@@ -102,11 +99,11 @@ namespace RWBYRemnant
         {
             if (forceUnlock)
             {
-                return SemblanceUtility.UnlockSemblance(AuraOwner, hiddenSemblance, "LetterTextUnlockSemblanceGeneral");
+                return SemblanceUtility.TryUnlockSemblance(AuraOwner, hiddenSemblance, "LetterTextUnlockSemblanceGeneral");
             }
             if (SemblanceUtility.GetSemblancesForPassion(skillDef).Contains(hiddenSemblance))
             {
-                return SemblanceUtility.UnlockSemblance(AuraOwner, hiddenSemblance, "LetterTextUnlock" + hiddenSemblance.defName.Replace("_", ""));
+                return SemblanceUtility.TryUnlockSemblance(AuraOwner, hiddenSemblance, "LetterTextUnlock" + hiddenSemblance.defName.Replace("_", ""));
             }
             return false;
         }
@@ -177,17 +174,29 @@ namespace RWBYRemnant
             }
         }
 
+        public void ProgressAutoUnlock()
+        {
+            if (auraAutoUnlock > 0)
+            {
+                auraAutoUnlock--;
+            }
+            else
+            {
+                SemblanceUtility.TryUnlockAura(AuraOwner, "LetterTextUnlockAuraAuto"); // TODO unlock Aura
+            }
+        }
+
         public override void PostExposeData()
         {
             base.PostExposeData();
             Scribe_Values.Look<bool>(ref initialized, "initialized", false, false);
-            Scribe_Deep.Look(ref aura, false, parent.ThingID.ToString() + "Aura");
+            Scribe_Deep.Look<Aura>(ref aura, false, parent.ThingID.ToString() + "Aura");
             Scribe_Values.Look<int>(ref eatenPumkinPetesCounter, "eatenPumkinPetesCounter", 0, false);
             Scribe_Defs.Look<TraitDef>(ref hiddenSemblance, "hiddenSemblance");
             Scribe_Values.Look<int>(ref auraAutoUnlock, "auraAutoUnlock", Rand.Range(3600000, 7200000), false);
         }
 
-        public bool initialized;
+        public bool initialized = false;
         public Aura aura = null;
         public int eatenPumkinPetesCounter = 0;
         public TraitDef hiddenSemblance = null;

@@ -33,12 +33,21 @@ namespace RWBYRemnant
         // Sounds
         public static SoundDef AuraFlicker;
         public static SoundDef AuraBreak;
+        public static SoundDef Ricochet1;
+        public static SoundDef Ricochet2;
+        public static SoundDef Ricochet3;
+        public static SoundDef Ricochet4;
+        public static SoundDef Shoot_Fireball;
+        public static SoundDef Draw_Gambol_Shroud_Katana;
 
         // Damage
         public static DamageDef RWBY_Inflame_Blunt;
         public static DamageDef RWBY_Ice_Blunt;
         public static DamageDef RWBY_Lightning_Blunt;
         public static DamageDef RWBY_Burn_Blunt;
+        public static DamageDef Bomb_Lightning;
+        public static DamageDef RWBY_Lightning_Slash;
+        public static DamageDef RWBY_Lightning_Bullet;
 
         // Grimm
         public static FactionDef Creatures_of_Grimm;
@@ -61,18 +70,25 @@ namespace RWBYRemnant
 
         // Ruby
         public static TraitDef Semblance_Ruby;
+        public static ThingDef RWBY_Crescent_Rose_Rifle;
+        public static ThingDef RWBY_Crescent_Rose_Scythe;
+        public static ThoughtDef RWBY_RubyUsedCrescentRose;
 
         // Yang
         public static TraitDef Semblance_Yang;
         public static HediffDef RWBY_YangReturnDamage;
 
         // Weiss
+        public static TraitDef Semblance_Weiss;
         public static ThingDef Weiss_Glyph_TimeDilation;
         public static HediffDef RWBY_TimeDilation;
-        public static TraitDef Semblance_Weiss;
 
         // Blake
         public static TraitDef Semblance_Blake;
+        public static ThingDef Blake_ShadowClone;
+        public static ThingDef Blake_ShadowClone_Fire;
+        public static ThingDef Blake_ShadowClone_Ice;
+        public static ThingDef Blake_ShadowClone_Stone;
 
         // Nora
         public static TraitDef Semblance_Nora;
@@ -93,6 +109,8 @@ namespace RWBYRemnant
 
         // Raven
         public static TraitDef Semblance_Raven;
+        public static ThingDef Raven_Portal;
+        public static JobDef GoThroughPortal;
 
         // Cinder
         public static TraitDef Semblance_Cinder;
@@ -106,6 +124,7 @@ namespace RWBYRemnant
         public static ThingDef RWBY_Anesidora_Box;
         public static ThoughtDef RWBY_PictureTaken;
         public static JobDef RWBY_TakePhotos;
+        public static HediffDef RWBY_VelvetMimicMoves;
 
         // Adam
         public static TraitDef Semblance_Adam;

@@ -21,7 +21,6 @@ namespace RWBYRemnant
             listingStandard.CheckboxLabeled("SemblanceLabel".Translate(), ref remnantModSettings.semblanceUnlockable, "SemblanceTooltip".Translate());
             listingStandard.CheckboxLabeled("EveryoneMakesPhotosForJoyLabel".Translate(), ref remnantModSettings.everyoneMakesPhotosForJoy, "EveryoneMakesPhotosForJoyTooltip".Translate());
             listingStandard.CheckboxLabeled("HideAuraWhenMultiselectLabel".Translate(), ref remnantModSettings.hideAuraWhenMultiselect, "HideAuraWhenMultiselectTooltip".Translate());
-            listingStandard.CheckboxLabeled("FixTraitDisabledWorkTagsLabel".Translate(), ref remnantModSettings.fixTraitDisabledWorkTags, "FixTraitDisabledWorkTagsTooltip".Translate());
 
             listingStandard.Label("EarliestNuckelaveeLabel".Translate());
             listingStandard.Gap(listingStandard.verticalSpacing);

@@ -70,20 +70,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aura.cs" />
+    <Compile Include="Aura_Adam.cs" />
+    <Compile Include="Aura_Blake.cs" />
+    <Compile Include="Aura_Cinder.cs" />
+    <Compile Include="Aura_Hazel.cs" />
+    <Compile Include="Aura_Jaune.cs" />
+    <Compile Include="Aura_Nora.cs" />
+    <Compile Include="Aura_Pyrrha.cs" />
+    <Compile Include="Aura_Qrow.cs" />
+    <Compile Include="Aura_Raven.cs" />
+    <Compile Include="Aura_Ren.cs" />
+    <Compile Include="Aura_Ruby.cs" />
+    <Compile Include="Aura_Velvet.cs" />
+    <Compile Include="Aura_Weiss.cs" />
     <Compile Include="Aura_Yang.cs" />
     <Compile Include="CompCameraPhotos.cs" />
+    <Compile Include="CompExplosiveSilent.cs" />
     <Compile Include="CompLightCopy.cs" />
     <Compile Include="CompProperties_Aura.cs" />
     <Compile Include="CompProperties_CameraPhotos.cs" />
+    <Compile Include="CompProperties_ExplosiveSilent.cs" />
     <Compile Include="CompProperties_LightCopy.cs" />
+    <Compile Include="CompProperties_ShadowClone.cs" />
     <Compile Include="CompProperties_StealAura.cs" />
     <Compile Include="CompProperties_TimeDilationGlyph.cs" />
     <Compile Include="CompProperties_WeaponDrinkCoffee.cs" />
     <Compile Include="CompAura.cs" />
+    <Compile Include="CompShadowClone.cs" />
     <Compile Include="CompStealAura.cs" />
     <Compile Include="CompTimeDilationGlyph.cs" />
     <Compile Include="CompWeaponDrinkCoffee.cs" />
     <Compile Include="DefOfs.cs" />
+    <Compile Include="GizmoAdamAbsorbLevel.cs" />
     <Compile Include="GizmoAuraStatus.cs" />
     <Compile Include="GizmoYangAngerLevel.cs" />
     <Compile Include="GrimmUtility.cs" />
@@ -101,6 +119,7 @@
     <Compile Include="IncidentWorker_Sneeze.cs" />
     <Compile Include="IncidentWorker_UnlockAura.cs" />
     <Compile Include="IncidentWorker_UnlockSemblance.cs" />
+    <Compile Include="JobDriverGoThroughPortal.cs" />
     <Compile Include="JobDriverStealAura.cs" />
     <Compile Include="JobDriverTakePhotos.cs" />
     <Compile Include="JoyGiver_TakePhotos.cs" />
@@ -122,6 +141,7 @@
     <Compile Include="ThingDef_FleckProjectile.cs" />
     <Compile Include="ThingDef_Myrtenaster_FireBolt.cs" />
     <Compile Include="ThingDef_WiltBullet.cs" />
+    <Compile Include="ThingWithComps_Portal.cs" />
     <Compile Include="WorkGiver_StealAura.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -18,10 +18,8 @@ namespace RWBYRemnant
             {
                 return null;
             }
-            List<Pawn> potentialPawnTargets = new List<Pawn>();
-            potentialPawnTargets.AddRange(pawn.Map.mapPawns.AllPawnsSpawned.FindAll(p => p.RaceProps.Humanlike && pawn.CanReach(p, PathEndMode.InteractionCell, Danger.None) && p != pawn));
-            List<Thing> potentialWeaponTargets = new List<Thing>();
-            potentialWeaponTargets.AddRange(pawn.Map.GetDirectlyHeldThings().ToList().FindAll(t => t.def.IsWeapon && t.def.equipmentType == EquipmentType.Primary && pawn.CanReach(t, PathEndMode.InteractionCell, Danger.None)));
+            List<Pawn> potentialPawnTargets = pawn.Map.mapPawns.AllPawnsSpawned.FindAll(p => p.RaceProps.Humanlike && pawn.CanReach(p, PathEndMode.InteractionCell, Danger.None) && p != pawn);
+            List<Thing> potentialWeaponTargets = pawn.Map.GetDirectlyHeldThings().ToList().FindAll(t => t.def.IsWeapon && t.def.equipmentType == EquipmentType.Primary && pawn.CanReach(t, PathEndMode.InteractionCell, Danger.None));
             if (potentialPawnTargets.Count == 0 && potentialWeaponTargets.Count == 0)
             {
                 return null;
@@ -31,13 +29,12 @@ namespace RWBYRemnant
             if (Rand.Chance((float)potentialPawnTargets.Count / ((float)potentialPawnTargets.Count + (float)potentialWeaponTargets.Count)))
             {
                 job = new Job(this.def.jobDef, potentialPawnTargets.RandomElement());
-                job.locomotionUrgency = LocomotionUrgency.Jog;
             }
             else
             {
                 job = new Job(this.def.jobDef, potentialWeaponTargets.RandomElement());
-                job.locomotionUrgency = LocomotionUrgency.Jog;
             }
+            job.locomotionUrgency = LocomotionUrgency.Jog;
             return job;
         }
     }

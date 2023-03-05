@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
 	<FactionDef ParentName="FactionBase">
 		<defName>Creatures_of_Grimm</defName>
 		<label>Creatures of Grimm</label>
@@ -10,6 +9,9 @@
 		<requiredCountAtGameStart>1</requiredCountAtGameStart>
 		<fixedName>Creatures of Grimm</fixedName>
 		<factionIconPath>World/WorldObjects/DefaultSettlement</factionIconPath>
+		<colorSpectrum>
+			<li>(0, 0, 0)</li>
+		</colorSpectrum>
 		<raidCommonalityFromPointsCurve>
 			<points>
 				<li>(700, 0.4)</li>
@@ -77,6 +79,7 @@
 		</pawnGroupMakers>
 		<allowedArrivalTemperatureRange>-200~200</allowedArrivalTemperatureRange>
 		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+		<maxConfigurableAtWorldCreation>1</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>1000</configurationListOrderPriority>
 	</FactionDef>
-
 </Defs>

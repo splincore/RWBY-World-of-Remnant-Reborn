@@ -33,7 +33,7 @@ namespace RWBYRemnant
                 else // regen Aura
                 {
                     // injured pawns won´t regenerate aura if aura is empty, regenerates only out of combat and last taken damage is 60 seconds away
-                    if (currentEnergy < maxEnergy && Find.TickManager.TicksGame - lastAbsorbDamageTick > GenTicks.SecondsToTicks(60f)) currentEnergy += 1f;
+                    if (CurrentEnergy < maxEnergy && Find.TickManager.TicksGame - lastAbsorbDamageTick > GenTicks.SecondsToTicks(60f)) CurrentEnergy += 1f;
                 }
             }
 
@@ -68,10 +68,10 @@ namespace RWBYRemnant
             if (pawn.IsHashIntervalTick(30) && pawn.health.hediffSet.hediffs.Any(h => SemblanceUtility.injectedDustCrystalHediffs.Contains(h.def))) // with Dust injected Aura regenerates faster
             {
                 float energyToRegenerate = pawn.health.hediffSet.hediffs.FindAll(h => SemblanceUtility.injectedDustCrystalHediffs.Contains(h.def)).Sum(s => s.CurStageIndex + 1);
-                if (currentEnergy < maxEnergy) currentEnergy += energyToRegenerate;
+                if (CurrentEnergy < maxEnergy) CurrentEnergy += energyToRegenerate;
             }
 
-            if (currentEnergy > maxEnergy) currentEnergy = maxEnergy;
+            if (CurrentEnergy > maxEnergy) CurrentEnergy = maxEnergy;
         }
 
         public virtual void TickRare()
@@ -81,7 +81,7 @@ namespace RWBYRemnant
 
         public virtual bool TryAbsorbDamage(DamageInfo dinfo)
         {
-            if (currentEnergy == 0f || dinfo.Def == DamageDefOf.SurgicalCut) return false;
+            if (CurrentEnergy == 0f || dinfo.Def == DamageDefOf.SurgicalCut) return false;
             if (dinfo.Def.defName == "PJ_ForceHealDamage") return false;
             if (!pawn.Drafted && !pawn.IsFighting() && Rand.Chance(0.05f))
             {
@@ -92,8 +92,16 @@ namespace RWBYRemnant
                 return false;
             }
 
-            currentEnergy -= dinfo.Amount;
-            if (currentEnergy > 0f) // normal absorb
+            if (pawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AmplifiedAura))
+            {
+                CurrentEnergy -= dinfo.Amount / 2f; // amplified Aura takes half the damage
+            }
+            else
+            {
+                CurrentEnergy -= dinfo.Amount;
+            }
+
+            if (CurrentEnergy > 0f) // normal absorb
             {
                 RWBYDefOf.AuraFlicker.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map, false));
                 impactAngleVect = Vector3Utility.HorizontalVectorFromAngle(dinfo.Angle);
@@ -115,7 +123,7 @@ namespace RWBYRemnant
                     Vector3 loc = pawn.TrueCenter() + Vector3Utility.HorizontalVectorFromAngle((float)Rand.Range(0, 360)) * Rand.Range(0.3f, 0.6f);
                     FleckMaker.ThrowDustPuff(loc, pawn.Map, Rand.Range(0.8f, 1.2f));
                 }
-                currentEnergy = 0f;
+                CurrentEnergy = 0f;
             }
             lastAbsorbDamageTick = Find.TickManager.TicksGame;
             return true;
@@ -123,9 +131,9 @@ namespace RWBYRemnant
 
         public bool TryConsumeAura(float consumeAmount)
         {
-            if (currentEnergy >= consumeAmount)
+            if (CurrentEnergy >= consumeAmount)
             {
-                currentEnergy -= consumeAmount;
+                CurrentEnergy -= consumeAmount;
                 return true;
             }
             return false;
@@ -150,7 +158,7 @@ namespace RWBYRemnant
 
         public bool Active()
         {
-            return pawn.Drafted && currentEnergy > 0 && !pawn.Downed && !pawn.Dead;
+            return pawn.Drafted && CurrentEnergy > 0 && !pawn.Downed && !pawn.Dead;
         }
 
         public virtual IEnumerable<Gizmo> GetGizmos()
@@ -183,7 +191,7 @@ namespace RWBYRemnant
                 {
                     bubbleMat = MaterialPool.MatFrom("Other/ShieldBubble", ShaderDatabase.Transparent, GetColor());
                 }
-                float num = Mathf.Lerp(1.2f, 1.55f, currentEnergy / maxEnergy);
+                float num = Mathf.Lerp(1.2f, 1.55f, CurrentEnergy / maxEnergy);
                 Vector3 vector = pawn.Drawer.DrawPos;
                 vector.y = AltitudeLayer.MoteOverhead.AltitudeFor();
                 int num2 = Find.TickManager.TicksGame - lastAbsorbDamageTick;
