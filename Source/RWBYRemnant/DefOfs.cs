@@ -8,6 +8,13 @@ namespace RWBYRemnant
     {
         #region "general Defs"
 
+        // History
+        public static HistoryEventDef RWBY_AuraStolenByPlayer;
+
+        // Thoughts
+        public static ThoughtDef RWBY_AuraStolen_Relation;
+        public static ThoughtDef RWBY_AuraStolen_Mood;
+
         // Traits
         public static TraitDef RWBY_Aura;
 

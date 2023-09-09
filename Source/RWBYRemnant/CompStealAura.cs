@@ -46,13 +46,12 @@ namespace RWBYRemnant
 
         public void DoEffectOn(LocalTargetInfo target)
         {
-            // TODO make steal Aura job
-            //if (target is Pawn targetPawn && targetPawn.RaceProps.Humanlike && targetPawn.story.traits.allTraits.Any(t => t.def == RWBYDefOf.RWBY_Aura || SemblanceUtility.semblanceList.Contains(t.def)))
-            //{
-            //    WorkGiver_StealAura stealAuraWorker = new WorkGiver_StealAura();
-            //    Job job = stealAuraWorker.JobOnThing(GetPawn, targetPawn, parent, true);
-            //    GetPawn.jobs.TryTakeOrderedJob(job);
-            //}
+            if (target.Pawn is Pawn targetPawn && targetPawn.RaceProps.Humanlike && targetPawn.story.traits.allTraits.Any(t => t.def == RWBYDefOf.RWBY_Aura || SemblanceUtility.semblanceList.Contains(t.def)))
+            {
+                WorkGiver_StealAura stealAuraWorker = new WorkGiver_StealAura();
+                Job job = stealAuraWorker.JobOnThing(GetPawn, targetPawn, parent, true);
+                GetPawn.jobs.TryTakeOrderedJob(job);
+            }
         }
 
         public void ConsumeStolenAura()

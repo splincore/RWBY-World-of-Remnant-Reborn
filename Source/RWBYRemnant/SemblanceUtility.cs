@@ -153,7 +153,7 @@ namespace RWBYRemnant
             if (!isInitialization && !pawn.story.traits.HasTrait(RWBYDefOf.RWBY_Aura)) return false;
             if (!isInitialization && pawn.WorkTagIsDisabled(semblance.requiredWorkTags)) return false;
             pawn.story.traits.allTraits.RemoveAll(t => t.def.Equals(RWBYDefOf.RWBY_Aura));
-            pawn.story.traits.GainTrait(new Trait(semblance));
+            if (!pawn.story.traits.HasTrait(semblance)) pawn.story.traits.GainTrait(new Trait(semblance));
 
             if (semblance == RWBYDefOf.Semblance_Ruby)
             {
@@ -170,7 +170,7 @@ namespace RWBYRemnant
             }
             else if (semblance == RWBYDefOf.Semblance_Blake)
             {
-                pawn.TryGetComp<CompAura>().aura = new Aura_Weiss { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.TryGetComp<CompAura>().aura = new Aura_Blake { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
             }
             else if (semblance == RWBYDefOf.Semblance_Nora)
             {

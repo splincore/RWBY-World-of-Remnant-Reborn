@@ -25,7 +25,8 @@ namespace RWBYRemnant
             listingStandard.Label("EarliestNuckelaveeLabel".Translate());
             listingStandard.Gap(listingStandard.verticalSpacing);
             Rect rect1 = listingStandard.GetRect(22f);
-            remnantModSettings.earliestNuckelavee = Widgets.HorizontalSlider(rect1, remnantModSettings.earliestNuckelavee, 0f, 120f, false, (remnantModSettings.earliestNuckelavee).ToString("") + "", "0", "120", 1f);
+            Widgets.HorizontalSlider(rect1, ref remnantModSettings.earliestNuckelavee, rangeEarliestNuckelavee, remnantModSettings.earliestNuckelavee.ToString(""), 1f);
+            //remnantModSettings.earliestNuckelavee = Widgets.HorizontalSlider(rect1, ref remnantModSettings.earliestNuckelavee, rangeEarliestNuckelavee, remnantModSettings.earliestNuckelavee.ToString(""), 1f);
 
             listingStandard.End();
         }
@@ -34,5 +35,7 @@ namespace RWBYRemnant
         {
             return "RWBY World of Remnant";
         }
+
+        private readonly FloatRange rangeEarliestNuckelavee = new FloatRange(0f, 120f);
     }
 }

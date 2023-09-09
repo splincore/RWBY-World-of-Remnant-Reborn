@@ -26,7 +26,7 @@ namespace RWBYRemnant
         {
             ThingDef cloneToUse = RWBYDefOf.Blake_ShadowClone; // default
             float cloneDuration = 2f;
-            Color color = new Color();
+            Color color = new Color(1.0f, 1.0f, 1.0f);
             if (remainingUses > 0 && elementalShadowCloneToUse != null)
             {
                 remainingUses -= 1;

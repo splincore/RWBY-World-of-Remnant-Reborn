@@ -12,7 +12,7 @@ namespace RWBYRemnant
         {
             shadowClone = pawn;
             shadowCloneAngle = pawn.Rotation;
-            if (color != new Color())
+            if (color != new Color() && color != new Color(1.0f, 1.0f, 1.0f))
             {
                 useColor = true;
                 shadowCloneColor = color;
@@ -172,7 +172,6 @@ namespace RWBYRemnant
 
         public override void PostDraw()
         {
-            // TODO test
             base.PostDraw();
             if (parent.Map != shadowClone.Map) return;
             GenDraw.DrawMeshNowOrLater(this.GetBlitMeshUpdatedFrame(pawnTextureAtlasFrameSet, shadowCloneAngle, PawnDrawMode.BodyAndHead), parent.DrawPos, Quaternion.AngleAxis(0f, Vector3.up), material, false);
