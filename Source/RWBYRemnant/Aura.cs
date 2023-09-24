@@ -81,7 +81,7 @@ namespace RWBYRemnant
 
         public virtual bool TryAbsorbDamage(DamageInfo dinfo)
         {
-            if (CurrentEnergy == 0f || dinfo.Def == DamageDefOf.SurgicalCut) return false;
+            if (CurrentEnergy == 0f || dinfo.Def == DamageDefOf.SurgicalCut || dinfo.Def == DamageDefOf.Extinguish) return false;
             if (dinfo.Def.defName == "PJ_ForceHealDamage") return false;
             if (!pawn.Drafted && !pawn.IsFighting() && Rand.Chance(0.05f))
             {

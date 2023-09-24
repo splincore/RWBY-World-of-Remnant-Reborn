@@ -135,6 +135,7 @@
     <Compile Include="RemnantMod.cs" />
     <Compile Include="RemnantModSettings.cs" />
     <Compile Include="SemblanceUtility.cs" />
+    <Compile Include="TexturesRWBY.cs" />
     <Compile Include="ThingDef_CrystalBullet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThingDef_ExplosiveFleckProjectile.cs" />

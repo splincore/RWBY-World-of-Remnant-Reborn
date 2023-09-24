@@ -50,6 +50,18 @@
 	<RavenPortalBondLabel>Portal to {0}</RavenPortalBondLabel>
 	<RavenPortalBondDescription>Create a portal to {0} that will last for 30 seconds.</RavenPortalBondDescription>
 	<RavenBondOpinionLow>{0} does not like {1} enough to create a bond</RavenBondOpinionLow>
+	
+	<!-- Blake Shadow Clone Gizmo -->
+	<BlakeUseDefaultCloneLabel>Default clone</BlakeUseDefaultCloneLabel>
+	<BlakeUseDefaultCloneDescription>Use the default clone with no elemental capabilities</BlakeUseDefaultCloneDescription>
+	<BlakeUseFireCloneLabel>Fire clone</BlakeUseFireCloneLabel>
+	<BlakeUseFireCloneDescription>Use fire clones, that explode after 3 seconds, but do not hurt the creator of the clone. Each created clone will use one vial of powdered Fire Dust. If no powdered Dust belt ist equipped, or no vials remain, the default clone will be used instead.</BlakeUseFireCloneDescription>
+
+	<BlakeUseIceCloneLabel>Ice clone</BlakeUseIceCloneLabel>
+	<BlakeUseIceCloneDescription>Use ice clones, that freeze any melee attackers. Each created clone will use one vial of powdered Ice Dust. If no powdered Dust belt ist equipped, or no vials remain, the default clone will be used instead.</BlakeUseIceCloneDescription>
+
+	<BlakeUseGravityCloneLabel>Stone clone</BlakeUseGravityCloneLabel>
+	<BlakeUseGravityCloneDescription>Use stone clones, that grant alot of cover and have a long lifespan. Each created clone will use one vial of powdered Gravity Dust. If no powdered Dust belt ist equipped, or no vials remain, the default clone will be used instead.</BlakeUseGravityCloneDescription>
 
 
 </LanguageData>

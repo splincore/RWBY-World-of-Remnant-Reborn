@@ -5,7 +5,7 @@ namespace RWBYRemnant
 {
     public class RemnantMod : Mod
     {
-        RemnantModSettings remnantModSettings;
+        readonly RemnantModSettings remnantModSettings;
 
         public RemnantMod(ModContentPack content) : base(content)
         {

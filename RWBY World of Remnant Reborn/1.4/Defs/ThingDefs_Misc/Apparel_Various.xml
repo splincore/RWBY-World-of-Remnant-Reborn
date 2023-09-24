@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
 	<ThingDef Name="RWBYApparelBase" Abstract="True">
@@ -7,7 +7,7 @@
 		<selectable>True</selectable>
 		<pathCost>10</pathCost>
 		<useHitPoints>True</useHitPoints>
-		<techLevel>Medieval</techLevel>
+		<techLevel>Industrial</techLevel>
 		<graphicData>
 			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
 		</graphicData>
@@ -28,7 +28,7 @@
 			</li>
 		</comps>
 	</ThingDef>
-
+	
 	<ThingDef ParentName="RWBYApparelBase">
 		<defName>Apparel_PumpkinPetes</defName>
 		<label>Pumpkin Pete's hoodie</label>
@@ -68,12 +68,478 @@
 				<li>Shell</li>
 			</layers>
 			<tags>
-				<li>IndustrialAdvanced</li>
+				<li>IndustrialBasic</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Worker</li>
 			</defaultOutfitTags>
 		</apparel>
 	</ThingDef>
-
+	
+	<ThingDef ParentName="RWBYApparelBase">
+		<defName>Apparel_PowderedDustBelt</defName>
+		<label>powdered Dust belt</label>
+		<description>A belt carrying various vials containing powdered Dust. These vials can be used for fueling abilities using Dust or for simple throwing.</description>
+		<thingClass>Apparel</thingClass>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Apparel/BeltPowderedDust</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1</Mass>
+			<WorkToMake>6000</WorkToMake>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<costStuffCount>30</costStuffCount>
+			<stuffCategories>
+			  <li>Fabric</li>
+			  <li>Leathery</li>
+			</stuffCategories>
+		<costList>
+			<Steel>10</Steel>
+		</costList>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
+			<researchPrerequisite>DustProcessing</researchPrerequisite>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<recipeUsers>
+				<li>TableDustWorkshop</li>
+			</recipeUsers>
+			<useIngredientsForColor>false</useIngredientsForColor>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+			<displayPriority>300</displayPriority>
+		</recipeMaker>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Belt</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+			</tags>
+			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_StandardApparel" />
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Fire Dust</abilityLabel>
+				<abilityDesc>Throw a vial of powdered Fire Dust</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Manufactured_Fire_Dust_Powder</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>FireDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>vial</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>FireDustPowder_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Ice Dust</abilityLabel>
+				<abilityDesc>Throw a vial of powdered Ice Dust</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Manufactured_Ice_Dust_Powder</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>IceDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>vial</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>2</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>IceDustPowder_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Lightning Dust</abilityLabel>
+				<abilityDesc>Throw a vial of powdered Lightning Dust</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Manufactured_Lightning_Dust_Powder</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>LightningDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>vial</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>3</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>LightningDustPowder_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Gravity Dust</abilityLabel>
+				<abilityDesc>Throw a vial of powdered Gravity Dust</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Manufactured_Gravity_Dust_Powder</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>vial</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>4</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>GravityDustPowder_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Hard-Light Dust</abilityLabel>
+				<abilityDesc>Throw a vial of powdered Hard-Light Dust</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Manufactured_HardLight_Dust_Powder</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<!--<abilityColor>(0, 0, 0)</abilityColor>-->
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>HardLightDustPowder</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>vial</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>5</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Fire Dust</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>HardLightDustPowder_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tradeTags>
+			<li>Armor</li>
+		</tradeTags>
+	</ThingDef>
+	
+	<ThingDef ParentName="RWBYApparelBase">
+		<defName>Apparel_DustCrystalBelt</defName>
+		<label>Dust crystal belt</label>
+		<description>A belt carrying various Dust crystal. These crystals can be used for fueling abilities using Dust or for simple throwing. Thrown crystals will stay on the ground until collected.</description>
+		<thingClass>Apparel</thingClass>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Apparel/BeltPowderedDust</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1</Mass>
+			<WorkToMake>6000</WorkToMake>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<costStuffCount>30</costStuffCount>
+			<stuffCategories>
+			  <li>Fabric</li>
+			  <li>Leathery</li>
+			</stuffCategories>
+		<costList>
+			<Steel>10</Steel>
+		</costList>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
+			<researchPrerequisite>DustBase</researchPrerequisite>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<recipeUsers>
+				<li>TableDustWorkshop</li>
+			</recipeUsers>
+			<useIngredientsForColor>false</useIngredientsForColor>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+			<displayPriority>300</displayPriority>
+		</recipeMaker>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Belt</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+			</tags>
+			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_StandardApparel" />
+		<comps>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Fire Dust crystal</abilityLabel>
+				<abilityDesc>Throw a Fire Dust crystal</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Raw_Dust_Crystal</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<abilityColor>(128, 26, 0)</abilityColor>
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>FireDustCrystal</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>crystal</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>1</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Fire Dust crystal</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>FireDustCrystal_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+		</comps>
+		<tradeTags>
+			<li>Armor</li>
+		</tradeTags>
+	</ThingDef>
+	
 </Defs>

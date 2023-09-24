@@ -8,6 +8,14 @@ namespace RWBYRemnant
     {
         #region "general Defs"
 
+        // Things
+
+        public static ThingDef FireDustPowder;
+        public static ThingDef IceDustPowder;
+        public static ThingDef LightningDustPowder;
+        public static ThingDef GravityDustPowder;
+        public static ThingDef HardLightDustPowder;
+
         // History
         public static HistoryEventDef RWBY_AuraStolenByPlayer;
 
@@ -21,6 +29,7 @@ namespace RWBYRemnant
         // Apparel
 
         public static ThingDef Apparel_PumpkinPetes;
+        public static ThingDef Apparel_PowderedDustBelt;
 
         // Hediffs
         public static HediffDef RWBY_ApathyTiredness;
