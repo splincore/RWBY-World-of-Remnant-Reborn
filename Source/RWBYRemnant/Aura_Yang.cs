@@ -28,7 +28,7 @@ namespace RWBYRemnant
 
         public override bool TryAbsorbDamage(DamageInfo dinfo)
         {
-            if (dinfo.Def.defName == "PJ_ForceHealDamage") return base.TryAbsorbDamage(dinfo);
+            if (dinfo.Def.defName == "PJ_ForceHealDamage" || dinfo.Def == DamageDefOf.SurgicalCut || dinfo.Def == DamageDefOf.Extinguish) return base.TryAbsorbDamage(dinfo);
             absorbedDamage += dinfo.Amount;
             if (absorbedDamage > 100f) absorbedDamage = 100f;
             return base.TryAbsorbDamage(dinfo);
@@ -67,6 +67,27 @@ namespace RWBYRemnant
                 label = label,
                 FullShieldBarTex = SolidColorMaterials.NewSolidColorTexture(GetColor())
             };
+            Command_Toggle activateDamageReturn = new Command_Toggle
+            {
+                defaultLabel = "YangReturnDamageLabel".Translate(),
+                defaultDesc = "YangReturnDamageDescription".Translate(),
+                icon = TexturesRWBY.UiAbility_YangReturn,
+                disabled = false,
+                isActive = () => pawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_YangReturnDamage),
+                toggleAction = delegate ()
+                {
+                    if (pawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_YangReturnDamage))
+                    {
+                        pawn.health.RemoveHediff(pawn.health.hediffSet.hediffs.Find(h => h.def == RWBYDefOf.RWBY_YangReturnDamage));
+                    }
+                    else
+                    {
+                        Hediff returnDamageHediff = HediffMaker.MakeHediff(RWBYDefOf.RWBY_YangReturnDamage, pawn);
+                        pawn.health.AddHediff(returnDamageHediff);
+                    }
+                }
+            };
+            yield return activateDamageReturn;
         }
 
         public override Color GetColor()

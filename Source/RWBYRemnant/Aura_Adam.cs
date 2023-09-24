@@ -24,7 +24,7 @@ namespace RWBYRemnant
 
         public override bool TryAbsorbDamage(DamageInfo dinfo)
         {
-            if (dinfo.Def.defName == "PJ_ForceHealDamage") return base.TryAbsorbDamage(dinfo);
+            if (dinfo.Def.defName == "PJ_ForceHealDamage" || dinfo.Def == DamageDefOf.SurgicalCut || dinfo.Def == DamageDefOf.Extinguish) return base.TryAbsorbDamage(dinfo);
             if (absorbedDamage < 500f && Rand.Chance(0.7f) && (pawn.Drafted || pawn.IsFighting()) && pawn.equipment.Primary != null && pawn.equipment.Primary.def.IsMeleeWeapon)
             {
                 absorbedDamage += dinfo.Amount;

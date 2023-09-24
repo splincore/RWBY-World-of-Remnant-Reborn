@@ -536,6 +536,230 @@
 				</verbProperties>
 				<!--<beginTargetingClass>null</beginTargetingClass>-->
 			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Ice Dust crystal</abilityLabel>
+				<abilityDesc>Throw a Ice Dust crystal</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Raw_Dust_Crystal</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<abilityColor>(0, 51, 204)</abilityColor>
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>IceDustCrystal</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>crystal</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>2</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Ice Dust crystal</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>IceDustCrystal_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Lightning Dust crystal</abilityLabel>
+				<abilityDesc>Throw a Lightning Dust crystal</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Raw_Dust_Crystal</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<abilityColor>(179, 179, 0)</abilityColor>
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>LightningDustCrystal</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>crystal</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>3</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Lightning Dust crystal</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>LightningDustCrystal_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Gravity Dust crystal</abilityLabel>
+				<abilityDesc>Throw a Gravity Dust crystal</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Raw_Dust_Crystal</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<abilityColor>(51, 51, 51)</abilityColor>
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>GravityDustCrystal</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>crystal</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>4</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Gravity Dust crystal</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>GravityDustCrystal_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
+			<li Class="EquipmentToolbox.CompProperties_ThingAbility">
+				<!-- commented stuff shows possibilities -->
+				<!-- GIZMO -->
+				<abilityLabel>Throw Hard-Light Dust crystal</abilityLabel>
+				<abilityDesc>Throw a Hard-Light Dust crystal</abilityDesc>
+				<abilityIcon>Things/Item/Resource/Raw_Dust_Crystal</abilityIcon>
+				<!--<abilityIconAngle>0</abilityIconAngle>-->
+				<!--<abilityIconOffset>(0, 0)</abilityIconOffset>-->
+				<abilityColor>(0, 153, 135)</abilityColor>
+				<!--<hotKey>Misc1</hotKey>-->
+				<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+				<displayGizmoWhileDrafted>true</displayGizmoWhileDrafted>
+				<!-- AMMO -->
+				<maxCharges>10</maxCharges>
+				<!--ammoCountToRefill>0</ammoCountToRefill-->
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<destroyOnEmpty>false</destroyOnEmpty>
+				<ammoDef>HardLightDustCrystal</ammoDef>
+				<displayInfiniteAmmoOnGizmo>false</displayInfiniteAmmoOnGizmo>
+				<canBeReloaded>true</canBeReloaded>
+				<spawnWithFullAmmo>false</spawnWithFullAmmo>
+				<chargeNoun>crystal</chargeNoun>
+				<reloadTime>1</reloadTime>
+				<soundReload>Interact_BeatFire</soundReload>
+				<!-- AI PROPS -->
+				<canAiUse>true</canAiUse>
+				<canAiUseOnNonPawn>false</canAiUseOnNonPawn>
+				<commonalityOfAiUsage>0.15</commonalityOfAiUsage>
+				<!-- SPECIAL -->
+				<cannotMiss>false</cannotMiss>
+				<uniqueCompID>5</uniqueCompID>
+				<!-- VERB -->
+				<verbProperties>
+					<label>throw Fire Dust crystal</label>
+					<verbClass>EquipmentToolbox.Verb_LaunchThingAbilityProjectile</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<range>20</range>
+					<forcedMissRadius>0</forcedMissRadius>
+					<warmupTime>1.0</warmupTime>
+					<ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+					<soundCast>Pawn_Melee_Punch_Miss</soundCast>
+					<!--<soundCastTail>GunTail_Medium</soundCastTail>-->
+					<muzzleFlashScale>0</muzzleFlashScale>
+					<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+					<targetParams>
+						<canTargetPawns>true</canTargetPawns>
+						<canTargetBuildings>true</canTargetBuildings>
+						<canTargetSelf>false</canTargetSelf>
+						<canTargetItems>false</canTargetItems>
+						<canTargetLocations>true</canTargetLocations>
+						<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+					</targetParams>
+					<defaultProjectile>HardLightDustCrystal_Projectile</defaultProjectile>
+				</verbProperties>
+				<!--<beginTargetingClass>null</beginTargetingClass>-->
+			</li>
 		</comps>
 		<tradeTags>
 			<li>Armor</li>

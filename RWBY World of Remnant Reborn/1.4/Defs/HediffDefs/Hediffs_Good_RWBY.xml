@@ -83,7 +83,7 @@
 		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-12.0</severityPerDay>
+				<severityPerDay>-4.0</severityPerDay>
 			</li>
 		</comps>
 		<stages>
