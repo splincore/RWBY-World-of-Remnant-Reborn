@@ -44,6 +44,8 @@
 	<AngerLevelRagingLabel>raging</AngerLevelRagingLabel>
 	<AngerLevelLostHairLabel>lost a hair kind of angry</AngerLevelLostHairLabel>
 	<AdamAbsorbDamageLabel>absorbed damage</AdamAbsorbDamageLabel>
+	<SemblanceAbilityCastNoAura>{PAWN_nameDef} has not enough Aura to cast this ability.</SemblanceAbilityCastNoAura>
+	<SemblanceAuraCost>Aura cost</SemblanceAuraCost>
 
 	<!-- Raven Portal Gizmo -->
 	<RavenPortalDisabled>Another portal is still active</RavenPortalDisabled>

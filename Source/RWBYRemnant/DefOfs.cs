@@ -8,8 +8,10 @@ namespace RWBYRemnant
     {
         #region "general Defs"
 
-        // Things
+        // Stats
+        public static StatDef AuraCost;
 
+        // Things
         public static ThingDef FireDustPowder;
         public static ThingDef IceDustPowder;
         public static ThingDef LightningDustPowder;
@@ -89,6 +91,10 @@ namespace RWBYRemnant
         public static ThingDef RWBY_Crescent_Rose_Rifle;
         public static ThingDef RWBY_Crescent_Rose_Scythe;
         public static ThoughtDef RWBY_RubyUsedCrescentRose;
+        public static SemblanceAbilityDef Ruby_BurstIntoRosePetals;
+        public static SemblanceAbilityDef Ruby_CarryPawn;
+        public static FleckDef RWBY_Rose_Petal;
+        public static HediffDef RWBY_RubyDashForm;
 
         // Yang
         public static TraitDef Semblance_Yang;

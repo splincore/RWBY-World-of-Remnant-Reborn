@@ -84,6 +84,8 @@
     <Compile Include="Aura_Velvet.cs" />
     <Compile Include="Aura_Weiss.cs" />
     <Compile Include="Aura_Yang.cs" />
+    <Compile Include="Command_AbilitySemblance.cs" />
+    <Compile Include="CompAbilityEffect_RubyCarry.cs" />
     <Compile Include="CompCameraPhotos.cs" />
     <Compile Include="CompExplosiveSilent.cs" />
     <Compile Include="CompLightCopy.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="CompProperties_CameraPhotos.cs" />
     <Compile Include="CompProperties_ExplosiveSilent.cs" />
     <Compile Include="CompProperties_LightCopy.cs" />
+    <Compile Include="CompProperties_RubyCarry.cs" />
     <Compile Include="CompProperties_ShadowClone.cs" />
     <Compile Include="CompProperties_StealAura.cs" />
     <Compile Include="CompProperties_TimeDilationGlyph.cs" />
@@ -130,11 +133,14 @@
     <Compile Include="Projectile_CrystalBullet.cs" />
     <Compile Include="Projectile_ExplosiveWithFleck.cs" />
     <Compile Include="Projectile_Explosive_FireBolt.cs" />
+    <Compile Include="Projectile_RubyCarry.cs" />
+    <Compile Include="Projectile_RubyDash.cs" />
     <Compile Include="Projectile_WiltBullet.cs" />
     <Compile Include="Projectile_WithFleck.cs" />
     <Compile Include="RemnantMod.cs" />
     <Compile Include="RemnantModSettings.cs" />
     <Compile Include="SemblanceAbility.cs" />
+    <Compile Include="SemblanceAbilityDef.cs" />
     <Compile Include="SemblanceUtility.cs" />
     <Compile Include="TexturesRWBY.cs" />
     <Compile Include="ThingDef_CrystalBullet.cs" />
@@ -142,6 +148,8 @@
     <Compile Include="ThingDef_ExplosiveFleckProjectile.cs" />
     <Compile Include="ThingDef_FleckProjectile.cs" />
     <Compile Include="ThingDef_Myrtenaster_FireBolt.cs" />
+    <Compile Include="ThingDef_RubyCarry.cs" />
+    <Compile Include="ThingDef_RubyDash.cs" />
     <Compile Include="ThingDef_WiltBullet.cs" />
     <Compile Include="ThingWithComps_Portal.cs" />
     <Compile Include="WorkGiver_StealAura.cs" />

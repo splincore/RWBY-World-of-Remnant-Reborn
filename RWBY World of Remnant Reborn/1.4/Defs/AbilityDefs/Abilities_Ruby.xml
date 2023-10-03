@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Ruby_BurstIntoRosePetals</defName>
+		<label>Dash</label>
+		<iconPath>Things/UI/Ability_RubyDash</iconPath>
+		<description>Burst into rose petals and dash into a certain direction.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>35</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>0.1</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityLaunchProjectile">
+				<projectileDef>Ruby_DashForm</projectileDef>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+	<ThingDef Class="RWBYRemnant.ThingDef_RubyDash" ParentName="BaseBullet">
+		<defName>Ruby_DashForm</defName>
+		<label>ruby dash form</label>
+		<thingClass>RWBYRemnant.Projectile_RubyDash</thingClass>
+		<color>(255, 153, 255)</color>
+		<graphicData>
+			<texPath>Things/Projectile/Projectile_RubyDash</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3</drawSize>
+		</graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+	
+	<FleckDef ParentName="FleckBase">
+		<defName>RWBY_Rose_Petal</defName>
+		<fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+		<graphicData>
+			<graphicClass>Graphic_Fleck</graphicClass>
+			<shaderType>Mote</shaderType>
+			<texPath>Things/Item/Special/Rose_Petal</texPath>
+			<drawSize>1</drawSize>
+			<color>(128, 26, 0)</color>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>1.4</solidTime>
+		<fadeInTime>0.08</fadeInTime>
+		<fadeOutTime>1.5</fadeOutTime>
+	</FleckDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Ruby_CarryPawn</defName>
+		<label>carry pawn</label>
+		<iconPath>Things/UI/Ability_RubyDash</iconPath>
+		<description>Select a pawn next to you and burst into rose petals, carrying the pawn to a certain direction.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>15</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>1.5</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>0.1</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_RubyCarry">
+				<compClass>RWBYRemnant.CompAbilityEffect_RubyCarry</compClass>
+				<destination>Selected</destination>
+				<requiresLineOfSight>True</requiresLineOfSight>
+				<range>35</range>
+				<projectileDef>Ruby_CarryForm</projectileDef>
+				<goodwillImpact>0</goodwillImpact>
+				<applyGoodwillImpactToLodgers>False</applyGoodwillImpactToLodgers>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+	<ThingDef Class="RWBYRemnant.ThingDef_RubyCarry" ParentName="BaseBullet">
+		<defName>Ruby_CarryForm</defName>
+		<label>ruby dash form</label>
+		<thingClass>RWBYRemnant.Projectile_RubyCarry</thingClass>
+		<color>(255, 153, 255)</color>
+		<graphicData>
+			<texPath>Things/Projectile/Projectile_RubyDash</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3</drawSize>
+		</graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+
+</Defs>

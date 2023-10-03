@@ -158,6 +158,8 @@ namespace RWBYRemnant
             if (semblance == RWBYDefOf.Semblance_Ruby)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Ruby { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Ruby_BurstIntoRosePetals);
+                pawn.abilities.GainAbility(RWBYDefOf.Ruby_CarryPawn);
                 // TODO add abilities
             }
             else if (semblance == RWBYDefOf.Semblance_Yang)

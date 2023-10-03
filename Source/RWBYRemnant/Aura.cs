@@ -187,6 +187,7 @@ namespace RWBYRemnant
         {
             if (Active())
             {
+                if (pawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_RubyDashForm)) return;
                 if (bubbleMat == null)
                 {
                     bubbleMat = MaterialPool.MatFrom("Other/ShieldBubble", ShaderDatabase.Transparent, GetColor());

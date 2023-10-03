@@ -30,19 +30,33 @@
 		</statBases>
 	</ThingDef>
 	
+	<StatDef>
+		<defName>AuraCost</defName>
+		<label>aura cost</label>
+		<category>Ability</category>
+		<description>How much Aura it costs to cast this ability.</description>
+		<defaultBaseValue>10</defaultBaseValue>
+		<minValue>0</minValue>
+		<toStringStyle>FloatOne</toStringStyle>
+		<showIfUndefined>false</showIfUndefined>
+		<displayPriorityInCategory>1050</displayPriorityInCategory>
+	</StatDef>
+	
 	<AbilityCategoryDef>
 		<defName>RWBYAbility</defName>
 		<displayOrder>3</displayOrder>
 	</AbilityCategoryDef>
 	
-	<AbilityDef Name="RWBYSemblanceBase" Abstract="True">
+	<RWBYRemnant.SemblanceAbilityDef Name="RWBYSemblanceBase" Abstract="True">
 		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
 		<category>RWBYAbility</category>
 		<statBases>
 			<Ability_Duration>0</Ability_Duration>
+			<Ability_EffectRadius>0</Ability_EffectRadius>
 		</statBases>
-		<soundCast>Pawn_Melee_Punch_Miss</soundCast>
-		<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+		<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+		<gizmoClass>RWBYRemnant.Command_AbilitySemblance</gizmoClass>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
 			<range>20</range>
@@ -54,9 +68,9 @@
 				<canTargetSelf>false</canTargetSelf>
 				<canTargetItems>false</canTargetItems>
 				<canTargetLocations>false</canTargetLocations>
-				<mapObjectTargetsMustBeAutoAttackable>true</mapObjectTargetsMustBeAutoAttackable>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
 			</targetParams>
 		</verbProperties>
-	</AbilityDef>
+	</RWBYRemnant.SemblanceAbilityDef>
 	
 </Defs>

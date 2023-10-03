@@ -11,5 +11,7 @@ namespace RWBYRemnant
         public static readonly Texture2D UiIceDust = ContentFinder<Texture2D>.Get("Things/UI/Ice_Dust", true);
         public static readonly Texture2D UiGravityDust = ContentFinder<Texture2D>.Get("Things/UI/Gravity_Dust_UI", true);
         public static readonly Texture2D UiAbility_YangReturn = ContentFinder<Texture2D>.Get("Things/UI/Ability_YangReturn", true);
+        public static readonly Texture2D BGTexDefaultRWBY = ContentFinder<Texture2D>.Get("UI/Widgets/DesButBG", true);
+        public static readonly Texture2D BGTexShrunkDefaultRWBY = ContentFinder<Texture2D>.Get("UI/Widgets/DesButBG", true);
     }
 }
