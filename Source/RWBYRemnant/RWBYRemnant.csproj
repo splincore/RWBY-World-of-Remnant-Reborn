@@ -129,6 +129,7 @@
     <Compile Include="Pawn_Grimm.cs" />
     <Compile Include="Pawn_SummonedGrimm.cs" />
     <Compile Include="PostTransformCamera.cs" />
+    <Compile Include="Projectile_AdamSlice.cs" />
     <Compile Include="Projectile_CameraBullet.cs" />
     <Compile Include="Projectile_CrystalBullet.cs" />
     <Compile Include="Projectile_ExplosiveWithFleck.cs" />

@@ -213,6 +213,7 @@ namespace RWBYRemnant
             else if (semblance == RWBYDefOf.Semblance_Adam)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Adam { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Adam_UnleashDamage);
             }
 
             string label = labelKey.Translate().Formatted(pawn.Named("PAWN")).AdjustedFor(pawn, "PAWN").CapitalizeFirst();

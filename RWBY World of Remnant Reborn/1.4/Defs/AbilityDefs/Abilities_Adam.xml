@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Adam_UnleashDamage</defName>
+		<label>Unleash damage</label>
+		<iconPath>Things/Projectile/Adam_Slash_Projectile</iconPath>
+		<description>Consume all absorbed damage and unleash it at the target with a strong Moonslice. Damage may only be absorbed (with a 70% chance) when drafted and using a purely melee weapon.</description>
+		<hostile>true</hostile>
+		<statBases>
+			<AuraCost>0</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>4</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>0.1</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityLaunchProjectile">
+				<projectileDef>RWBY_Ability_Adam_Projectile</projectileDef>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>RWBY_Ability_Adam_Projectile</defName>
+		<label>RWBY Adam Projectile</label>
+		<thingClass>RWBYRemnant.Projectile_AdamSlice</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Adam_Slash_Projectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<speed>40</speed>
+		</projectile>
+	</ThingDef>
+
+</Defs>

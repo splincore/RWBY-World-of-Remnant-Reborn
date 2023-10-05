@@ -150,6 +150,7 @@ namespace RWBYRemnant
 
         // Adam
         public static TraitDef Semblance_Adam;
+        public static SemblanceAbilityDef Adam_UnleashDamage;
 
         #endregion
     }

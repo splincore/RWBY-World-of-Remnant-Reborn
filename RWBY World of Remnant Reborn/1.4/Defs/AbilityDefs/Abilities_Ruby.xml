@@ -6,7 +6,7 @@
 		<defName>Ruby_BurstIntoRosePetals</defName>
 		<label>Dash</label>
 		<iconPath>Things/UI/Ability_RubyDash</iconPath>
-		<description>Burst into rose petals and dash into a certain direction.</description>
+		<description>Burst into rose petals and dash to a certain location.</description>
 		<hostile>false</hostile>
 		<statBases>
 			<AuraCost>10</AuraCost>
@@ -71,7 +71,7 @@
 		<defName>Ruby_CarryPawn</defName>
 		<label>carry pawn</label>
 		<iconPath>Things/UI/Ability_RubyDash</iconPath>
-		<description>Select a pawn next to you and burst into rose petals, carrying the pawn to a certain direction.</description>
+		<description>Select a pawn next to you and burst into rose petals, carrying the pawn to a certain location.</description>
 		<hostile>false</hostile>
 		<statBases>
 			<AuraCost>15</AuraCost>
