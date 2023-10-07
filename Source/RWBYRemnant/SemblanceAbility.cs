@@ -44,12 +44,12 @@ namespace RWBYRemnant
 
         public override bool Activate(GlobalTargetInfo target)
         {
-            return ConsumeAura() ? base.Activate(target) : false;
+            return ConsumeAura() && base.Activate(target);
         }
 
         public override bool Activate(LocalTargetInfo target, LocalTargetInfo dest)
         {
-            return ConsumeAura() ? base.Activate(target, dest) : false;
+            return ConsumeAura() && base.Activate(target, dest);
         }
 
         public bool ConsumeAura()

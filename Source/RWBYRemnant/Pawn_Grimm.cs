@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 using Verse.AI;
+using Verse.Noise;
 
 namespace RWBYRemnant
 {
@@ -28,55 +29,59 @@ namespace RWBYRemnant
             }
         }
 
+        public override void Kill(DamageInfo? dinfo, Hediff exactCulprit = null)
+        {
+            if (lastTakenDamageFrom is Pawn killer && killer.RaceProps.Humanlike && killer.story.traits.HasTrait(RWBYDefOf.Semblance_Weiss) && !killer.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen))
+            {
+                if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Boarbatusk)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonBoar);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Beowolf)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonBeowolf);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Ursa)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonUrsa);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Griffon)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonGriffon);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Nevermore)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonNevermore);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Lancer)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonLancer);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_LancerQueen)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonLancerQueen);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_DeathStalker)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonDeathStalker);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Nuckelavee)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonNuckelavee);
+                }
+                else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Apathy)
+                {
+                    killer.abilities.GainAbility(RWBYDefOf.Weiss_SummonApathy);
+                }
+            }
+            base.Kill(dinfo, exactCulprit);
+        }
+
         public override void Tick()
         {
             base.Tick();
             if (Downed)
             {
-                // TODO add Grimm death ability to Weiss
-                //if (lastTakenDamageFrom is Pawn killer && killer.RaceProps.Humanlike && killer.story.traits.HasTrait(RWBYDefOf.Semblance_Weiss) && killer.TryGetComp<CompAbilityUserAura>() is CompAbilityUserAura compAbilityUserAura && compAbilityUserAura.IsInitialized)
-                //{
-                //    if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Boarbatusk)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonBoar)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonBoar);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Beowolf)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonBeowolf)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonBeowolf);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Ursa)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonUrsa)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonUrsa);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Griffon)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonGriffon)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonGriffon);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Nevermore)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonNevermore)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonNevermore);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Lancer)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonLancer)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonLancer);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_LancerQueen)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonLancerQueen)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonLancerQueen);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_DeathStalker)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonDeathStalker)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonDeathStalker);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Nuckelavee)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonNuckelavee)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonNuckelavee);
-                //    }
-                //    else if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Apathy)
-                //    {
-                //        if (!compAbilityUserAura.AbilityData.AllPowers.Any(p => p.Def == RWBYDefOf.Weiss_SummonApathy)) compAbilityUserAura.AddPawnAbility(RWBYDefOf.Weiss_SummonApathy);
-                //    }
-                //}
                 Kill(null);
             }
             attractGrimmTimer--;
@@ -160,7 +165,7 @@ namespace RWBYRemnant
             if (this.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Apathy && this.Map != null)
             {
                 List<Pawn> pawns = this.Map.mapPawns.AllPawnsSpawned.FindAll(p => p is Pawn_Grimm && !p.InMentalState);
-                foreach (Pawn_Grimm pawn in pawns)
+                foreach (Pawn_Grimm pawn in pawns.Cast<Pawn_Grimm>())
                 {
                     pawn.TriggerAggro();
                 }

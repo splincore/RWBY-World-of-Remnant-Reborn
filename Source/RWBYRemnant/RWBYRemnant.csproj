@@ -86,12 +86,16 @@
     <Compile Include="Aura_Yang.cs" />
     <Compile Include="Command_AbilitySemblance.cs" />
     <Compile Include="CompAbilityEffect_RubyCarry.cs" />
+    <Compile Include="CompAbilityEffect_WeissSummon.cs" />
+    <Compile Include="CompAbilityEffect_WeissTimeDilation.cs" />
     <Compile Include="CompCameraPhotos.cs" />
     <Compile Include="CompExplosiveSilent.cs" />
+    <Compile Include="CompGlyphSummon.cs" />
     <Compile Include="CompLightCopy.cs" />
     <Compile Include="CompProperties_Aura.cs" />
     <Compile Include="CompProperties_CameraPhotos.cs" />
     <Compile Include="CompProperties_ExplosiveSilent.cs" />
+    <Compile Include="CompProperties_GlyphSummon.cs" />
     <Compile Include="CompProperties_LightCopy.cs" />
     <Compile Include="CompProperties_RubyCarry.cs" />
     <Compile Include="CompProperties_ShadowClone.cs" />
@@ -99,6 +103,8 @@
     <Compile Include="CompProperties_TimeDilationGlyph.cs" />
     <Compile Include="CompProperties_WeaponDrinkCoffee.cs" />
     <Compile Include="CompAura.cs" />
+    <Compile Include="CompProperties_WeissSummonAbility.cs" />
+    <Compile Include="CompProperties_WeissTimeDilation.cs" />
     <Compile Include="CompShadowClone.cs" />
     <Compile Include="CompStealAura.cs" />
     <Compile Include="CompTimeDilationGlyph.cs" />

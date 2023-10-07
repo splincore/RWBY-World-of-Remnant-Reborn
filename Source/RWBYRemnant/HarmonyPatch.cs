@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace RWBYRemnant
             harmony.Patch(AccessTools.Method(typeof(GenDrop), "TryDropSpawn"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("TryDropSpawn_PostFix")), null); // lets light copies disappear on drop
             harmony.Patch(AccessTools.Method(typeof(Verb_MeleeAttackDamage), "DamageInfosToApply"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("DamageInfosToApply_PostFix")), null); // strenghtens certain pawns melee attacks
             harmony.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), "PreApplyDamage"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("PreApplyDamage_PostFix")), null); // aura absorb
-            //harmony.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), "NotifyPlayerOfKilled"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("PreNotifyPlayerOfKilled_PreFix")), null, null); // disables notification if summoned Grimm disappears
+            harmony.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), "NotifyPlayerOfKilled"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("PreNotifyPlayerOfKilled_PreFix")), null, null); // disables notification if summoned Grimm disappears
             //harmony.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), "AddHediff", new[] { typeof(Hediff), typeof(BodyPartRecord), typeof(DamageInfo), typeof(DamageWorker.DamageResult) }), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("AddHediff_PreFix")), null, null);  // makes Nora immune to RimTasers Reloaded debuff and charges her
             harmony.Patch(AccessTools.Method(typeof(Pawn), "DrawAt", new[] { typeof(Vector3), typeof(bool) }), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("RenderPawnAt_PreFix")), null, null); // makes invisible: Ruby while dashing, Apathy while not triggered
             harmony.Patch(AccessTools.Method(typeof(Pawn), "DrawGUIOverlay"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("RenderPawnAt_PreFix")), null, null); // makes invisible: Ruby while dashing, Apathy while not triggered
@@ -35,9 +36,8 @@ namespace RWBYRemnant
             //harmony.Patch(AccessTools.Method(typeof(AttackTargetFinder), "BestAttackTarget"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("BestAttackTarget_PreFix")), null, null); // makes Grimm not need line of sight
             //harmony.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractWith"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("TryInteractWith_PostFix")), null); // unlock Semblance Social
             //harmony.Patch(AccessTools.Method(typeof(Targeter), "ProcessInputEvents"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("ProcessInputEvents_Prefix")), null, null); // lets the weapon projectile ability aim properly
-            //harmony.Patch(AccessTools.Method(typeof(RecordsUtility), "Notify_PawnKilled"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Notify_PawnKilled_PostFix")), null); // add Weiss summon Grimm ability
-            //harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new[] { typeof(PawnGenerationRequest) }), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GeneratePawn_PostFix")), null); // adds silver eyes to a humanoid pawn
-            harmony.Patch(AccessTools.Method(typeof(AbilityDef), "StatSummary"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("StatSummary_PostFix")), null); // add Ability Tooltip stats
+            //harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new[] { typeof(PawnGenerationRequest) }), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GeneratePawn_PostFix")), null); // adds silver eyes to a humanoid pawn // TODO add silver eyes
+            harmony.Patch(AccessTools.Method(typeof(AbilityDef), "StatSummary"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("StatSummary_PostFix")), null); // add Ability Tooltip Aura cost stat
             // TODO add patches
         }
 
@@ -135,6 +135,13 @@ namespace RWBYRemnant
         }
 
         [HarmonyPrefix]
+        public static bool PreNotifyPlayerOfKilled_PreFix(Pawn ___pawn) // disables notification if summoned Grimm disappears
+        {
+            if (___pawn is Pawn_SummonedGrimm) return false;
+            return true;
+        }
+
+        [HarmonyPrefix]
         public static bool RenderPawnAt_PreFix(Pawn __instance) // makes invisible: Ruby while dashing, Apathy while not triggered
         {
             if (__instance.health.hediffSet.HasHediff(RWBYDefOf.RWBY_RubyDashForm)) return false;
@@ -143,7 +150,7 @@ namespace RWBYRemnant
         }
 
         [HarmonyPostfix]
-        public static void StatSummary_PostFix(AbilityDef __instance, ref IEnumerable<string> __result) // aura absorb
+        public static void StatSummary_PostFix(AbilityDef __instance, ref IEnumerable<string> __result) // add Ability Tooltip Aura cost stat
         {
             if (__instance is SemblanceAbilityDef semblanceAbilityDef)
             {

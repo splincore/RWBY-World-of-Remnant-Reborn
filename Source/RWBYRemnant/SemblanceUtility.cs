@@ -1,5 +1,4 @@
 ﻿using RimWorld;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -169,6 +168,9 @@ namespace RWBYRemnant
             else if (semblance == RWBYDefOf.Semblance_Weiss)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Weiss { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Weiss_TimeDilationGlyph_Summon);
+                pawn.abilities.GainAbility(RWBYDefOf.Weiss_SummonArmaGigas);
+                pawn.abilities.GainAbility(RWBYDefOf.Weiss_SummonArmaGigasSword);
             }
             else if (semblance == RWBYDefOf.Semblance_Blake)
             {
@@ -239,13 +241,6 @@ namespace RWBYRemnant
             if (pawn.IsColonistPlayerControlled && pawn.Spawned) Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, pawn);
             return true;
         }
-
-        //public static readonly List<PawnKindDef> summonedPawnKindDefs = new List<PawnKindDef>
-        //{
-        //    RWBYDefOf.Grimm_Boarbatusk_Summoned,
-        //    RWBYDefOf.Grimm_ArmaGigas_Summoned,
-        //    RWBYDefOf.Grimm_ArmaGigasSword_Summoned
-        //};
 
         public static bool PyrrhaMagnetismCanAffect(Thing thing)
         {

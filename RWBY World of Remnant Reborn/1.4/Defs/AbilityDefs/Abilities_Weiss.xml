@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_TimeDilationGlyph_Summon</defName>
+		<label>Time dilation</label>
+		<iconPath>Things/Item/Special/Weiss_Glyph_Black</iconPath>
+		<description>Summon a time dilation glyph that slows every pawn near it.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>24</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissTimeDilation">
+				<thingToSpawn>Weiss_Glyph_TimeDilation</thingToSpawn>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
 	<ThingDef ParentName="AbilityItemBase">
 		<defName>Weiss_Glyph_TimeDilation</defName>
 		<label>Weiss' Glyph</label>
@@ -11,8 +42,6 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>2</drawSize>
 		</graphicData>
-		<soundInteract>Wood_Drop</soundInteract>
-		<soundDrop>Wood_Drop</soundDrop>
 		<statBases>
 			<MarketValue>0.0</MarketValue>
 			<Mass>0.0</Mass>
@@ -21,5 +50,434 @@
 			<li Class="RWBYRemnant.CompProperties_TimeDilationGlyph"/>
 		</comps>
 	</ThingDef>
+	
+	<ThingDef ParentName="AbilityItemBase">
+		<defName>Weiss_Glyph_Summon</defName>
+		<label>Weiss' Glyph</label>
+		<description>Weiss' summon glyph.</description>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Item/Special/Weiss_Glyph_White</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.0</MarketValue>
+			<Mass>0.0</Mass>
+		</statBases>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_GlyphSummon"/>
+		</comps>
+	</ThingDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonArmaGigas</defName>
+		<label>Summon Arma Gigas</label>
+		<iconPath>Things/Pawn/Grimm/ArmaGigas/ArmaGigas_south</iconPath>
+		<description>Summnon the spirit of an Arma Gigas (without its sword), which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<cooldownTicksRange>3600</cooldownTicksRange>
+		<statBases>
+			<AuraCost>20</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_ArmaGigas_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonArmaGigasSword</defName>
+		<label>Summon Arma Gigas</label>
+		<iconPath>Things/Pawn/Grimm/ArmaGigas/ArmaGigasSword_south</iconPath>
+		<description>Summnon the spirit of an Arma Gigas (with its sword), which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<cooldownTicksRange>3600</cooldownTicksRange>
+		<statBases>
+			<AuraCost>20</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_ArmaGigasSword_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonBoar</defName>
+		<label>Summon Boarbatusk</label>
+		<iconPath>Things/Pawn/Grimm/Boarbatusk/Boarbatusk_Summon_south</iconPath>
+		<description>Summnon the spirit of a Boarbatusk, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_Boarbatusk_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonBeowolf</defName>
+		<label>Summon Beowolf</label>
+		<iconPath>Things/Pawn/Grimm/Beowolf/Beowolf_Summon_south</iconPath>
+		<description>Summnon the spirit of a Beowolf, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_Beowolf_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonUrsa</defName>
+		<label>Summon Ursa</label>
+		<iconPath>Things/Pawn/Grimm/Ursa/Ursa_Summon_south</iconPath>
+		<description>Summnon the spirit of an Ursa, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>15</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_Ursa_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonGriffon</defName>
+		<label>Summon Griffon</label>
+		<iconPath>Things/Pawn/Grimm/Griffon/Griffon_Summon_south</iconPath>
+		<description>Summnon the spirit of a Griffon, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>15</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_Griffon_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonNevermore</defName>
+		<label>Summon Nevermore</label>
+		<iconPath>Things/Pawn/Grimm/Nevermore/Nevermore_Summon_south</iconPath>
+		<description>Summnon the spirit of a Nevermore, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>25</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_Nevermore_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonLancer</defName>
+		<label>Summon Lancer</label>
+		<iconPath>Things/Pawn/Grimm/Lancer/Lancer_Summon_south</iconPath>
+		<description>Summnon the spirit of a Lancer, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_Lancer_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonLancerQueen</defName>
+		<label>Summon Lancer Queen</label>
+		<iconPath>Things/Pawn/Grimm/LancerQueen/LancerQueen_Summon_south</iconPath>
+		<description>Summnon the spirit of a Lancer Queen, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>25</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_LancerQueen_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonDeathStalker</defName>
+		<label>Summon Death Stalker</label>
+		<iconPath>Things/Pawn/Grimm/DeathStalker/DeathStalker_Summon_south</iconPath>
+		<description>Summnon the spirit of a Death Stalker, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>20</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_DeathStalker_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonNuckelavee</defName>
+		<label>Summon Nuckelavee</label>
+		<iconPath>Things/Pawn/Grimm/Nuckelavee/Nuckelavee_Summon_south</iconPath>
+		<description>Summnon the spirit of a Nuckelavee, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>50</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_Nuckelavee_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Weiss_SummonApathy</defName>
+		<label>Summon Apathy</label>
+		<iconPath>Things/Pawn/Grimm/Apathy/ApathyNormal_Summon_south</iconPath>
+		<description>Summnon the spirit of an Apathy, which lasts a short period of time.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_WeissSummonAbility">
+				<thingToSpawn>Weiss_Glyph_Summon</thingToSpawn>
+				<summonToSpawn>Grimm_Apathy_Summoned</summonToSpawn>
+				<timeToSummon>1.5</timeToSummon>
+				<sound>Weiss_Summon</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
 
 </Defs>

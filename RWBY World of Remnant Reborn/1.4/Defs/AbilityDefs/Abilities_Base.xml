@@ -8,6 +8,8 @@
 		<useHitPoints>false</useHitPoints>
 		<selectable>false</selectable>
 		<altitudeLayer>Item</altitudeLayer>
+		<soundInteract>Wood_Drop</soundInteract>
+		<soundDrop>Wood_Drop</soundDrop>
 		<!--stackLimit>1</stackLimit-->
 		<alwaysHaulable>false</alwaysHaulable>
 		<tradeability>None</tradeability>

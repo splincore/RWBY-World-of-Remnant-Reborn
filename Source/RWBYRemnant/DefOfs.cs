@@ -104,6 +104,19 @@ namespace RWBYRemnant
         public static TraitDef Semblance_Weiss;
         public static ThingDef Weiss_Glyph_TimeDilation;
         public static HediffDef RWBY_TimeDilation;
+        public static SemblanceAbilityDef Weiss_TimeDilationGlyph_Summon;
+        public static SemblanceAbilityDef Weiss_SummonArmaGigas;
+        public static SemblanceAbilityDef Weiss_SummonArmaGigasSword;
+        public static SemblanceAbilityDef Weiss_SummonBoar;
+        public static SemblanceAbilityDef Weiss_SummonBeowolf;
+        public static SemblanceAbilityDef Weiss_SummonUrsa;
+        public static SemblanceAbilityDef Weiss_SummonGriffon;
+        public static SemblanceAbilityDef Weiss_SummonNevermore;
+        public static SemblanceAbilityDef Weiss_SummonLancer;
+        public static SemblanceAbilityDef Weiss_SummonLancerQueen;
+        public static SemblanceAbilityDef Weiss_SummonDeathStalker;
+        public static SemblanceAbilityDef Weiss_SummonNuckelavee;
+        public static SemblanceAbilityDef Weiss_SummonApathy;
 
         // Blake
         public static TraitDef Semblance_Blake;

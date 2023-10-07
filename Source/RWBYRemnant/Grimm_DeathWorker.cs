@@ -12,7 +12,7 @@ namespace RWBYRemnant
             if (corpse.InnerPawn.Faction != Faction.OfPlayer)
             {
                 color = new Color(0, 0, 0); // Black Smoke
-                if (Rand.Chance(corpse.InnerPawn.RaceProps.AnyPawnKind.combatPower / 100000))
+                if (Rand.Chance(corpse.InnerPawn.RaceProps.AnyPawnKind.combatPower / 10000))
                 {
                     ThingWithComps createdWeapon = (ThingWithComps)ThingMaker.MakeThing(RWBYDefOf.RWBY_Grimm_Glove);
                     createdWeapon.TryGetComp<CompQuality>().SetQuality((QualityCategory)Rand.RangeInclusive(0, 6), ArtGenerationContext.Colony);
