@@ -101,7 +101,7 @@
 	<HediffDef>
 		<defName>RWBY_LightningBuff</defName>
 		<label>electrically charged</label>
-		<description>The pawn is loaded with electric energy, causing the pawn to deal more damage in melee combat.</description>
+		<description>The pawn is loaded with electric energy, causing the pawn to deal more damage in melee combat. Additionally movement, manipulation and consciousness is improved.</description>
 		<initialSeverity>1.0</initialSeverity>
 		<defaultLabelColor>(1.0, 1.0, 0.0)</defaultLabelColor>
 		<hediffClass>HediffWithComps</hediffClass>
@@ -109,7 +109,7 @@
 		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-12.0</severityPerDay>
+				<severityPerDay>-6.0</severityPerDay>
 			</li>
 		</comps>
 		<stages>

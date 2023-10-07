@@ -20,12 +20,11 @@ namespace RWBYRemnant
             harmony.Patch(AccessTools.Method(typeof(Verb_MeleeAttackDamage), "DamageInfosToApply"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("DamageInfosToApply_PostFix")), null); // strenghtens certain pawns melee attacks
             harmony.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), "PreApplyDamage"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("PreApplyDamage_PostFix")), null); // aura absorb
             harmony.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), "NotifyPlayerOfKilled"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("PreNotifyPlayerOfKilled_PreFix")), null, null); // disables notification if summoned Grimm disappears
-            //harmony.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), "AddHediff", new[] { typeof(Hediff), typeof(BodyPartRecord), typeof(DamageInfo), typeof(DamageWorker.DamageResult) }), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("AddHediff_PreFix")), null, null);  // makes Nora immune to RimTasers Reloaded debuff and charges her
             harmony.Patch(AccessTools.Method(typeof(Pawn), "DrawAt", new[] { typeof(Vector3), typeof(bool) }), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("RenderPawnAt_PreFix")), null, null); // makes invisible: Ruby while dashing, Apathy while not triggered
             harmony.Patch(AccessTools.Method(typeof(Pawn), "DrawGUIOverlay"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("RenderPawnAt_PreFix")), null, null); // makes invisible: Ruby while dashing, Apathy while not triggered
             //harmony.Patch(AccessTools.Method(typeof(DamageWorker_Flame), "ExplosionAffectCell"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("ExplosionAffectCell_PostFix")), null); // makes fire Dust spawn fire on explosion
             //harmony.Patch(AccessTools.Method(typeof(JobDriver_Wait), "CheckForAutoAttack"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("CheckForAutoAttack_PreFix")), null, null); // fixes summoned Grimm bug of nullpointer if wandering
-            //harmony.Patch(AccessTools.Method(typeof(WeatherEvent_LightningStrike), "FireEvent"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("FireEvent_PreFix")), null, null); // changes lightning stike location onto Nora pawns
+            harmony.Patch(AccessTools.Method(typeof(WeatherEvent_LightningStrike), "FireEvent"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("FireEvent_PreFix")), null, null); // changes lightning stike location onto Nora pawns
             //harmony.Patch(AccessTools.Method(typeof(Thing), "Ingested"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Ingested_PostFix")), null); // checks for Pumpkin Pete´s eaten
             //harmony.Patch(AccessTools.Method(typeof(Pawn_RecordsTracker), "Increment"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Increment_PostFix")), null); // unlocks Semblance Shooting Melee Construction Mining Cooking Plants Animals Medicine
             //harmony.Patch(AccessTools.Method(typeof(Pawn_JobTracker), "StartJob"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("StartJob_PostFix")), null); // unlocks Semblance Intellectual
@@ -147,6 +146,23 @@ namespace RWBYRemnant
             if (__instance.health.hediffSet.HasHediff(RWBYDefOf.RWBY_RubyDashForm)) return false;
             if (__instance.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Apathy && !__instance.InMentalState) return false;
             return true;
+        }
+
+        [HarmonyPrefix]
+        public static void FireEvent_PreFix(Map ___map, ref IntVec3 ___strikeLoc) // changes lightning stike location onto Nora pawns
+        {
+            List<Pawn> pawns = ___map.mapPawns.AllPawns.ToList().FindAll(p => p.RaceProps.Humanlike && p.story.traits.HasTrait(RWBYDefOf.Semblance_Nora) && !p.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen));
+            if (pawns.Count() > 0)
+            {
+                IntVec3 strikeLoc = ___strikeLoc;
+                pawns = pawns.FindAll(p => p.Position.DistanceTo(strikeLoc) <= 30f && !p.Position.Roofed(___map));
+                if (pawns.Count() > 0)
+                {
+                    Pawn pawn = pawns.RandomElement();
+                    ___strikeLoc = pawn.Position;
+                    if (pawn.TryGetComp<CompAura>().aura is Aura_Nora aura_Nora) aura_Nora.Notify_NextDamageIsLightning();
+                }
+            }
         }
 
         [HarmonyPostfix]

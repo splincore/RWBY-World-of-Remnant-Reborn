@@ -128,6 +128,7 @@ namespace RWBYRemnant
         // Nora
         public static TraitDef Semblance_Nora;
         public static HediffDef RWBY_LightningBuff;
+        public static SemblanceAbilityDef Nora_AbsorbElectricity;
 
         // Jaune
         public static TraitDef Semblance_Jaune;

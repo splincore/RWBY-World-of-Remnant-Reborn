@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Nora_AbsorbElectricity</defName>
+		<label>Absorb electricity</label>
+		<iconPath>Things/UI/Electric_Dust</iconPath>
+		<description>Absorb electricity from either a power grid with at least 200W stored energy or from a living mechanoid. A mechanoid might get stunned if its energy is drained. This ability will recharge your Aura and buff you.</description>
+		<hostile>false</hostile>
+		<cooldownTicksRange>3600</cooldownTicksRange>
+		<statBases>
+			<AuraCost>0</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>2.5</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.5</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_NoraAbsorbElectricity</compClass>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+</Defs>

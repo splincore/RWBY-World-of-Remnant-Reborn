@@ -85,6 +85,7 @@
     <Compile Include="Aura_Weiss.cs" />
     <Compile Include="Aura_Yang.cs" />
     <Compile Include="Command_AbilitySemblance.cs" />
+    <Compile Include="CompAbilityEffect_NoraAbsorbElectricity.cs" />
     <Compile Include="CompAbilityEffect_RubyCarry.cs" />
     <Compile Include="CompAbilityEffect_WeissSummon.cs" />
     <Compile Include="CompAbilityEffect_WeissTimeDilation.cs" />

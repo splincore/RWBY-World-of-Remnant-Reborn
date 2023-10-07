@@ -19,8 +19,7 @@ namespace RWBYRemnant
                 {
                     CurrentEnergy += dinfo.Amount;
                 }
-                Hediff hediffCharged = new Hediff();
-                hediffCharged = HediffMaker.MakeHediff(RWBYDefOf.RWBY_LightningBuff, pawn);
+                Hediff hediffCharged = HediffMaker.MakeHediff(RWBYDefOf.RWBY_LightningBuff, pawn);
                 pawn.health.AddHediff(hediffCharged);
                 return true;
             }

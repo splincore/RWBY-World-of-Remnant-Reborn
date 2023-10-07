@@ -179,6 +179,7 @@ namespace RWBYRemnant
             else if (semblance == RWBYDefOf.Semblance_Nora)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Nora { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Nora_AbsorbElectricity);
             }
             else if (semblance == RWBYDefOf.Semblance_Jaune)
             {
