@@ -17,6 +17,11 @@ namespace RWBYRemnant
         public static ThingDef LightningDustPowder;
         public static ThingDef GravityDustPowder;
         public static ThingDef HardLightDustPowder;
+        public static ThingDef FireDustCrystal;
+        public static ThingDef IceDustCrystal;
+        public static ThingDef LightningDustCrystal;
+        public static ThingDef GravityDustCrystal;
+        public static ThingDef HardLightDustCrystal;
 
         // History
         public static HistoryEventDef RWBY_AuraStolenByPlayer;
@@ -32,6 +37,7 @@ namespace RWBYRemnant
 
         public static ThingDef Apparel_PumpkinPetes;
         public static ThingDef Apparel_PowderedDustBelt;
+        public static ThingDef Apparel_DustCrystalBelt;
 
         // Hediffs
         public static HediffDef RWBY_ApathyTiredness;
@@ -44,6 +50,7 @@ namespace RWBYRemnant
         public static HediffDef RWBY_InjectedHardLightCrystal;
         public static HediffDef RWBY_AuraStolen;
         public static HediffDef RWBY_SilverEyes;
+        public static HediffDef RWBY_SilverEye_Exhaustion;
 
         // Jobs
         public static JobDef RWBY_StealAura;
@@ -60,6 +67,7 @@ namespace RWBYRemnant
 
         // Damage
         public static DamageDef RWBY_Inflame_Blunt;
+        public static DamageDef Bomb_Fire;
         public static DamageDef RWBY_Ice_Blunt;
         public static DamageDef RWBY_Lightning_Blunt;
         public static DamageDef RWBY_Burn_Blunt;
@@ -81,6 +89,10 @@ namespace RWBYRemnant
         public static PawnKindDef Grimm_Apathy;
         public static FleshTypeDef Grimm;
         public static ThingDef RWBY_Grimm_Glove;
+
+        // Abilities General
+        public static FleckDef RWBY_SilverEye_Fleck;
+        public static SemblanceAbilityDef Ability_SilverEyes;
 
         #endregion
 
@@ -132,6 +144,8 @@ namespace RWBYRemnant
 
         // Jaune
         public static TraitDef Semblance_Jaune;
+        public static ThingDef RWBY_PumpkinPetes;
+        public static ThoughtDef RWBY_JauneAtePumpkinPetes;
 
         // Pyrrha
         public static TraitDef Semblance_Pyrrha;
@@ -153,6 +167,7 @@ namespace RWBYRemnant
 
         // Hazel
         public static TraitDef Semblance_Hazel;
+        public static HediffDef RWBY_IgnorePain;
 
         // Velvet
         public static TraitDef Semblance_Velvet;

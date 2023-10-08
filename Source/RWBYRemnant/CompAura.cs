@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using static RimWorld.PreceptComp_BedThought;
 
 namespace RWBYRemnant
 {
@@ -58,6 +59,11 @@ namespace RWBYRemnant
         public override void CompTickRare()
         {
             base.CompTickRare();
+            if (!AuraOwner.health.hediffSet.HasHediff(RWBYDefOf.RWBY_SilverEyes) && AuraOwner.abilities.GetAbility(RWBYDefOf.Ability_SilverEyes) != null)
+            {
+                AuraOwner.abilities.RemoveAbility(RWBYDefOf.Ability_SilverEyes);
+                Messages.Message("MessageTextLostSilverEyes".Translate().Formatted(AuraOwner.Named("PAWN")).AdjustedFor(AuraOwner, "PAWN").CapitalizeFirst(), AuraOwner, MessageTypeDefOf.NegativeEvent);
+            }
             if (AuraOwner.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen))
             {
                 aura = null;
@@ -182,7 +188,7 @@ namespace RWBYRemnant
             }
             else
             {
-                SemblanceUtility.TryUnlockAura(AuraOwner, "LetterTextUnlockAuraAuto"); // TODO unlock Aura
+                SemblanceUtility.TryUnlockAura(AuraOwner, "LetterTextUnlockAuraAuto");
             }
         }
 

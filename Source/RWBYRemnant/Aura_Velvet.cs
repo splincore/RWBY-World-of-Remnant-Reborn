@@ -9,8 +9,7 @@ namespace RWBYRemnant
             if (pawn.Dead) return;
             if (pawn.equipment.Primary != null && pawn.equipment.Primary.TryGetComp<CompLightCopy>() != null)
             {
-                Hediff hediffMimicMoves = new Hediff();
-                hediffMimicMoves = HediffMaker.MakeHediff(RWBYDefOf.RWBY_VelvetMimicMoves, pawn);
+                Hediff hediffMimicMoves = HediffMaker.MakeHediff(RWBYDefOf.RWBY_VelvetMimicMoves, pawn);
                 pawn.health.AddHediff(hediffMimicMoves);
             }
             else

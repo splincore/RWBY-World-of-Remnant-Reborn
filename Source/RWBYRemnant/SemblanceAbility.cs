@@ -26,7 +26,7 @@ namespace RWBYRemnant
 
         public override bool GizmoDisabled(out string reason)
         {
-            if (pawn.TryGetComp<CompAura>() is CompAura compAura)
+            if (pawn.TryGetComp<CompAura>() is CompAura compAura && compAura.aura != null)
             {
                 if (compAura.aura.CurrentEnergy < def.AuraCost)
                 {

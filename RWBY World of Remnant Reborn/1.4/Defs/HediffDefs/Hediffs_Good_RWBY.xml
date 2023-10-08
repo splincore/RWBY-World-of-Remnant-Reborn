@@ -167,7 +167,7 @@
 	<HediffDef>
 		<defName>RWBY_IgnorePain</defName>
 		<label>ignore pain</label>
-		<description>The pawn cannot feel any pain from the pawn's wounds.</description>
+		<description>The pawn cannot feel any pain. This includes wounds and other sources.</description>
 		<initialSeverity>1.0</initialSeverity>
 		<defaultLabelColor>(0.8, 0.8, 0.8)</defaultLabelColor>
 		<hediffClass>HediffWithComps</hediffClass>
@@ -175,7 +175,7 @@
 		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-6.0</severityPerDay>
+				<severityPerDay>-4.0</severityPerDay>
 			</li>
 		</comps>
 		<stages>
@@ -395,7 +395,7 @@
 		<label>silver eye</label>
 		<labelNoun>a silver eye</labelNoun>
 		<defaultLabelColor>(0.75, 0.75, 0.75)</defaultLabelColor>
-		<description>Natural eyes with silver color. Exceptionally rare.</description>
+		<description>Natural eyes with silver color. Exceptionally rare, but can be inherited.</description>
 		<addedPartProps>
 			<solid>true</solid>
 			<partEfficiency>1.0</partEfficiency>

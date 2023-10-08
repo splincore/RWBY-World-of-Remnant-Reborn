@@ -46,6 +46,10 @@
 	<AdamAbsorbDamageLabel>absorbed damage</AdamAbsorbDamageLabel>
 	<SemblanceAbilityCastNoAura>{PAWN_nameDef} has not enough Aura to cast this ability.</SemblanceAbilityCastNoAura>
 	<SemblanceAuraCost>Aura cost</SemblanceAuraCost>
+	<InjectCrystalLabel>Inject Dust Crysal</InjectCrystalLabel>
+	<InjectCrystalDescription>Inject {0}, granting a buff in melee damage and an inporved Aura. Each Dust Crystal will grant a different buff that can stack up to 3 times. A 3 times stacked buff will wear of after 8 ingame hours. Injecting Dust Crystals will cause pain. The pain will increase the more Dust Crysals are injected.</InjectCrystalDescription>
+	<InjectCrystalNoAmmo>There is no ammunition left in the Dust Crystal belt</InjectCrystalNoAmmo>
+	<InjectCrystalDowned>{0} is downed</InjectCrystalDowned>
 
 	<!-- Raven Portal Gizmo -->
 	<RavenPortalDisabled>Another portal is still active</RavenPortalDisabled>
@@ -66,5 +70,9 @@
 	<!-- Yang Retrun Damage -->
 	<YangReturnDamageLabel>Return damage</YangReturnDamageLabel>
 	<YangReturnDamageDescription>Toggle on to deal additional damage based on how many damage has been taken. Can be manually toggled off. Will automatically activate at 75 absorbed damage. The effect will wear off after 6 ingame hours.</YangReturnDamageDescription>
+
+	<!-- Hazel Ignore Pain -->
+	<HazelIgnorePainLabel>Ignore pain</HazelIgnorePainLabel>
+	<HazelIgnorePainDescription>Toggle on to ignore pain. Can be manually toggled off. The effect will wear off after 6 ingame hours. Can be activated when downed, but be careful to not ignore the pawn's wounds, as the pawn can die while feeling no pain.</HazelIgnorePainDescription>
 
 </LanguageData>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Ability_SilverEyes</defName>
+		<label>Silver eyes</label>
+		<iconPath>Things/UI/SilverEyes</iconPath>
+		<description>Heavily damages all Grimm that can see the caster. Beware of exhaustion if you are not used to this ability.</description>
+		<hostile>false</hostile>
+		<cooldownTicksRange>3600</cooldownTicksRange>
+		<statBases>
+			<AuraCost>50</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>0.5</range>
+			<requireLineOfSight>false</requireLineOfSight>
+			<warmupTime>0.1</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_SilverEyes</compClass>
+				<sound>Shoot_Ice_Bolt</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<FleckDef ParentName="FleckBase">
+		<defName>RWBY_SilverEye_Fleck</defName>
+		<fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+		<graphicData>
+			<graphicClass>Graphic_Fleck</graphicClass>
+			<shaderType>Mote</shaderType>
+			<texPath>Things/Item/Special/Silver_Eyes</texPath>
+			<drawSize>3</drawSize>
+			<color>(255, 255, 255)</color>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>1.5</solidTime>
+		<fadeInTime>0.5</fadeInTime>
+		<fadeOutTime>0.5</fadeOutTime>
+	</FleckDef>
+
+</Defs>

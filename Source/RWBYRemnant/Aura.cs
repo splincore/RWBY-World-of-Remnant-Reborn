@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using EquipmentToolbox;
+using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -163,13 +164,58 @@ namespace RWBYRemnant
 
         public virtual IEnumerable<Gizmo> GetGizmos()
         {
-
             yield return new GizmoAuraStatus
             {
                 aura = this,
                 label = "AuraGizmoLabel".Translate(pawn.Name.ToStringShort),
                 FullShieldBarTex = SolidColorMaterials.NewSolidColorTexture(GetColor())
             };
+            if (pawn.apparel.WornApparel.Find(b => b.def == RWBYDefOf.Apparel_DustCrystalBelt) is ThingWithComps belt)
+            {
+                foreach (CompThingAbility tmpCompThingAbility in belt.AllComps.FindAll(c => c is CompThingAbility).Cast<CompThingAbility>())
+                {
+                    yield return new Command_Action()
+                    {
+                        defaultLabel = "InjectCrystalLabel".Translate(),
+                        defaultDesc = "InjectCrystalDescription".Translate(tmpCompThingAbility.AmmoDef.label),
+                        icon = tmpCompThingAbility.AmmoDef.uiIcon,
+                        defaultIconColor = tmpCompThingAbility.AmmoDef.uiIconColor,
+                        
+                        disabled = !tmpCompThingAbility.HasAmmoRemaining || pawn.Downed,
+                        disabledReason = pawn.Downed ? "InjectCrystalDowned".Translate(pawn.LabelShort) : "InjectCrystalNoAmmo".Translate(),
+                        groupable = false,
+                        action = delegate()
+                        {
+                            if (tmpCompThingAbility.ConsumeAmmo())
+                            {
+                                Hediff injectedCrystal = new Hediff();
+                                if (tmpCompThingAbility.AmmoDef == RWBYDefOf.FireDustCrystal)
+                                {
+                                    injectedCrystal = HediffMaker.MakeHediff(RWBYDefOf.RWBY_InjectedFireCrystal, pawn);
+                                }
+                                else if (tmpCompThingAbility.AmmoDef == RWBYDefOf.IceDustCrystal)
+                                {
+                                    injectedCrystal = HediffMaker.MakeHediff(RWBYDefOf.RWBY_InjectedIceCrystal, pawn);
+                                }
+                                else if (tmpCompThingAbility.AmmoDef == RWBYDefOf.LightningDustCrystal)
+                                {
+                                    injectedCrystal = HediffMaker.MakeHediff(RWBYDefOf.RWBY_InjectedLightningCrystal, pawn);
+                                }
+                                else if (tmpCompThingAbility.AmmoDef == RWBYDefOf.GravityDustCrystal)
+                                {
+                                    injectedCrystal = HediffMaker.MakeHediff(RWBYDefOf.RWBY_InjectedGravityCrystal, pawn);
+                                }
+                                else if (tmpCompThingAbility.AmmoDef == RWBYDefOf.HardLightDustCrystal)
+                                {
+                                    injectedCrystal = HediffMaker.MakeHediff(RWBYDefOf.RWBY_InjectedHardLightCrystal, pawn);
+                                }
+                                pawn.health.AddHediff(injectedCrystal);
+                                RWBYDefOf.AuraFlicker.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map, false));
+                            }
+                        }
+                    };
+                }
+            }
         }
 
         public virtual Color GetColor()

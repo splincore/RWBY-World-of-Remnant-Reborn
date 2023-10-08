@@ -22,21 +22,18 @@ namespace RWBYRemnant
             harmony.Patch(AccessTools.Method(typeof(Pawn_HealthTracker), "NotifyPlayerOfKilled"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("PreNotifyPlayerOfKilled_PreFix")), null, null); // disables notification if summoned Grimm disappears
             harmony.Patch(AccessTools.Method(typeof(Pawn), "DrawAt", new[] { typeof(Vector3), typeof(bool) }), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("RenderPawnAt_PreFix")), null, null); // makes invisible: Ruby while dashing, Apathy while not triggered
             harmony.Patch(AccessTools.Method(typeof(Pawn), "DrawGUIOverlay"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("RenderPawnAt_PreFix")), null, null); // makes invisible: Ruby while dashing, Apathy while not triggered
-            //harmony.Patch(AccessTools.Method(typeof(DamageWorker_Flame), "ExplosionAffectCell"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("ExplosionAffectCell_PostFix")), null); // makes fire Dust spawn fire on explosion
+            harmony.Patch(AccessTools.Method(typeof(DamageWorker_Flame), "ExplosionAffectCell"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("ExplosionAffectCell_PostFix")), null); // makes fire Dust spawn fire on explosion
             //harmony.Patch(AccessTools.Method(typeof(JobDriver_Wait), "CheckForAutoAttack"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("CheckForAutoAttack_PreFix")), null, null); // fixes summoned Grimm bug of nullpointer if wandering
             harmony.Patch(AccessTools.Method(typeof(WeatherEvent_LightningStrike), "FireEvent"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("FireEvent_PreFix")), null, null); // changes lightning stike location onto Nora pawns
-            //harmony.Patch(AccessTools.Method(typeof(Thing), "Ingested"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Ingested_PostFix")), null); // checks for Pumpkin Pete´s eaten
+            harmony.Patch(AccessTools.Method(typeof(Thing), "Ingested"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Ingested_PostFix")), null); // checks for Pumpkin Pete´s eaten
             //harmony.Patch(AccessTools.Method(typeof(Pawn_RecordsTracker), "Increment"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Increment_PostFix")), null); // unlocks Semblance Shooting Melee Construction Mining Cooking Plants Animals Medicine
             //harmony.Patch(AccessTools.Method(typeof(Pawn_JobTracker), "StartJob"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("StartJob_PostFix")), null); // unlocks Semblance Intellectual
             //harmony.Patch(AccessTools.Method(typeof(RecordsUtility), "Notify_BillDone"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Notify_BillDone_PostFix")), null); // unlocks Semblance Crafting Artistic
-            //harmony.Patch(AccessTools.Method(typeof(Trait), "TipString"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("TipString_PostFix")), null); // adds disabled working tags to Trait descriptions
-            //harmony.Patch(AccessTools.Method(typeof(GenHostility), "HostileTo", new[] { typeof(Thing), typeof(Thing) }), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("HostileTo_PostFix")), null); // makes Grimm unable to attack pawns affected by Ren or without negative emotions
-            //harmony.Patch(AccessTools.Method(typeof(IncidentWorker_RaidEnemy), "TryExecuteWorker"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("TryExecuteWorker_PreFix")), null, null);  // may increases raid size if Semblance Qrow is present
-            //harmony.Patch(AccessTools.Method(typeof(AttackTargetFinder), "BestAttackTarget"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("BestAttackTarget_PreFix")), null, null); // makes Grimm not need line of sight
             //harmony.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractWith"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("TryInteractWith_PostFix")), null); // unlock Semblance Social
-            //harmony.Patch(AccessTools.Method(typeof(Targeter), "ProcessInputEvents"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("ProcessInputEvents_Prefix")), null, null); // lets the weapon projectile ability aim properly
-            //harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new[] { typeof(PawnGenerationRequest) }), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GeneratePawn_PostFix")), null); // adds silver eyes to a humanoid pawn // TODO add silver eyes
+            harmony.Patch(AccessTools.Method(typeof(GenHostility), "HostileTo", new[] { typeof(Thing), typeof(Thing) }), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("HostileTo_PostFix")), null); // makes Grimm unable to attack pawns affected by Ren or without negative emotions
+            harmony.Patch(AccessTools.Method(typeof(AttackTargetFinder), "BestAttackTarget"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("BestAttackTarget_PreFix")), null, null); // makes Grimm not need line of sight
             harmony.Patch(AccessTools.Method(typeof(AbilityDef), "StatSummary"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("StatSummary_PostFix")), null); // add Ability Tooltip Aura cost stat
+            harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new[] { typeof(PawnGenerationRequest) }), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GeneratePawn_PostFix")), null); // adds silver eyes to a humanoid pawn
             // TODO add patches
         }
 
@@ -148,6 +145,33 @@ namespace RWBYRemnant
             return true;
         }
 
+        [HarmonyPostfix]
+        public static void Ingested_PostFix(ref float __result, Thing __instance, Pawn ingester) // checks for Pumpkin Pete´s eaten
+        {
+            if (__instance.def == RWBYDefOf.RWBY_PumpkinPetes && __result != 0)
+            {
+                if (ingester.TryGetComp<CompAura>() is CompAura compAura)
+                {
+                    compAura.Notify_EatenPumkinPetes();
+
+                    if (ingester.story != null && ingester.story.traits.HasTrait(RWBYDefOf.Semblance_Jaune))
+                    {
+                        Thought_Memory thought_Memory = (Thought_Memory)ThoughtMaker.MakeThought(RWBYDefOf.RWBY_JauneAtePumpkinPetes);
+                        ingester.needs.mood.thoughts.memories.TryGainMemory(thought_Memory);
+                    }
+                }
+            }
+        }
+
+        [HarmonyPostfix]
+        public static void ExplosionAffectCell_PostFix(DamageWorker_Flame __instance, Explosion explosion, IntVec3 c, List<Thing> damagedThings, bool canThrowMotes) // makes fire Dust spawn fire on explosion
+        {
+            if (__instance.def == RWBYDefOf.Bomb_Fire && Rand.Chance(FireUtility.ChanceToStartFireIn(c, explosion.Map)))
+            {
+                FireUtility.TryStartFireIn(c, explosion.Map, Rand.Range(0.2f, 0.6f));
+            }
+        }
+
         [HarmonyPrefix]
         public static void FireEvent_PreFix(Map ___map, ref IntVec3 ___strikeLoc) // changes lightning stike location onto Nora pawns
         {
@@ -166,6 +190,34 @@ namespace RWBYRemnant
         }
 
         [HarmonyPostfix]
+        public static void HostileTo_PostFix(ref bool __result, Thing a, Thing b) // makes Grimm unable to attack pawns affected by Ren or without negative emotions
+        {
+            if (!__result) return;
+            if (!(a is Pawn searcherPawn)) return;
+            if (!GrimmUtility.IsGrimm(searcherPawn) || searcherPawn.Faction.def != RWBYDefOf.Creatures_of_Grimm) return;
+            if (b is Pawn targetPawn && (targetPawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_MaskedEmotions) || targetPawn.Downed))
+            {
+                __result = false;
+                return;
+            }
+            if (b is Pawn targetPawn2 && targetPawn2.RaceProps.Humanlike)
+            {
+                List<Thought> outThoughts = new List<Thought>();
+                targetPawn2.needs.mood.thoughts.GetAllMoodThoughts(outThoughts);
+                if (!outThoughts.Any(o => o.MoodOffset() < 0f)) __result = false;
+            }
+        }
+
+        [HarmonyPrefix]
+        public static void BestAttackTarget_PreFix(IAttackTargetSearcher searcher, ref TargetScanFlags flags) // makes Grimm not need line of sight
+        {
+            if (!(searcher is Pawn searcherPawn)) return;
+            if (searcherPawn.Faction == null) return;
+            if (!GrimmUtility.IsGrimm(searcherPawn) || searcherPawn.Faction.def != RWBYDefOf.Creatures_of_Grimm) return;
+            flags = TargetScanFlags.None;
+        }
+
+        [HarmonyPostfix]
         public static void StatSummary_PostFix(AbilityDef __instance, ref IEnumerable<string> __result) // add Ability Tooltip Aura cost stat
         {
             if (__instance is SemblanceAbilityDef semblanceAbilityDef)
@@ -174,6 +226,34 @@ namespace RWBYRemnant
                 result.AddRange(__result);
                 result.Add("SemblanceAuraCost".Translate() + ": " + semblanceAbilityDef.AuraCost);
                 __result = result;
+            }
+        }
+
+        [HarmonyPostfix]
+        public static void GeneratePawn_PostFix(Pawn __result) // adds silver eyes to a humanoid pawn
+        {
+            if (__result.RaceProps.Humanlike)
+            {
+                if (SemblanceUtility.PyrrhaMagnetismCanAffect(__result)) return; // removes Androids from birth effects
+                if (__result.relations.RelatedPawns.Any(p => p.relations.Children.Contains(__result) && p.health.hediffSet.HasHediff(RWBYDefOf.RWBY_SilverEyes)) || __result.relations.Children.Any(c => c.health.hediffSet.HasHediff(RWBYDefOf.RWBY_SilverEyes)))
+                {
+                    if (Rand.Chance(0.5f)) // inherit with 50% chance
+                    {
+                        foreach (BodyPartRecord bodyPartRecord in __result.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Eye))
+                        {
+                            __result.health.AddHediff(RWBYDefOf.RWBY_SilverEyes, bodyPartRecord);
+                            __result.abilities.GainAbility(RWBYDefOf.Ability_SilverEyes);
+                        }
+                    }
+                }
+                else if (Rand.Chance(0.01f)) // natural with 1% chance
+                {
+                    foreach (BodyPartRecord bodyPartRecord in __result.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Eye))
+                    {
+                        __result.health.AddHediff(RWBYDefOf.RWBY_SilverEyes, bodyPartRecord);
+                        __result.abilities.GainAbility(RWBYDefOf.Ability_SilverEyes);
+                    }
+                }
             }
         }
     }
