@@ -86,6 +86,7 @@
     <Compile Include="Aura_Yang.cs" />
     <Compile Include="Command_AbilitySemblance.cs" />
     <Compile Include="CompAbilityEffect_NoraAbsorbElectricity.cs" />
+    <Compile Include="CompAbilityEffect_RavenFromBond.cs" />
     <Compile Include="CompAbilityEffect_RubyCarry.cs" />
     <Compile Include="CompAbilityEffect_SilverEyes.cs" />
     <Compile Include="CompAbilityEffect_WeissSummon.cs" />

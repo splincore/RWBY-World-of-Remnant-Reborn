@@ -159,11 +159,11 @@ namespace RWBYRemnant
                 pawn.TryGetComp<CompAura>().aura = new Aura_Ruby { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
                 pawn.abilities.GainAbility(RWBYDefOf.Ruby_BurstIntoRosePetals);
                 pawn.abilities.GainAbility(RWBYDefOf.Ruby_CarryPawn);
-                // TODO add abilities
             }
             else if (semblance == RWBYDefOf.Semblance_Yang)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Yang { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                // only aura inate abilities
             }
             else if (semblance == RWBYDefOf.Semblance_Weiss)
             {
@@ -175,6 +175,7 @@ namespace RWBYRemnant
             else if (semblance == RWBYDefOf.Semblance_Blake)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Blake { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                // only aura inate abilities
             }
             else if (semblance == RWBYDefOf.Semblance_Nora)
             {
@@ -196,10 +197,12 @@ namespace RWBYRemnant
             else if (semblance == RWBYDefOf.Semblance_Qrow)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Qrow { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                // only aura inate abilities
             }
             else if (semblance == RWBYDefOf.Semblance_Raven)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Raven { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Raven_FormBond);
             }
             else if (semblance == RWBYDefOf.Semblance_Cinder)
             {
@@ -208,10 +211,12 @@ namespace RWBYRemnant
             else if (semblance == RWBYDefOf.Semblance_Hazel)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Hazel { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                // only aura inate abilities
             }
             else if (semblance == RWBYDefOf.Semblance_Velvet)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Velvet { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                // only aura inate abilities
             }
             else if (semblance == RWBYDefOf.Semblance_Adam)
             {

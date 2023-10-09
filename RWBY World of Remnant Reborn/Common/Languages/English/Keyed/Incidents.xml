@@ -52,7 +52,6 @@
 	<!-- Qrow semblance effects -->
 	<TextMote_Crow_MissedRanged>Huh?</TextMote_Crow_MissedRanged>
 	<TextMote_Crow_MissedMelee>Slipped</TextMote_Crow_MissedMelee>
-	<MessageTextQrowRaid>This raid is stronger than usual, how come?</MessageTextQrowRaid>
 	
 	<!-- Aura Steal -->
 	<MessageFactionStoleAura>{0} stole {1}'s Aura</MessageFactionStoleAura>

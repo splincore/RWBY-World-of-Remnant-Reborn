@@ -53,6 +53,7 @@
 
 	<!-- Raven Portal Gizmo -->
 	<RavenPortalDisabled>Another portal is still active</RavenPortalDisabled>
+	<RavenPortalFloatMenuLabel>Go through portal</RavenPortalFloatMenuLabel>
 	<RavenPortalBondLabel>Portal to {0}</RavenPortalBondLabel>
 	<RavenPortalBondDescription>Create a portal to {0} that will last for 30 seconds.</RavenPortalBondDescription>
 	<RavenBondOpinionLow>{0} does not like {1} enough to create a bond</RavenBondOpinionLow>

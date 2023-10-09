@@ -161,6 +161,7 @@ namespace RWBYRemnant
         public static TraitDef Semblance_Raven;
         public static ThingDef Raven_Portal;
         public static JobDef GoThroughPortal;
+        public static SemblanceAbilityDef Raven_FormBond;
 
         // Cinder
         public static TraitDef Semblance_Cinder;

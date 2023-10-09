@@ -16,7 +16,7 @@ namespace RWBYRemnant
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
         {
             foreach (FloatMenuOption floatMenuOption in base.GetFloatMenuOptions(selPawn)) yield return floatMenuOption;
-            string label = "Use Portal";
+            string label = "RavenPortalFloatMenuLabel".Translate();
             yield return new FloatMenuOption(label, delegate ()
             {
                 Job job = new Job(RWBYDefOf.GoThroughPortal, this);

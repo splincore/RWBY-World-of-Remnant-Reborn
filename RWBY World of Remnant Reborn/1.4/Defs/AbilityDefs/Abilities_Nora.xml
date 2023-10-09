@@ -29,6 +29,7 @@
 		<comps>
 			<li Class="CompProperties_AbilityEffect">
 				<compClass>RWBYRemnant.CompAbilityEffect_NoraAbsorbElectricity</compClass>
+				<sound>AuraBreak</sound>
 			</li>
 		</comps>
 	</RWBYRemnant.SemblanceAbilityDef>

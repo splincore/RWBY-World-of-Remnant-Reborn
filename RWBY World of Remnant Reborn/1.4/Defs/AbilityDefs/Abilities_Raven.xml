@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Raven_FormBond</defName>
+		<label>Form bond</label>
+		<iconPath>Things/UI/Ability_UnlockAura</iconPath>
+		<description>Form a bond with target pawn. This pawn has to be a person and you need to really like that person.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>0</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>5</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>3.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_RavenFromBond</compClass>
+				<sound>AuraFlicker</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
 	<ThingDef ParentName="AbilityItemBase">
 		<thingClass>RWBYRemnant.ThingWithComps_Portal</thingClass>
 		<defName>Raven_Portal</defName>

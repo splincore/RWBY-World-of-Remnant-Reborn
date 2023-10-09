@@ -45,6 +45,10 @@ namespace RWBYRemnant
                     return true;
                 }
             }
+            else if (CurrentEnergy > 0f && dinfo.Instigator is Pawn && Rand.Chance(0.1f))
+            {
+                return false;
+            }
             return base.TryAbsorbDamage(dinfo);
         }
 
