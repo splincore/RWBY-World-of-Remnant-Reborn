@@ -185,14 +185,20 @@ namespace RWBYRemnant
             else if (semblance == RWBYDefOf.Semblance_Jaune)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Jaune { maxEnergy = 150, CurrentEnergy = 150, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Jaune_AmplifyAura);
             }
             else if (semblance == RWBYDefOf.Semblance_Pyrrha)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Pyrrha { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Pyrrha_UnlockAura);
+                pawn.abilities.GainAbility(RWBYDefOf.Pyrrha_UseMagnetism);
+                pawn.abilities.GainAbility(RWBYDefOf.Pyrrha_MagneticPulse);
             }
             else if (semblance == RWBYDefOf.Semblance_Ren)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Ren { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Ren_MaskEmotions);
+                pawn.abilities.GainAbility(RWBYDefOf.Ren_MaskEmotionsAmplified);
             }
             else if (semblance == RWBYDefOf.Semblance_Qrow)
             {
@@ -207,6 +213,12 @@ namespace RWBYRemnant
             else if (semblance == RWBYDefOf.Semblance_Cinder)
             {
                 pawn.TryGetComp<CompAura>().aura = new Aura_Cinder { maxEnergy = 100, CurrentEnergy = 100, pawn = pawn };
+                pawn.abilities.GainAbility(RWBYDefOf.Cinder_ShootFireCrystal);
+                pawn.abilities.GainAbility(RWBYDefOf.Cinder_SummonExplosives);
+                pawn.abilities.GainAbility(RWBYDefOf.Cinder_CreateScimitar);
+                pawn.abilities.GainAbility(RWBYDefOf.Cinder_CreateSpear);
+                pawn.abilities.GainAbility(RWBYDefOf.Cinder_CreateBlades);
+                pawn.abilities.GainAbility(RWBYDefOf.Cinder_CreateBow);
             }
             else if (semblance == RWBYDefOf.Semblance_Hazel)
             {

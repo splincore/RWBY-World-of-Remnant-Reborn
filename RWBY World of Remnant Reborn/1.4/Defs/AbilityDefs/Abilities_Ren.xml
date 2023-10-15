@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Ren_MaskEmotions</defName>
+		<label>Mask emotions</label>
+		<iconPath>Things/UI/Ability_MaskEmotions</iconPath>
+		<description>Mask the emotions target person. Grimm won't detect people with masked emotions.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>15</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_RenMaskEmotions</compClass>
+				<sound>AuraFlicker</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Ren_MaskEmotionsAmplified</defName>
+		<label>Mass mask emotions</label>
+		<iconPath>Things/UI/Ability_MaskEmotions</iconPath>
+		<description>Mask the emotions every person in an area. Grimm won't detect people with masked emotions.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>20</AuraCost>
+			<Ability_EffectRadius>4</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>15</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.5</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_RenMaskEmotionsAmplified</compClass>
+				<sound>AuraFlicker</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+</Defs>

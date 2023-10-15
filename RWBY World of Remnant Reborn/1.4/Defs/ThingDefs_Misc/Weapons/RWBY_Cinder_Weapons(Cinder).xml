@@ -257,6 +257,8 @@
 			<texPath>Things/Item/Equipment/Weapons/Cinder_Scimitar</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>1.4</drawSize>
+			<drawOffsetEast>(0.20, 0, 0)</drawOffsetEast>
+			<drawOffsetWest>(-0.20, 0, 0)</drawOffsetWest>
 		</graphicData>
 		<tradeability>None</tradeability>
 		<generateCommonality>0</generateCommonality>
@@ -265,7 +267,7 @@
 			<MarketValue>0</MarketValue>
 			<Mass>0</Mass>
 		</statBases>
-		<equippedAngleOffset>-55</equippedAngleOffset>	
+		<equippedAngleOffset>-55</equippedAngleOffset>
 		<comps>
 			<li Class="RWBYRemnant.CompProperties_LightCopy"/>
 		</comps>

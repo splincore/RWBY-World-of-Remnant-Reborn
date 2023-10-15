@@ -10,7 +10,7 @@ namespace RWBYRemnant
         public override bool TryAbsorbDamage(DamageInfo dinfo)
         {
             if (CurrentEnergy == 0f) return false;
-            if ((pawn.Drafted || pawn.IsFighting()) && dinfo.Weapon != null && dinfo.Weapon.IsRangedWeapon && Rand.Chance(0.5f) && TryConsumeAura(0.02f))
+            if ((pawn.Drafted || pawn.IsFighting()) && dinfo.Instigator != null && dinfo.Instigator.Map == pawn.Map && dinfo.Instigator.Position.DistanceTo(pawn.Position) > 2f && Rand.Chance(0.5f) && TryConsumeAura(0.02f))
             {
                 switch (Rand.RangeInclusive(1, 4))
                 {

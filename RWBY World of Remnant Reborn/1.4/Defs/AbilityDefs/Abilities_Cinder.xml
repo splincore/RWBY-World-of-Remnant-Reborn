@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef Class="RWBYRemnant.ThingDef_FleckProjectile" ParentName="BaseBullet">
+		<defName>Cinder_FireCrystal</defName>
+		<label>sharpened fire Dust crystal</label>
+		<thingClass>RWBYRemnant.Projectile_WithFleck</thingClass>
+		<color>(128, 26, 0)</color>
+		<graphicData>
+			<texPath>Things/Projectile/Projectile_Dust_Crystal_Fire</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+		</graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<speed>50</speed>
+		</projectile>
+	</ThingDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Cinder_ShootFireCrystal</defName>
+		<label>Shoot fire crytals</label>
+		<iconPath>Things/UI/Projectile_Dust_Crystal_Fire</iconPath>
+		<description>Use Dust to create multiple fire crystal projectiles and shoot them at EVERY pawn in target area. Uses one powdered Fire Dust per target, but can set them on fire.</description>
+		<hostile>true</hostile>
+		<statBases>
+			<AuraCost>0</AuraCost>
+			<Ability_EffectRadius>4</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>28</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_CinderShootFireCrystal</compClass>
+				<sound>Transform_Glass</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Cinder_SummonExplosives</defName>
+		<label>Summon explosives</label>
+		<iconPath>Things/UI/Summon_Mine</iconPath>
+		<description>Summon explosives under EVERY pawn in target area.</description>
+		<hostile>true</hostile>
+		<statBases>
+			<AuraCost>15</AuraCost>
+			<Ability_EffectRadius>4</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>24</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>true</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_CinderSummonExplosives</compClass>
+				<sound>AuraFlicker</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+	<ThingDef ParentName="AbilityItemBase">
+		<defName>Cinder_ExplosiveMine</defName>
+		<label>Cinder Explosive Mine</label>
+		<description>Explodes in 2... 1..</description>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Item/Special/Gradient_Circle_Light</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(255, 204, 0)</color>
+		</graphicData>
+		<soundInteract>Wood_Drop</soundInteract>
+		<soundDrop>Wood_Drop</soundDrop>
+		<statBases>
+			<MarketValue>0.0</MarketValue>
+			<Mass>0.0</Mass>
+		</statBases>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_ExplosiveSilent">
+				<explosiveRadius>1.6</explosiveRadius>
+				<explosiveDamageType>Bomb_Fire</explosiveDamageType>
+				<explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
+				<startWickOnDamageTaken>
+					<li>Flame</li>
+				</startWickOnDamageTaken>
+				<wickTicks>
+					<min>120</min>
+					<max>180</max>
+				</wickTicks>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>1.5</glowRadius>
+				<glowColor>(217,112,33,0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Cinder_CreateScimitar</defName>
+		<label>Create glass Scimitar</label>
+		<iconPath>Things/Item/Equipment/Weapons/Cinder_Scimitar</iconPath>
+		<description>Create a glass scimitar that only you can wield.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>0.1</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_CinderSummonWeapon">
+				<compClass>RWBYRemnant.CompAbilityEffect_CinderSummonWeapon</compClass>
+				<weaponToSummon>RWBY_Cinder_Scimitar</weaponToSummon>
+				<sound>Transform_Glass</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Cinder_CreateSpear</defName>
+		<label>Create glass spear</label>
+		<iconPath>Things/Item/Equipment/Weapons/Cinder_Spear</iconPath>
+		<description>Create a glass spear that only you can wield.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>0.1</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_CinderSummonWeapon">
+				<compClass>RWBYRemnant.CompAbilityEffect_CinderSummonWeapon</compClass>
+				<weaponToSummon>RWBY_Cinder_Spear</weaponToSummon>
+				<sound>Transform_Glass</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Cinder_CreateBlades</defName>
+		<label>Create glass blades</label>
+		<iconPath>Things/Item/Equipment/Weapons/Cinder_Blades</iconPath>
+		<description>Create glass blades that only you can wield.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>0.1</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_CinderSummonWeapon">
+				<compClass>RWBYRemnant.CompAbilityEffect_CinderSummonWeapon</compClass>
+				<weaponToSummon>RWBY_Cinder_Blades</weaponToSummon>
+				<sound>Transform_Glass</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Cinder_CreateBow</defName>
+		<label>Create glass bow</label>
+		<iconPath>Things/Item/Equipment/Weapons/Cinder_Bow</iconPath>
+		<description>Create a glass bow that only you can wield.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>10</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>0.1</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="RWBYRemnant.CompProperties_CinderSummonWeapon">
+				<compClass>RWBYRemnant.CompAbilityEffect_CinderSummonWeapon</compClass>
+				<weaponToSummon>RWBY_Cinder_Bow</weaponToSummon>
+				<sound>Transform_Glass</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+</Defs>

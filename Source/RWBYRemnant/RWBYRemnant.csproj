@@ -85,8 +85,17 @@
     <Compile Include="Aura_Weiss.cs" />
     <Compile Include="Aura_Yang.cs" />
     <Compile Include="Command_AbilitySemblance.cs" />
+    <Compile Include="CompAbilityEffect_CinderShootFireCrystal.cs" />
+    <Compile Include="CompAbilityEffect_CinderSummonExplosives.cs" />
+    <Compile Include="CompAbilityEffect_CinderSummonWeapon.cs" />
+    <Compile Include="CompAbilityEffect_JauneAmplifyAura.cs" />
     <Compile Include="CompAbilityEffect_NoraAbsorbElectricity.cs" />
+    <Compile Include="CompAbilityEffect_PyrrhaMagneticPulse.cs" />
+    <Compile Include="CompAbilityEffect_PyrrhaUnlockAura.cs" />
+    <Compile Include="CompAbilityEffect_PyrrhaUseMagnetism.cs" />
     <Compile Include="CompAbilityEffect_RavenFromBond.cs" />
+    <Compile Include="CompAbilityEffect_RenMaskEmotionsAmplified.cs" />
+    <Compile Include="CompAbilityEffect_RenMaskEmotions.cs" />
     <Compile Include="CompAbilityEffect_RubyCarry.cs" />
     <Compile Include="CompAbilityEffect_SilverEyes.cs" />
     <Compile Include="CompAbilityEffect_WeissSummon.cs" />
@@ -97,6 +106,7 @@
     <Compile Include="CompLightCopy.cs" />
     <Compile Include="CompProperties_Aura.cs" />
     <Compile Include="CompProperties_CameraPhotos.cs" />
+    <Compile Include="CompProperties_CinderSummonWeapon.cs" />
     <Compile Include="CompProperties_ExplosiveSilent.cs" />
     <Compile Include="CompProperties_GlyphSummon.cs" />
     <Compile Include="CompProperties_LightCopy.cs" />

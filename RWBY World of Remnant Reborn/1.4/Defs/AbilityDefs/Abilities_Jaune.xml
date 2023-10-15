@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Jaune_AmplifyAura</defName>
+		<label>Amplify Aura</label>
+		<iconPath>Things/UI/Ability_AmpifyAura</iconPath>
+		<description>Amplify someone's Aura. This will transfer up to 50 of your own Aura to the other Aura user. Additionally it will increase the target Aura's healing capabilities. Amplified Auras will have enhanced defensive capabilities.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>50</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>5</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.5</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_JauneAmplifyAura</compClass>
+				<sound>AuraFlicker</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+</Defs>

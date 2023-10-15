@@ -76,4 +76,10 @@
 	<HazelIgnorePainLabel>Ignore pain</HazelIgnorePainLabel>
 	<HazelIgnorePainDescription>Toggle on to ignore pain. Can be manually toggled off. The effect will wear off after 6 ingame hours. Can be activated when downed, but be careful to not ignore the pawn's wounds, as the pawn can die while feeling no pain.</HazelIgnorePainDescription>
 
+	<!-- Cinder Abilities -->
+	<CinderShootCrystalsReason>{0} has not enough powdered Fire Dust</CinderShootCrystalsReason>
+	
+	<!-- Ren Abilities -->
+	<MaskEmotionAmplifiedReason>{0} has no amplified Aura</MaskEmotionAmplifiedReason>
+	
 </LanguageData>

@@ -42,7 +42,6 @@ namespace RWBYRemnant
         // Hediffs
         public static HediffDef RWBY_ApathyTiredness;
         public static HediffDef RWBY_Thermos_Caffeine;
-        public static HediffDef RWBY_AmplifiedAura;
         public static HediffDef RWBY_InjectedFireCrystal;
         public static HediffDef RWBY_InjectedIceCrystal;
         public static HediffDef RWBY_InjectedLightningCrystal;
@@ -146,13 +145,21 @@ namespace RWBYRemnant
         public static TraitDef Semblance_Jaune;
         public static ThingDef RWBY_PumpkinPetes;
         public static ThoughtDef RWBY_JauneAtePumpkinPetes;
+        public static SemblanceAbilityDef Jaune_AmplifyAura;
+        public static HediffDef RWBY_AmplifiedAura;
 
         // Pyrrha
         public static TraitDef Semblance_Pyrrha;
+        public static SemblanceAbilityDef Pyrrha_UnlockAura;
+        public static SemblanceAbilityDef Pyrrha_UseMagnetism;
+        public static SemblanceAbilityDef Pyrrha_MagneticPulse;
+        public static ThoughtDef RWBY_PyrrhaHurtFriendly;
 
         // Ren
         public static TraitDef Semblance_Ren;
         public static HediffDef RWBY_MaskedEmotions;
+        public static SemblanceAbilityDef Ren_MaskEmotions;
+        public static SemblanceAbilityDef Ren_MaskEmotionsAmplified;
 
         // Qrow
         public static TraitDef Semblance_Qrow;
@@ -165,6 +172,14 @@ namespace RWBYRemnant
 
         // Cinder
         public static TraitDef Semblance_Cinder;
+        public static SemblanceAbilityDef Cinder_ShootFireCrystal;
+        public static ThingDef Cinder_FireCrystal;
+        public static SemblanceAbilityDef Cinder_SummonExplosives;
+        public static ThingDef Cinder_ExplosiveMine;
+        public static SemblanceAbilityDef Cinder_CreateScimitar;
+        public static SemblanceAbilityDef Cinder_CreateSpear;
+        public static SemblanceAbilityDef Cinder_CreateBlades;
+        public static SemblanceAbilityDef Cinder_CreateBow;
 
         // Hazel
         public static TraitDef Semblance_Hazel;

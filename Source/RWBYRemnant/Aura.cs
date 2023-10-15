@@ -104,27 +104,33 @@ namespace RWBYRemnant
 
             if (CurrentEnergy > 0f) // normal absorb
             {
-                RWBYDefOf.AuraFlicker.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map, false));
-                impactAngleVect = Vector3Utility.HorizontalVectorFromAngle(dinfo.Angle);
-                Vector3 loc = pawn.TrueCenter() + impactAngleVect.RotatedBy(180f) * 0.5f;
-                float num = Mathf.Min(10f, 2f + dinfo.Amount / 10f);
-                FleckMaker.Static(loc, pawn.Map, FleckDefOf.ExplosionFlash, num);
-                int num2 = (int)num;
-                for (int i = 0; i < num2; i++)
+                if (pawn.Spawned)
                 {
-                    FleckMaker.ThrowDustPuff(loc, pawn.Map, Rand.Range(0.8f, 1.2f));
+                    RWBYDefOf.AuraFlicker.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map, false));
+                    impactAngleVect = Vector3Utility.HorizontalVectorFromAngle(dinfo.Angle);
+                    Vector3 loc = pawn.TrueCenter() + impactAngleVect.RotatedBy(180f) * 0.5f;
+                    float num = Mathf.Min(10f, 2f + dinfo.Amount / 10f);
+                    FleckMaker.Static(loc, pawn.Map, FleckDefOf.ExplosionFlash, num);
+                    int num2 = (int)num;
+                    for (int i = 0; i < num2; i++)
+                    {
+                        FleckMaker.ThrowDustPuff(loc, pawn.Map, Rand.Range(0.8f, 1.2f));
+                    }
                 }
             }
             else // break
             {
-                RWBYDefOf.AuraBreak.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map, false));
-                FleckMaker.Static(pawn.TrueCenter(), pawn.Map, FleckDefOf.ExplosionFlash, 12f);
-                for (int i = 0; i < 6; i++)
+                if (pawn.Spawned)
                 {
-                    Vector3 loc = pawn.TrueCenter() + Vector3Utility.HorizontalVectorFromAngle((float)Rand.Range(0, 360)) * Rand.Range(0.3f, 0.6f);
-                    FleckMaker.ThrowDustPuff(loc, pawn.Map, Rand.Range(0.8f, 1.2f));
+                    RWBYDefOf.AuraBreak.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map, false));
+                    FleckMaker.Static(pawn.TrueCenter(), pawn.Map, FleckDefOf.ExplosionFlash, 12f);
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Vector3 loc = pawn.TrueCenter() + Vector3Utility.HorizontalVectorFromAngle((float)Rand.Range(0, 360)) * Rand.Range(0.3f, 0.6f);
+                        FleckMaker.ThrowDustPuff(loc, pawn.Map, Rand.Range(0.8f, 1.2f));
+                    }
+                    CurrentEnergy = 0f;
                 }
-                CurrentEnergy = 0f;
             }
             lastAbsorbDamageTick = Find.TickManager.TicksGame;
             return true;
@@ -220,13 +226,12 @@ namespace RWBYRemnant
 
         public virtual Color GetColor()
         {
-            return pawn.story.HairColor;
+            return pawn.story.favoriteColor == null ? pawn.story.HairColor : (Color)pawn.story.favoriteColor;
         }
 
         public virtual string GetLabelColor()
         {
-            if (GetColor().grayscale > 0.7f) return "<color=#000000>";
-            return "<color=#FFFFFF>";
+            return GetColor().grayscale > 0.7f ? "<color=#000000>" : "<color=#FFFFFF>";
         }
 
         public void Draw()

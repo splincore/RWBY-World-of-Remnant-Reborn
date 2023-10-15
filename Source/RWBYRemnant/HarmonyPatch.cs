@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using RimWorld;
-using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -26,51 +25,205 @@ namespace RWBYRemnant
             //harmony.Patch(AccessTools.Method(typeof(JobDriver_Wait), "CheckForAutoAttack"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("CheckForAutoAttack_PreFix")), null, null); // fixes summoned Grimm bug of nullpointer if wandering
             harmony.Patch(AccessTools.Method(typeof(WeatherEvent_LightningStrike), "FireEvent"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("FireEvent_PreFix")), null, null); // changes lightning stike location onto Nora pawns
             harmony.Patch(AccessTools.Method(typeof(Thing), "Ingested"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Ingested_PostFix")), null); // checks for Pumpkin Pete´s eaten
-            //harmony.Patch(AccessTools.Method(typeof(Pawn_RecordsTracker), "Increment"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Increment_PostFix")), null); // unlocks Semblance Shooting Melee Construction Mining Cooking Plants Animals Medicine
-            //harmony.Patch(AccessTools.Method(typeof(Pawn_JobTracker), "StartJob"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("StartJob_PostFix")), null); // unlocks Semblance Intellectual
-            //harmony.Patch(AccessTools.Method(typeof(RecordsUtility), "Notify_BillDone"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Notify_BillDone_PostFix")), null); // unlocks Semblance Crafting Artistic
-            //harmony.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractWith"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("TryInteractWith_PostFix")), null); // unlock Semblance Social
+            harmony.Patch(AccessTools.Method(typeof(Pawn_RecordsTracker), "Increment"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Increment_PostFix")), null); // unlocks Semblance Shooting Melee Construction Mining Cooking Plants Animals Medicine
+            harmony.Patch(AccessTools.Method(typeof(Pawn_JobTracker), "StartJob"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("StartJob_PostFix")), null); // unlocks Semblance Intellectual
+            harmony.Patch(AccessTools.Method(typeof(RecordsUtility), "Notify_BillDone"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("Notify_BillDone_PostFix")), null); // unlocks Semblance Crafting Artistic
+            harmony.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractWith"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("TryInteractWith_PostFix")), null); // unlock Semblance Social
             harmony.Patch(AccessTools.Method(typeof(GenHostility), "HostileTo", new[] { typeof(Thing), typeof(Thing) }), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("HostileTo_PostFix")), null); // makes Grimm unable to attack pawns affected by Ren or without negative emotions
             harmony.Patch(AccessTools.Method(typeof(AttackTargetFinder), "BestAttackTarget"), new HarmonyMethod(typeof(HarmonyPatch).GetMethod("BestAttackTarget_PreFix")), null, null); // makes Grimm not need line of sight
             harmony.Patch(AccessTools.Method(typeof(AbilityDef), "StatSummary"), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("StatSummary_PostFix")), null); // add Ability Tooltip Aura cost stat
             harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawn", new[] { typeof(PawnGenerationRequest) }), null, new HarmonyMethod(typeof(HarmonyPatch).GetMethod("GeneratePawn_PostFix")), null); // adds silver eyes to a humanoid pawn
-            // TODO add patches
         }
 
-        [HarmonyPostfix]
-        public static void GetGizmos_PostFix(Pawn_EquipmentTracker __instance, ref IEnumerable<Gizmo> __result) // adds thing abilities to pawns
-        {
-            Pawn pawn = __instance.pawn;
-            if (!pawn.IsColonist) return;
-            if (PawnAttackGizmoUtility.CanShowEquipmentGizmos())
-            {
-                List<Gizmo> newOutput = new List<Gizmo>();
-                newOutput.AddRange(__result);
+        #region "unlock Semblances"
 
-                foreach (ThingWithComps thingWithComps in __instance.AllEquipmentListForReading)
+        [HarmonyPostfix]
+        public static void Notify_BillDone_PostFix(Pawn billDoer, List<Thing> products) // unlocks Semblance Crafting Artistic
+        {
+            if (!LoadedModManager.GetMod<RemnantMod>().GetSettings<RemnantModSettings>().semblanceUnlockable) return;
+            if (billDoer.GetComp<CompAura>() is CompAura compAura && billDoer.story != null && billDoer.story.traits.HasTrait(RWBYDefOf.RWBY_Aura))
+            {
+                for (int i = 0; i < products.Count; i++)
                 {
-                    foreach (ThingComp thingComp in thingWithComps.AllComps.FindAll(c => c is CompCameraPhotos || c is CompWeaponDrinkCoffee || (c is CompStealAura && pawn.Drafted)))
+                    if (products[i].def.IsNutritionGivingIngestible && products[i].def.ingestible.preferability >= FoodPreferability.MealAwful)
                     {
-                        newOutput.AddRange(thingComp.CompGetGizmosExtra());
+                        // do nothing
+                    }
+                    else if (products[i].def.HasComp(typeof(CompArt)) && products[i].TryGetComp<CompArt>() is CompArt compArt && compArt.Active)
+                    {
+                        if (Rand.Chance(0.05f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Artistic);
+                    }
+                    else if (!products[i].def.HasComp(typeof(CompArt)))
+                    {
+                        if (Rand.Chance(0.005f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Crafting);
                     }
                 }
-                if (!pawn.Drafted)
-                {
-                    if (pawn.equipment.Primary != null && pawn.equipment.Primary.TryGetComp<CompLightCopy>() != null)
-                    {
-                        pawn.equipment.Primary.Destroy();
-                    }
-                }
-                __result = newOutput;
             }
         }
 
         [HarmonyPostfix]
-        public static void TryDropSpawn_PostFix(Thing thing) // lets light copies disappear on drop
+        public static void TryInteractWith_PostFix(Pawn ___pawn, Pawn recipient, bool __result) // unlock Semblance Social
         {
-            if (thing != null && thing.GetType().Equals(typeof(ThingWithComps)) && ((ThingWithComps)thing).TryGetComp<CompLightCopy>() != null)
+            if (!__result) return;
+            if (!LoadedModManager.GetMod<RemnantMod>().GetSettings<RemnantModSettings>().semblanceUnlockable) return;
+            if (___pawn.GetComp<CompAura>() is CompAura compAura && ___pawn.story != null && ___pawn.story.traits.HasTrait(RWBYDefOf.RWBY_Aura))
             {
-                thing.Destroy(DestroyMode.Vanish);
+                if (Rand.Chance(0.001f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Social);
+            }
+        }
+
+        [HarmonyPostfix]
+        public static void StartJob_PostFix(Pawn_JobTracker __instance, Job newJob, Pawn ___pawn) // unlocks Semblance Intellectual
+        {
+            if (!LoadedModManager.GetMod<RemnantMod>().GetSettings<RemnantModSettings>().semblanceUnlockable) return;
+            if (___pawn.GetComp<CompAura>() is CompAura compAura && ___pawn.story != null && ___pawn.story.traits.HasTrait(RWBYDefOf.RWBY_Aura))
+            {
+                if (newJob.def == JobDefOf.Research)
+                {
+                    if (Rand.Chance(0.01f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Intellectual);
+                }
+            }
+        }
+
+        [HarmonyPostfix]
+        public static void Increment_PostFix(Pawn_RecordsTracker __instance, RecordDef def) // unlocks Semblance Shooting Melee Construction Mining Cooking Plants Animals Medicine
+        {
+            if (!LoadedModManager.GetMod<RemnantMod>().GetSettings<RemnantModSettings>().semblanceUnlockable) return;
+            if (__instance.pawn.GetComp<CompAura>() is CompAura compAura && __instance.pawn.story != null && __instance.pawn.story.traits.HasTrait(RWBYDefOf.RWBY_Aura))
+            {
+                if (def == RecordDefOf.ShotsFired)
+                {
+                    if (Rand.Chance(0.005f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Shooting);
+                }
+                else if (def == RecordDefOf.DamageTaken)
+                {
+                    if (Rand.Chance(0.005f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Melee);
+                }
+                else if (def == RecordDefOf.ThingsConstructed)
+                {
+                    if (Rand.Chance(0.005f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Construction);
+                }
+                else if (def == RecordDefOf.CellsMined)
+                {
+                    if (Rand.Chance(0.005f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Mining);
+                }
+                else if (def == RecordDefOf.MealsCooked)
+                {
+                    if (Rand.Chance(0.005f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Cooking);
+                }
+                else if (def == RecordDefOf.PlantsHarvested)
+                {
+                    if (Rand.Chance(0.005f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Plants);
+                }
+                else if (def == RecordDefOf.AnimalsSlaughtered || def == RecordDefOf.AnimalsTamed)
+                {
+                    if (Rand.Chance(0.01f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Animals);
+                }
+                else if (def == RecordDefOf.TimesTendedOther)
+                {
+                    if (Rand.Chance(0.01f)) compAura.TryUnlockSemblanceWith(SkillDefOf.Medicine);
+                }
+            }
+        }
+
+        #endregion
+
+        #region "Grimm"
+
+        [HarmonyPostfix]
+        public static void HostileTo_PostFix(ref bool __result, Thing a, Thing b) // makes Grimm unable to attack pawns affected by Ren or without negative emotions
+        {
+            if (!__result) return;
+            if (!(a is Pawn searcherPawn)) return;
+            if (!GrimmUtility.IsGrimm(searcherPawn) || searcherPawn.Faction.def != RWBYDefOf.Creatures_of_Grimm) return;
+            if (b is Pawn targetPawn && (targetPawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_MaskedEmotions) || targetPawn.Downed))
+            {
+                __result = false;
+                return;
+            }
+            if (b is Pawn targetPawn2 && targetPawn2.RaceProps.Humanlike)
+            {
+                List<Thought> outThoughts = new List<Thought>();
+                targetPawn2.needs.mood.thoughts.GetAllMoodThoughts(outThoughts);
+                if (!outThoughts.Any(o => o.MoodOffset() < 0f)) __result = false;
+            }
+        }
+
+        [HarmonyPrefix]
+        public static void BestAttackTarget_PreFix(IAttackTargetSearcher searcher, ref TargetScanFlags flags) // makes Grimm not need line of sight
+        {
+            if (!(searcher is Pawn searcherPawn)) return;
+            if (searcherPawn.Faction == null) return;
+            if (!GrimmUtility.IsGrimm(searcherPawn) || searcherPawn.Faction.def != RWBYDefOf.Creatures_of_Grimm) return;
+            flags = TargetScanFlags.None;
+        }
+
+        [HarmonyPrefix]
+        public static bool PreNotifyPlayerOfKilled_PreFix(Pawn ___pawn) // disables notification if summoned Grimm disappears
+        {
+            if (___pawn is Pawn_SummonedGrimm) return false;
+            return true;
+        }
+
+        #endregion
+
+        #region "Aura"
+
+        [HarmonyPostfix]
+        public static void StatSummary_PostFix(AbilityDef __instance, ref IEnumerable<string> __result) // add Ability Tooltip Aura cost stat
+        {
+            if (__instance is SemblanceAbilityDef semblanceAbilityDef)
+            {
+                List<string> result = new List<string>();
+                result.AddRange(__result);
+                result.Add("SemblanceAuraCost".Translate() + ": " + semblanceAbilityDef.AuraCost);
+                __result = result;
+            }
+        }
+
+        [HarmonyPostfix]
+        public static void GeneratePawn_PostFix(Pawn __result) // adds silver eyes to a humanoid pawn
+        {
+            if (__result.RaceProps.Humanlike)
+            {
+                if (SemblanceUtility.PyrrhaMagnetismCanAffect(__result)) return; // removes Androids from birth effects
+                if (__result.relations.RelatedPawns.Any(p => p.relations.Children.Contains(__result) && p.health.hediffSet.HasHediff(RWBYDefOf.RWBY_SilverEyes)) || __result.relations.Children.Any(c => c.health.hediffSet.HasHediff(RWBYDefOf.RWBY_SilverEyes)))
+                {
+                    if (Rand.Chance(0.5f)) // inherit with 50% chance
+                    {
+                        foreach (BodyPartRecord bodyPartRecord in __result.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Eye))
+                        {
+                            __result.health.AddHediff(RWBYDefOf.RWBY_SilverEyes, bodyPartRecord);
+                            __result.abilities.GainAbility(RWBYDefOf.Ability_SilverEyes);
+                        }
+                    }
+                }
+                else if (Rand.Chance(0.01f)) // natural with 1% chance
+                {
+                    foreach (BodyPartRecord bodyPartRecord in __result.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Eye))
+                    {
+                        __result.health.AddHediff(RWBYDefOf.RWBY_SilverEyes, bodyPartRecord);
+                        __result.abilities.GainAbility(RWBYDefOf.Ability_SilverEyes);
+                    }
+                }
+            }
+            if (__result.TryGetComp<CompAura>() is CompAura compAura) compAura.Initialize();
+        }
+
+        [HarmonyPrefix]
+        public static void FireEvent_PreFix(Map ___map, ref IntVec3 ___strikeLoc) // changes lightning stike location onto Nora pawns
+        {
+            List<Pawn> pawns = ___map.mapPawns.AllPawns.ToList().FindAll(p => p.RaceProps.Humanlike && p.story.traits.HasTrait(RWBYDefOf.Semblance_Nora) && !p.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen));
+            if (pawns.Count() > 0)
+            {
+                IntVec3 strikeLoc = ___strikeLoc;
+                pawns = pawns.FindAll(p => p.Position.DistanceTo(strikeLoc) <= 30f && !p.Position.Roofed(___map));
+                if (pawns.Count() > 0)
+                {
+                    Pawn pawn = pawns.RandomElement();
+                    ___strikeLoc = pawn.Position;
+                    if (pawn.TryGetComp<CompAura>().aura is Aura_Nora aura_Nora) aura_Nora.Notify_NextDamageIsLightning();
+                }
             }
         }
 
@@ -130,19 +283,17 @@ namespace RWBYRemnant
             }
         }
 
-        [HarmonyPrefix]
-        public static bool PreNotifyPlayerOfKilled_PreFix(Pawn ___pawn) // disables notification if summoned Grimm disappears
-        {
-            if (___pawn is Pawn_SummonedGrimm) return false;
-            return true;
-        }
+        #endregion
 
-        [HarmonyPrefix]
-        public static bool RenderPawnAt_PreFix(Pawn __instance) // makes invisible: Ruby while dashing, Apathy while not triggered
+        #region "Items"
+
+        [HarmonyPostfix]
+        public static void ExplosionAffectCell_PostFix(DamageWorker_Flame __instance, Explosion explosion, IntVec3 c, List<Thing> damagedThings, bool canThrowMotes) // makes fire Dust spawn fire on explosion
         {
-            if (__instance.health.hediffSet.HasHediff(RWBYDefOf.RWBY_RubyDashForm)) return false;
-            if (__instance.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Apathy && !__instance.InMentalState) return false;
-            return true;
+            if (__instance.def == RWBYDefOf.Bomb_Fire && Rand.Chance(FireUtility.ChanceToStartFireIn(c, explosion.Map)))
+            {
+                FireUtility.TryStartFireIn(c, explosion.Map, Rand.Range(0.2f, 0.6f));
+            }
         }
 
         [HarmonyPostfix]
@@ -164,97 +315,54 @@ namespace RWBYRemnant
         }
 
         [HarmonyPostfix]
-        public static void ExplosionAffectCell_PostFix(DamageWorker_Flame __instance, Explosion explosion, IntVec3 c, List<Thing> damagedThings, bool canThrowMotes) // makes fire Dust spawn fire on explosion
+        public static void GetGizmos_PostFix(Pawn_EquipmentTracker __instance, ref IEnumerable<Gizmo> __result) // adds thing abilities to pawns
         {
-            if (__instance.def == RWBYDefOf.Bomb_Fire && Rand.Chance(FireUtility.ChanceToStartFireIn(c, explosion.Map)))
+            Pawn pawn = __instance.pawn;
+            if (!pawn.IsColonist) return;
+            if (PawnAttackGizmoUtility.CanShowEquipmentGizmos())
             {
-                FireUtility.TryStartFireIn(c, explosion.Map, Rand.Range(0.2f, 0.6f));
-            }
-        }
+                List<Gizmo> newOutput = new List<Gizmo>();
+                newOutput.AddRange(__result);
 
-        [HarmonyPrefix]
-        public static void FireEvent_PreFix(Map ___map, ref IntVec3 ___strikeLoc) // changes lightning stike location onto Nora pawns
-        {
-            List<Pawn> pawns = ___map.mapPawns.AllPawns.ToList().FindAll(p => p.RaceProps.Humanlike && p.story.traits.HasTrait(RWBYDefOf.Semblance_Nora) && !p.health.hediffSet.HasHediff(RWBYDefOf.RWBY_AuraStolen));
-            if (pawns.Count() > 0)
-            {
-                IntVec3 strikeLoc = ___strikeLoc;
-                pawns = pawns.FindAll(p => p.Position.DistanceTo(strikeLoc) <= 30f && !p.Position.Roofed(___map));
-                if (pawns.Count() > 0)
+                foreach (ThingWithComps thingWithComps in __instance.AllEquipmentListForReading)
                 {
-                    Pawn pawn = pawns.RandomElement();
-                    ___strikeLoc = pawn.Position;
-                    if (pawn.TryGetComp<CompAura>().aura is Aura_Nora aura_Nora) aura_Nora.Notify_NextDamageIsLightning();
-                }
-            }
-        }
-
-        [HarmonyPostfix]
-        public static void HostileTo_PostFix(ref bool __result, Thing a, Thing b) // makes Grimm unable to attack pawns affected by Ren or without negative emotions
-        {
-            if (!__result) return;
-            if (!(a is Pawn searcherPawn)) return;
-            if (!GrimmUtility.IsGrimm(searcherPawn) || searcherPawn.Faction.def != RWBYDefOf.Creatures_of_Grimm) return;
-            if (b is Pawn targetPawn && (targetPawn.health.hediffSet.HasHediff(RWBYDefOf.RWBY_MaskedEmotions) || targetPawn.Downed))
-            {
-                __result = false;
-                return;
-            }
-            if (b is Pawn targetPawn2 && targetPawn2.RaceProps.Humanlike)
-            {
-                List<Thought> outThoughts = new List<Thought>();
-                targetPawn2.needs.mood.thoughts.GetAllMoodThoughts(outThoughts);
-                if (!outThoughts.Any(o => o.MoodOffset() < 0f)) __result = false;
-            }
-        }
-
-        [HarmonyPrefix]
-        public static void BestAttackTarget_PreFix(IAttackTargetSearcher searcher, ref TargetScanFlags flags) // makes Grimm not need line of sight
-        {
-            if (!(searcher is Pawn searcherPawn)) return;
-            if (searcherPawn.Faction == null) return;
-            if (!GrimmUtility.IsGrimm(searcherPawn) || searcherPawn.Faction.def != RWBYDefOf.Creatures_of_Grimm) return;
-            flags = TargetScanFlags.None;
-        }
-
-        [HarmonyPostfix]
-        public static void StatSummary_PostFix(AbilityDef __instance, ref IEnumerable<string> __result) // add Ability Tooltip Aura cost stat
-        {
-            if (__instance is SemblanceAbilityDef semblanceAbilityDef)
-            {
-                List<string> result = new List<string>();
-                result.AddRange(__result);
-                result.Add("SemblanceAuraCost".Translate() + ": " + semblanceAbilityDef.AuraCost);
-                __result = result;
-            }
-        }
-
-        [HarmonyPostfix]
-        public static void GeneratePawn_PostFix(Pawn __result) // adds silver eyes to a humanoid pawn
-        {
-            if (__result.RaceProps.Humanlike)
-            {
-                if (SemblanceUtility.PyrrhaMagnetismCanAffect(__result)) return; // removes Androids from birth effects
-                if (__result.relations.RelatedPawns.Any(p => p.relations.Children.Contains(__result) && p.health.hediffSet.HasHediff(RWBYDefOf.RWBY_SilverEyes)) || __result.relations.Children.Any(c => c.health.hediffSet.HasHediff(RWBYDefOf.RWBY_SilverEyes)))
-                {
-                    if (Rand.Chance(0.5f)) // inherit with 50% chance
+                    foreach (ThingComp thingComp in thingWithComps.AllComps.FindAll(c => c is CompCameraPhotos || c is CompWeaponDrinkCoffee || (c is CompStealAura && pawn.Drafted)))
                     {
-                        foreach (BodyPartRecord bodyPartRecord in __result.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Eye))
-                        {
-                            __result.health.AddHediff(RWBYDefOf.RWBY_SilverEyes, bodyPartRecord);
-                            __result.abilities.GainAbility(RWBYDefOf.Ability_SilverEyes);
-                        }
+                        newOutput.AddRange(thingComp.CompGetGizmosExtra());
                     }
                 }
-                else if (Rand.Chance(0.01f)) // natural with 1% chance
+                if (!pawn.Drafted)
                 {
-                    foreach (BodyPartRecord bodyPartRecord in __result.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Eye))
+                    if (pawn.equipment.Primary != null && pawn.equipment.Primary.TryGetComp<CompLightCopy>() != null)
                     {
-                        __result.health.AddHediff(RWBYDefOf.RWBY_SilverEyes, bodyPartRecord);
-                        __result.abilities.GainAbility(RWBYDefOf.Ability_SilverEyes);
+                        pawn.equipment.Primary.Destroy();
                     }
                 }
+                __result = newOutput;
             }
         }
+
+        [HarmonyPostfix]
+        public static void TryDropSpawn_PostFix(Thing thing) // lets light copies disappear on drop
+        {
+            if (thing != null && thing.GetType().Equals(typeof(ThingWithComps)) && ((ThingWithComps)thing).TryGetComp<CompLightCopy>() != null)
+            {
+                thing.Destroy(DestroyMode.Vanish);
+            }
+        }
+
+        #endregion
+
+        #region "Special"
+
+        [HarmonyPrefix]
+        public static bool RenderPawnAt_PreFix(Pawn __instance) // makes invisible: Ruby while dashing, Apathy while not triggered
+        {
+            if (__instance.health.hediffSet.HasHediff(RWBYDefOf.RWBY_RubyDashForm)) return false;
+            if (__instance.RaceProps.AnyPawnKind == RWBYDefOf.Grimm_Apathy && !__instance.InMentalState) return false;
+            return true;
+        }
+
+        #endregion
     }
 }

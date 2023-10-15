@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Pyrrha_UnlockAura</defName>
+		<label>Unlock Aura</label>
+		<iconPath>Things/UI/Ability_UnlockAura</iconPath>
+		<description>Unlock someone's Aura. This will cost you alot of your own Aura and requires the other to stand still.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>80</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>1.5</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>5.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_PyrrhaUnlockAura</compClass>
+				<sound>AuraBreak</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Pyrrha_UseMagnetism</defName>
+		<label>Use magnetism</label>
+		<iconPath>Things/UI/Ability_Magnetism</iconPath>
+		<description>Use magnetism to transfer an item from the ground into your inventory. Only works in items that have magnetical components.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>3</AuraCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20.0</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>0.5</warmupTime>
+			<targetParams>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetItems>true</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_PyrrhaUseMagnetism</compClass>
+				<sound>Pawn_Melee_Punch_Miss</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+	
+	<RWBYRemnant.SemblanceAbilityDef ParentName="RWBYSemblanceBase">
+		<abilityClass>RWBYRemnant.SemblanceAbility</abilityClass>
+		<defName>Pyrrha_MagneticPulse</defName>
+		<label>Magnetic pulse</label>
+		<iconPath>Things/UI/Ability_MagneticPulse</iconPath>
+		<description>Emit a magnetic pulse that heavily damages all mechanical things in a range of 10 fields. Beware of friendly fire or metallic things on the ground.</description>
+		<hostile>false</hostile>
+		<statBases>
+			<AuraCost>30</AuraCost>
+			<Ability_EffectRadius>10</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>0.1</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>1.0</warmupTime>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetItems>false</canTargetItems>
+				<canTargetLocations>false</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffect">
+				<compClass>RWBYRemnant.CompAbilityEffect_PyrrhaMagneticPulse</compClass>
+				<sound>Explosion_Stun</sound>
+			</li>
+		</comps>
+	</RWBYRemnant.SemblanceAbilityDef>
+
+</Defs>
